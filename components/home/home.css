@@ -1,0 +1,65 @@
+.homeMainContainer {
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    background: url('/assets/home/bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.homeTextContainer {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* EVENTS and NEWS */
+
+.eventSection,
+.newsSection {
+    padding: 2rem 0;
+}
+
+.eventSection .heading,
+.newsSection .heading {
+    margin: 2rem 6rem;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.eventSection .eventText {
+    color: var(--blue);
+}
+
+.eventSection .registerBtn {
+    font-weight: bold;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+}
+
+hr {
+    border: 1px solid;
+    margin: -10px 0;
+}
+
+.newsSection .newsBtn {
+    background-color: var(--blue);
+    color: var(--yellow);
+    text-transform: capitalize;
+    width: 40%;
+}
