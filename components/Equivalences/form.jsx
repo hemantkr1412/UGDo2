@@ -3,6 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import API from '../scripts/apicall';
 import "./equivalences.css"
+import "./form.css"
+
+const tabs = [
+  { name: 'View Details', key: 'view' },
+  { name: 'Add Details', key: 'add' },
+  { name: 'Mapping Details', key: 'mapping' },
+  { name: 'View Mapping', key: 'view_mapping' },
+];
 
 const Form = () => {
   const api = API();
@@ -61,7 +69,8 @@ const Form = () => {
     if (e.target.value == "add University") {
       openPopup();
       setModelSection("University")
-    } else {
+    }
+    else {
       setUniId(e.target.value)
       setPrograms(
         universities.filter((uni) => uni.id == e.target.value)[0].programs
@@ -136,8 +145,8 @@ const Form = () => {
           }
         })
         .catch((err) => console.log(err));
-
-    } else {
+    }
+    else {
       await api
         .crud("POST", "equivalences/programs", {
           name: university,
@@ -156,7 +165,6 @@ const Form = () => {
         .catch((err) => console.log(err));
     }
   }
-
 
   const deleteCourse = async (courseId) => {
     await api.crud("DELETE", `equivalences/study-plan/${courseId}`)
@@ -200,91 +208,26 @@ const Form = () => {
     setCourseId(courseId)
   }
 
-
   return (
-    <div style={{
-      width: "100vw",
-      height: "100vh",
-      backgroundColor: "#DEE4EA",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center"
-    }}>
-
-      <div style={{
-        marginTop: "8rem",
-        width: "70%",
-        height: "100vh",
-        backgroundColor: "white",
-        padding: "1rem",
-
-      }}>
-        <div style={{
-          width: "70%",
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          margin: "auto",
-          height: "50px",
-          backgroundColor: "white",
-          boxShadow: " 0 8px 8px 0 rgba(0,0,0,0.2)",
-        }}>
-          <div style={{
-            fontSize: "1rem",
-            color: "black",
-            textDecoration: tab === "view" ? "underline" : "none",
-            cursor: "pointer",
-          }}
-            onClick={() => setTab("view")}
-          >
-            View Details
-          </div>
-          <div style={{
-            fontSize: "1rem",
-            color: "black",
-            textDecoration: tab === "add" ? "underline" : "none",
-            cursor: "pointer"
-          }}
-            onClick={() => setTab("add")}
-          >
-            Add Details
-          </div>
-          <div style={{
-            fontSize: "1rem",
-            color: "black",
-            textDecoration: tab === "mapping" ? "underline" : "none",
-            cursor: "pointer"
-          }}
-            onClick={() => setTab("mapping")}
-          >
-            Mapping Details
-          </div>
-          <div style={{
-            fontSize: "1rem",
-            color: "black",
-            textDecoration: tab === "view_mapping" ? "underline" : "none",
-            cursor: "pointer"
-          }}
-            onClick={() => setTab("view_mapping")}
-          >
-            View Mapping
-          </div>
+    <div className='mainContainer'>
+      <div className='innerContainer'>
+        <div className='equivalenciesNavigation'>
+          {tabs.map((tabInfo) => (
+            <div
+              key={tabInfo.key}
+              onClick={() => setTab(tabInfo.key)}
+              className={`${tab === tabInfo.key ? 'equivalenciesNavigationLink active' : 'equivalenciesNavigationLink'
+                }`}
+            >
+              {tabInfo.name}
+            </div>
+          ))}
         </div>
+
         {
           tab === "view" &&
-          <div style={{
-            width: "100%",
-            height: "auto",
-          }}>
-
-            <div style={{
-              display: "flex",
-              justifyContent: "space-around",
-              gap: "3rem",
-              marginTop: "2rem",
-              padding: "2rem",
-
-            }}>
+          <div className='tableMainContainer'>
+            <div className='tableFilterDiv'>
               <select name="University" id="University"
                 value={uniId}
                 onChange={handleUNIselect}
@@ -311,64 +254,41 @@ const Form = () => {
                     )
                   })
                 }
-
-
               </select>
-
             </div>
 
-            <table style={{
-              marginTop: "2rem",
-              marginLeft: "11%"
-            }}>
+            <table className='table'>
               <tbody>
                 <tr>
                   <th>Code</th>
                   <th>Course</th>
                   <th>Action</th>
                 </tr>
-
-                {/* <tr>
-                  <td>Alfreds Futterkiste</td>
-                  <td>Maria Anders</td>
-                  <td><button>Edit</button></td>
-                </tr> */}
                 {
                   courses.map((course) => {
                     return (
                       <tr>
                         <td>{course.code}</td>
                         <td>{course.name}</td>
-                        <td >
+                        <td>
                           <div style={{
                             display: "flex",
                             gap: "1rem",
                           }}>
-                            <button style={{
-                              width: "50%",
-                              backgroundColor: "black",
-                              color: "white",
-                              padding: "5px",
-                              borderRadius: "5px",
-                              border: "none",
-                            }} onClick={
-                              () => {
-                                deleteCourse(course.id)
-                              }
-                            }>Delete </button>
-                            <button style={{
-                              width: "50%",
-                              backgroundColor: "black",
-                              color: "white",
-                              padding: "5px",
-                              borderRadius: "5px",
-                              border: "none"
-                            }} onClick={() => handleUpdate(course.id)}>Update </button>
+                            <button
+                              className='actionBtn'
+                              onClick={() => deleteCourse(course.id)}
+                            >
+                              Delete
+                            </button>
+                            <button
+                              className='actionBtn'
+                              onClick={() => handleUpdate(course.id)}
+                            >
+                              Update
+                            </button>
                           </div>
-
                         </td>
-
-
                       </tr>
                     )
                   })
@@ -391,7 +311,6 @@ const Form = () => {
                 zIndex: '999',
               }}
             >
-
               <div>
                 <h1 style={{ textAlign: 'center' }}>Update Course</h1>
                 <input type="text" placeholder={"Course"} style={{
@@ -439,42 +358,20 @@ const Form = () => {
                   onClick={updateCourse}
                 >Submit</button>
 
-
                 <p style={{
                   textAlign: 'center',
                   color: "red",
                   cursor: 'pointer',
                 }} onClick={() => setIsUpdate(false)}>Close</p>
               </div>
-
             </div>}
-
           </div>
         }
 
         {
           tab === 'add' &&
-          <div style={{
-            marginTop: "5rem",
-            marginLeft: "25%",
-            width: "100%",
-            maxWidth: "600px",
-            height: "auto",
-            backgroundColor: "white",
-            boxShadow: " 0 8px 8px 0 rgba(0,0,0,0.2)",
-            borderRadius: "5px",
-            display: "flex",
-            flexDirection: "column",
-            padding: "20px",
-            color: "white",
-          }}>
-            <p style={{
-              marginTop: "-3.5rem",
-              textAlign: "center",
-              fontSize: "3rem",
-              fontWeight: "500",
-              color: "black"
-            }}>Data Entry</p>
+          <div className="formContainer">
+            <p className="formHead">Data Entry</p>
 
             <select name="University" id="University"
               value={uniId}
@@ -494,9 +391,6 @@ const Form = () => {
                 padding: "10px"
               }} value="add University" >Add University</option>
             </select>
-
-
-
             <select name="University" id="University"
               value={programId}
               onChange={handleProgramSelect}
@@ -518,78 +412,25 @@ const Form = () => {
 
             </select>
 
-
-            <input type="text" placeholder="Course" style={{
-              width: "100%",
-              height: "50px",
-              padding: "10px",
-              border: "1px solid grey",
-              borderRadius: "5px",
-              marginTop: "20px",
-              marginBottom: "20px",
-              color: "#1C3564",
-            }}
-              onChange={(e) => {
-                setCourse(e.target.value)
-              }}
+            <input
+              type="text"
+              placeholder="Course"
+              onChange={(e) => setCourse(e.target.value)}
             />
 
-
-            <input type="text" placeholder="Course Code" style={{
-              width: "100%",
-              height: "50px",
-              padding: "10px",
-              border: "1px solid grey",
-              borderRadius: "5px",
-              marginTop: "20px",
-              marginBottom: "20px",
-              color: "#1C3564",
-            }}
-              onChange={(e) => {
-                setCourseCode(e.target.value)
-              }}
+            <input
+              type="text"
+              placeholder="Course Code"
+              onChange={(e) => setCourseCode(e.target.value)}
             />
 
-            <button style={{
-              alignItems: "center",
-              width: "100%",
-              height: "50px",
-              padding: "10px",
-              border: "1px solid grey",
-              borderRadius: "5px",
-              marginTop: "20px",
-              marginBottom: "20px",
-              color: "white",
-              backgroundColor: "black"
-
-            }}
-              onClick={handleSubmit}
-            >Submit</button>
+            <button className='formBtn' onClick={handleSubmit}>Submit</button>
           </div>
         }
         {
           tab === 'mapping' &&
-          <div style={{
-            marginTop: "5rem",
-            marginLeft: "25%",
-            width: "100%",
-            maxWidth: "600px",
-            height: "auto",
-            backgroundColor: "white",
-            boxShadow: " 0 8px 8px 0 rgba(0,0,0,0.2)",
-            borderRadius: "5px",
-            display: "flex",
-            flexDirection: "column",
-            padding: "20px",
-            color: "white",
-          }}>
-            <p style={{
-              marginTop: "-3.5rem",
-              textAlign: "center",
-              fontSize: "3rem",
-              fontWeight: "500",
-              color: "black"
-            }}>Data Entry</p>
+          <div className='formContainer'>
+            <p className='formHead'>Data Entry</p>
 
             <select
               name="origin_university"
@@ -680,58 +521,24 @@ const Form = () => {
                 }
                 return null;
               })}
-            </select>;
+            </select>
 
             <input
               type="text"
               placeholder="Destinaton Course Name"
               name="destination_course_name"
               value={mappingFormDetails.destination_course_name}
-              style={{
-                width: "100%",
-                height: "50px",
-                padding: "10px",
-                border: "1px solid grey",
-                borderRadius: "5px",
-                marginTop: "20px",
-                marginBottom: "20px",
-                color: "#1C3564",
-              }}
               onChange={inputMappingDetails}
             />
 
-            <button style={{
-              alignItems: "center",
-              width: "100%",
-              height: "50px",
-              padding: "10px",
-              border: "1px solid grey",
-              borderRadius: "5px",
-              marginTop: "20px",
-              marginBottom: "20px",
-              color: "white",
-              backgroundColor: "black"
-            }}
-              onClick={handleMappingFormSubmit}
-            >Submit</button>
+            <button className='formBtn' onClick={handleMappingFormSubmit}>Submit</button>
           </div>
         }
 
         {
           tab === "view_mapping" &&
-          <div style={{
-            width: "100%",
-            height: "auto",
-          }}>
-
-            <div style={{
-              display: "flex",
-              justifyContent: "space-around",
-              gap: "3rem",
-              marginTop: "2rem",
-              padding: "2rem",
-
-            }}>
+          <div className='tableMainContainer'>
+            <div className='tableFilterDiv'>
               <select name="University" id="University"
                 value={uniId}
                 onChange={handleUNIselect}
@@ -745,7 +552,6 @@ const Form = () => {
                   })
                 }
               </select>
-
               <select name="University" id="University"
                 value={programId}
                 onChange={handleProgramSelect}
@@ -759,7 +565,6 @@ const Form = () => {
                   })
                 }
               </select>
-
               <select name="University" id="University"
                 value={programId}
                 onChange={handleProgramSelect}
@@ -773,13 +578,8 @@ const Form = () => {
                   })
                 }
               </select>
-
             </div>
-
-            <table style={{
-              marginTop: "2rem",
-              marginLeft: "11%"
-            }}>
+            <table className='table'>
               <tbody>
                 <tr>
                   <th>Source code</th>
@@ -793,31 +593,23 @@ const Form = () => {
                       <tr>
                         <td>{course.code}</td>
                         <td>{course.name}</td>
-                        <td >
+                        <td>
                           <div style={{
                             display: "flex",
                             gap: "1rem",
                           }}>
-                            <button style={{
-                              width: "50%",
-                              backgroundColor: "black",
-                              color: "white",
-                              padding: "5px",
-                              borderRadius: "5px",
-                              border: "none",
-                            }} onClick={
-                              () => {
-                                deleteCourse(course.id)
-                              }
-                            }>Delete </button>
-                            <button style={{
-                              width: "50%",
-                              backgroundColor: "black",
-                              color: "white",
-                              padding: "5px",
-                              borderRadius: "5px",
-                              border: "none"
-                            }} onClick={() => handleUpdate(course.id)}>Update </button>
+                            <button
+                              className='actionBtn'
+                              onClick={() => deleteCourse(course.id)}
+                            >
+                              Delete
+                            </button>
+                            <button
+                              className='actionBtn'
+                              onClick={() => handleUpdate(course.id)}
+                            >
+                              Update
+                            </button>
                           </div>
                         </td>
                       </tr>
@@ -842,7 +634,6 @@ const Form = () => {
                 zIndex: '999',
               }}
             >
-
               <div>
                 <h1 style={{ textAlign: 'center' }}>Update Course</h1>
                 <input type="text" placeholder={"Course"} style={{
@@ -890,75 +681,29 @@ const Form = () => {
                   onClick={updateCourse}
                 >Submit</button>
 
-
                 <p style={{
                   textAlign: 'center',
                   color: "red",
                   cursor: 'pointer',
                 }} onClick={() => setIsUpdate(false)}>Close</p>
               </div>
-
             </div>}
-
           </div>
         }
 
         {isOpen && (
-          <div
-            style={{
-              width: '400px',
-              height: '250px',
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              padding: '20px',
-              background: 'white',
-              border: '1px solid #ccc',
-              borderRadius: '5px',
-              boxShadow: '8px 8px 10px rgba(0, 0, 0, 0.1)',
-              zIndex: '999',
-            }}
-          >
-
+          <div className='modalContainer'>
             <div>
               <h1 style={{ textAlign: 'center' }}>Add {modelSection}</h1>
-              <input type="text" placeholder={modelSection} style={{
-                width: "100%",
-                height: "50px",
-                padding: "10px",
-                border: "1px solid grey",
-                borderRadius: "5px",
-                marginTop: "20px",
-                marginBottom: "20px",
-                color: "#1C3564",
-              }}
+              <input
+                type="text"
+                placeholder={modelSection}
+                className="modalInput"
                 onChange={(e) => setUniversity(e.target.value)}
               />
-
-              <button style={{
-                alignItems: "center",
-                width: "100%",
-                height: "50px",
-                padding: "10px",
-                border: "1px solid grey",
-                borderRadius: "5px",
-                marginTop: "20px",
-                marginBottom: "20px",
-                color: "white",
-                backgroundColor: "black"
-
-              }}
-                onClick={handleAddUniSubmit}
-              >Submit</button>
-
-              <p style={{
-                textAlign: 'center',
-                color: "red",
-                cursor: 'pointer',
-              }} onClick={closePopup}>Close</p>
+              <button className='modalBtn' onClick={handleAddUniSubmit}>Submit</button>
+              <p className='modalCloseBtn' onClick={closePopup}>Close</p>
             </div>
-
           </div>
         )}
       </div>
