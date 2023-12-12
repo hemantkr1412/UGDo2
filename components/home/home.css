@@ -1,6 +1,6 @@
 .homeMainContainer {
     height: calc(100vh - 70px);
-    margin-top: 70px;
+    /* margin-top: 70px; */
     background: url('/assets/home/bg.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -17,15 +17,92 @@
 
 .overlay {
     position: absolute;
-    top: 0;
+    top: 70px;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 70px);
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* ABOUT */
+
+.btnBox {
+    width: 70%;
+    text-align: center;
+    color: var(--blue);
+    /* font-weight: bold; */
+}
+
+.btnBox .btn {
+    font-weight: bold;
+}
+
+.aboutIcons {
+    transform: scale(3);
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+}
+
+.aboutTextContainer {
+    /* border: 2px solid red; */
+    height: 100vh;
+    background: var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutTextContainer .aboutTextBox {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.aboutTextContainer .aboutTextBox button {
+    background-color: var(--blue);
+    color: var(--yellow);
+    width: 35%;
+    border-radius: none;
+    text-transform: capitalize;
+}
+
+/* BG VIDEO  */
+
+.bgVideoContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-Index: -1,
+}
+
+.bgVideoContainer video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Advantages cards */
+
+.active0,
+.active1,
+.active2,
+.active3,
+.active4 {
+    background-color: var(--yellow) !important;
+}
+
+.cardsIcon {
+    transform: scale(1.6);
+    color: var(--blue);
+    margin: 1rem 0;
 }
 
 /* EVENTS and NEWS */
@@ -35,6 +112,7 @@
     padding: 2rem 0;
 }
 
+.heading,
 .eventSection .heading,
 .newsSection .heading {
     margin: 2rem 6rem;

@@ -1,289 +1,31 @@
-@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
-
-body {
-  background: #374E59;
-  color: #C06162;
-  font-family: 'Sen';
-  margin-bottom: 200px;
+.navbar {
+    border-bottom: 1px solid var(--yellow);
 }
 
-h1 {
-  font-size: 48px;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 40px;
+.navbar .logoContainer {
+    background: var(--blue);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
 }
 
-.menu-container {
-  margin-top: 20px;
+.navbar .linksContainer {
+    background: var(--yellow);
+    color: var(--blue);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 6rem;
+    padding-top: 0 !important;
 }
 
-.menu-container h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.menu-container:nth-child(3) {
-  margin-top: 200px;
-}
-
-nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-
-.dropdown1 {
-  position: relative;
-  display: inline-block;
-}
-.dropbtn1{
-    background-color: transparent;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    
-}
-.dropdown-content1 {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  text-align: left;
-  height: auto;
-  animation: growDown 300ms ease-in-out forwards;
-  transform-origin: top center;
-}
-
-/* Links inside the dropdown */
-.dropdown-content1 a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content1 a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu on hover */
-.dropdown1:hover .dropdown-content1 {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown1:hover .dropbtn1 {background-color: transparent; color: white;}
-
-
-
-
-
-
-/* .navbar {
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-.dropdown {
-  float: left;
-  overflow: hidden;
-  padding: 20px 40px;
-  background: #34495e;
-  /* perspective: 1000px; */
-}
-
-.dropdown .dropbtn {
-  margin-top: -15px;
-  background-color: transparent;
-  padding: 16px;
-  font-size: 20px;  
-  font-weight: 500;
-  letter-spacing:"15px";
-  line-height: normal;
-  border: none;
-  outline: none;
-  color: white;
-  /* padding: 14px 16px; */
-  /* background-color: inherit; */
-  font: inherit;
-  /* margin: 0; */
-}
-
-.navbar a:hover, .dropdown:hover {
-  background-color: #2980b9;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  width: 100%;
-  left: 0;
-  /* box-shadow: 10px 8px 16px 10px rgba(77, 77, 77, 0.2); */
-  box-shadow: 1px 1px 5px rgb(224, 224, 224);
-  z-index: 10000;
-  animation: growDown 300ms ease-in-out forwards;
-  transform-origin: top center;
-}
-
-.dropdown-content .header {
-  background: #2980b9;
-  padding: 16px;
-  color: white;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 10px;
-  background-color: #ffffff;
-  height: 280px;
- 
-}
-.column h3{
-/* text-align: center; */
-padding: 16px;
-color: #005FAF;
-font-family: Inter;
-font-size: 17px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-}
-
-.column a {
-  float: none;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-  display: block;
-  /* text-align: left; */
-  color: #6B6C6C;
-  font-family: Inter;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.column a:hover {
-  background-color: #ddd;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    height: auto;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Dropdown Button */
-.navdropbtn {
-  background-color: transparent;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  margin-top: -15px;
-
-}
-
-
-/* Navbar */
-.navbar1{
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  width: 100vw;
-  height: 70px;
-  justify-content:space-between;
-  padding:1rem 2rem;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-}
-
-.navmanu{
-  display: none;
-}
-
-#menu{
-  animation: growDown 300ms ease-in-out forwards;
-  transform-origin: top center;
-}
-.maunuicon{
-  animation: growDown 300ms ease-in-out forwards;
-  /* transform-origin: top center; */
-}
-
-
-.customDiv {
-  overflow: scroll;
-  height: 15rem;
-}
-
-
-
-
-
-@media screen and (max-width: 800px) {
-  .navbar1 {
-    display: none;
-  }
-  .navmanu{
+.linksContainer .navBtn {
+    margin: 1rem 0;
+    color: var(--blue);
     display: block;
-  }
+    text-transform: capitalize;
+    font-size: 1rem;
 }
-@keyframes growDown {
-  0% {
-    transform: scaleY(0);
-  }
-  80% {
-    transform: scaleY(1.1);
-  }
-  100% {
-    transform: scaleY(1);
-  }
-}
-
