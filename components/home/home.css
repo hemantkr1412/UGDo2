@@ -91,17 +91,9 @@
 
 /* Advantages cards */
 
-.active0,
-.active1,
-.active2,
-.active3,
-.active4 {
-    background-color: var(--yellow) !important;
-}
-
 .cardsIcon {
     transform: scale(1.6);
-    color: var(--blue);
+    color: var(--yellow);
     margin: 1rem 0;
 }
 

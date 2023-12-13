@@ -13,11 +13,13 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './navbar.css';
 
 const pages = [
-    { label: 'About', submenu: ['Our School', 'Faculty & Staff', 'Alumni'] },
-    { label: 'Admission', submenu: ['Request Info', 'Visit'] },
-    { label: 'Learning', submenu: ['Program', 'After Hours', 'Athletics'] },
-    'News & events',
-    { label: 'Contact', submenu: ['Support'] },
+    'Home',
+    { label: 'Quienes Somos', submenu: ['Proposito y actividades', 'Instituciones Fundadoras', 'Antecedentes Fundacionales', 'Autoridades', 'Red CILA', 'Encuesta de necesidades de formacion'] },
+    { label: 'Comunidad Academica', submenu: ['Nuestros profesores', 'Referentes notables', 'Nuestros alumnos', 'Sumate!'] },
+    { label: 'Propuesta Academica', submenu: ['Diplomaturas', 'Corredor inmobiliario universitario', 'Licenciatura en corretaje y negocios inmobiliarios'] },
+    'Equivalencias',
+    'Noticias',
+    'Contacto',
 ];
 
 const Navbar = () => {
@@ -63,7 +65,7 @@ const Navbar = () => {
                     xs={13}
                     className='linksContainer'
                 >
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: '3rem', paddingLeft: '5rem' }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: '1.5rem' }} >
                         {pages.map((page, index) => (
                             <React.Fragment key={index}>
                                 {typeof page === 'object' ? (
@@ -117,7 +119,7 @@ const Navbar = () => {
                                 )}
                             </React.Fragment>
                         ))}
-                        <Button
+                        {/* <Button
                             variant="outlined"
                             startIcon={
                                 <AccountCircleIcon sx={{ color: 'var(--blue)', transform: 'scale(1.2)' }} />}
@@ -131,7 +133,7 @@ const Navbar = () => {
                             }}
                         >
                             Log In
-                        </Button>
+                        </Button> */}
                     </Box>
                 </Grid>
             </Grid>

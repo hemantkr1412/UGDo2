@@ -1,5 +1,4 @@
 "use client"
-import { useState } from 'react'
 import Grid from '@mui/material/Grid';
 import {
     Typography,
@@ -15,6 +14,8 @@ import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import LocalLibraryOutlinedIcon from '@mui/icons-material/LocalLibraryOutlined';
 import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
+import BadgeIcon from '@mui/icons-material/Badge';
+import WorkIcon from '@mui/icons-material/Work';
 import { events, newsData, advantages } from './data';
 import './home.css';
 
@@ -30,12 +31,6 @@ const BackgroundVideo = () => {
 };
 
 const HomePage = () => {
-    const [active, setActive] = useState("");
-
-    const handleCardHover = (index) => setActive(`active${index}`)
-
-    const handleCardOnLeave = () => setActive('')
-
     return (
         <>
             <Grid container className="homeMainContainer">
@@ -46,16 +41,86 @@ const HomePage = () => {
                             fontWeight: 'bold',
                             color: 'var(--yellow)',
                         }}>
-                        Woodsmith Regional School
+                        Inspiramos la jerarquización del corretaje
                     </Typography>
-                    <Typography variant="h5" gutterBottom
+                    <Typography variant="h6" gutterBottom
                         sx={{ color: 'white', fontWeight: 600 }}
                     >
-                        Shaping Your Children’s Future
+                        Somos el Instituto de Formación Oficial del sector inmobiliario latinoamericano. 700.000 corredores en 18 países conforman la Confederación Inmobiliaria Latinoamericana (CILA)
                     </Typography>
                 </Grid>
                 <div className="overlay"></div>
             </Grid>
+
+            <section>
+                <Grid container sx={{
+                    height: '60vh',
+                    borderTop: '3px solid var(--yellow)',
+                    borderBottom: '3px solid var(--yellow)'
+                }}>
+                    <Grid item xs={6} sx={{
+                        background: 'var(--yellow)',
+                        color: 'var(--blue)',
+                        display: 'flex',
+                        // flexDirection:'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}>
+                        <Box sx={{
+                            width: '70%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            justifyContent: 'center',
+                            gap: '1rem'
+                        }}>
+                            <Typography variant='h6' sx={{ fontWeight: 'bold' }}>
+                                Nuestros objetivos Institucionales:
+                            </Typography>
+                            <Box>
+                                <Typography variant='body1'>
+                                    • Evaluar y reconocer los conocimientos básicos de los potenciales estudiantes.
+                                </Typography>
+                                <Typography variant='body1'>
+                                    • Facilitar y agilizar el desarrollo de la profesionalización de la actividad.
+                                </Typography>
+                                <Typography variant='body1'>
+                                    • Crear, motivar y desarrollar una comunidad de profesionales especialistas.
+                                </Typography>
+                            </Box>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={6} sx={{
+                        background: 'var(--blue)',
+                        color: 'white',
+                        display: 'flex',
+                        // flexDirection:'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}>
+                        <Box sx={{
+                            width: '70%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            justifyContent: 'center',
+                            gap: '1rem'
+                        }}>
+                            <Typography variant='h6' sx={{ fontWeight: 'bold' }}>
+                                Valores que promulgamos:
+                            </Typography>
+                            <Box>
+                                <Typography variant='body1'>
+                                    • Sólida formación teórica y práctica para el ejercicio eficiente y responsable de la profesión de Corretaje y negocios inmobiliarios de propiedades.
+                                </Typography>
+                                <Typography variant='body1'>
+                                    • Formación profesional, técnica y ética, que le permita al egresado ejercer esta actividad con la atención centrada en la satisfacción plena de quien reciba sus servicios.
+                                </Typography>
+                            </Box>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </section>
 
             <section>
                 <Grid container columns={15}>
@@ -70,19 +135,19 @@ const HomePage = () => {
                         <Box className="btnBox">
                             <SchoolOutlinedIcon className="aboutIcons" />
                             <Typography variant="h6" gutterBottom className="btn">
-                                Academic Programs
+                                Programas Académicos
                             </Typography>
                         </Box>
                         <Box className="btnBox">
                             <SchoolOutlinedIcon className="aboutIcons" />
                             <Typography variant="h6" gutterBottom className="btn">
-                                Student Services
+                                Servicios Estudiantiles
                             </Typography>
                         </Box>
                         <Box className="btnBox">
                             <SchoolOutlinedIcon className="aboutIcons" />
                             <Typography variant="h6" gutterBottom className="btn">
-                                Apply Now
+                                Aplicar Ahora
                             </Typography>
                         </Box>
                     </Grid>
@@ -92,8 +157,7 @@ const HomePage = () => {
                                 <Typography variant="h4" gutterBottom
                                     sx={{ color: 'white', fontWeight: 600, padding: '3rem 4rem' }}
                                 >
-                                    Welcome to Woodsmith
-                                    Regional School
+                                    Bienvenido a UGD
                                 </Typography>
                             </Grid>
                             <Grid item xs={6} className='aboutTextContainer'>
@@ -101,14 +165,14 @@ const HomePage = () => {
                                     <Typography variant="h6" gutterBottom
                                         sx={{ color: 'var(--blue)', fontWeight: 600, }}
                                     >
-                                        An outstanding secondary school for 7th-12th grade students.
+                                        Inspiramos la jerarquización del corretaje
                                     </Typography>
                                     <Typography variant="body1" gutterBottom
                                         sx={{ color: 'var(--blue)' }}
                                     >
                                         I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.
                                     </Typography>
-                                    <Button variant="contained" className='newsBtn'>Learn more</Button>
+                                    <Button variant="contained" className='newsBtn'>Aprender más</Button>
                                 </Box>
                             </Grid>
                             <Grid item xs={6} sx={{
@@ -122,25 +186,23 @@ const HomePage = () => {
                 </Grid>
             </section>
 
-            <br /><br /> <br />
+            <br /><br /><br />
 
             <section>
-                <Typography variant="h4" gutterBottom className='heading' sx={{ mb: 4 }}>
+                <Typography variant="h4" gutterBottom className='heading'>
                     Estudiar corretaje en IUCILA ofrece muchas  ventajas
                 </Typography>
-                <Grid container>
+                <Grid container sx={{ mt: 4, pt: 4 }}>
                     <Grid item xs={2}></Grid>
                     <Grid item xs={8} >
-                        <Grid container spacing={3}>
+                        <Grid container spacing={2}>
                             {
                                 advantages.map((elem, index) =>
                                     <Grid item xs={4} key={index}>
                                         <Box
-                                            onMouseEnter={() => handleCardHover(index)}
-                                            onMouseLeave={() => handleCardOnLeave()}
-                                            className={` ${active === `active${index}` ? `active${index}` : ''}`}
                                             sx={{
                                                 height: '100%',
+                                                background: 'var(--blue)',
                                                 display: 'flex',
                                                 flexDirection: 'column',
                                                 alignItems: 'center',
@@ -151,16 +213,18 @@ const HomePage = () => {
                                             }}>
                                             {(index === 0 || index === 1) && <LocalLibraryOutlinedIcon className='cardsIcon' />}
                                             {index === 2 && <AssuredWorkloadIcon className='cardsIcon' />}
-                                            {(index === 3 || index === 4) && <LocationCityIcon className='cardsIcon' />}
+                                            {(index === 3 || index === 6) && <LocationCityIcon className='cardsIcon' />}
+                                            {(index === 4) && <BadgeIcon className='cardsIcon' />}
+                                            {(index === 5) && <WorkIcon className='cardsIcon' />}
 
                                             <Typography variant="h6" sx={{
                                                 textAlign: 'center',
-                                                color: 'var(--blue)',
+                                                color: 'var(--yellow)',
                                                 fontSize: '1.1rem',
                                                 fontWeight: 'bold',
                                                 lineHeight: '1.5rem'
                                             }}>{elem.title}</Typography>
-                                            <Typography variant="body2" sx={{
+                                            <Typography variant="body2" color='#EAECED' sx={{
                                                 textAlign: 'justify',
                                             }}>{elem.desc}</Typography>
                                         </Box>
@@ -173,17 +237,17 @@ const HomePage = () => {
                 </Grid>
             </section>
 
-            <br />
+            <br /> <br /><br />
 
             <section className="eventSection">
                 <Typography variant="h4" gutterBottom className='heading'>
-                    Upcoming Events
+                    Próximos Eventos
                 </Typography>
                 <Grid container spacing={3} sx={{ p: 4 }}>
                     {
                         events.map((event, index) =>
                             <Grid item xs={12} sm={6} md={4} key={index}>
-                                <Card>
+                                <Card sx={{ height: '100%' }}>
                                     <CardMedia
                                         component="img"
                                         alt="green iguana"
@@ -199,7 +263,7 @@ const HomePage = () => {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Button variant='outlined' sx={{ m: 1 }} className="registerBtn">Register Now</Button>
+                                        <Button variant='outlined' sx={{ m: 1 }} className="registerBtn">Registrarse Ahora</Button>
                                     </CardActions>
                                 </Card>
                             </Grid>
@@ -210,12 +274,12 @@ const HomePage = () => {
 
             <section className="newsSection">
                 <Typography variant="h4" gutterBottom className='heading'>
-                    Latest News
+                    Últimas Noticias
                 </Typography>
                 <Grid container spacing={8} sx={{ p: 5 }}>
                     {
                         newsData.map((news, index) =>
-                            <Grid item xs={12} sm={6} lg={4}>
+                            <Grid item xs={12} sm={6} lg={4} key={index}>
                                 <Card sx={{
                                     padding: '3rem 4rem',
                                     backgroundColor: 'var(--yellow)',
@@ -234,7 +298,7 @@ const HomePage = () => {
                                     <Typography variant="body1" color="text.dark" gutterBottom>
                                         {news.desc}
                                     </Typography>
-                                    <Button variant="contained" className='newsBtn'>Read more</Button>
+                                    <Button variant="contained" className='newsBtn'>Leer más</Button>
                                 </Card>
                             </Grid>
                         )
