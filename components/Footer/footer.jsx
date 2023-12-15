@@ -1,4 +1,6 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
+const List = dynamic(() => require('@mui/material/List'), { ssr: false })
 // import List from '@mui/material/List';
 import {
     Box,
@@ -7,7 +9,7 @@ import {
     Button,
     Menu,
     MenuItem,
-    List,
+    // List,
     ListItem, ListItemText
 } from '@mui/material';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';

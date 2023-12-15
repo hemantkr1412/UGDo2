@@ -9,8 +9,10 @@ import {
     Menu,
     MenuItem
 } from '@mui/material';
+import Link from 'next/link';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './navbar.css';
+import { useRouter } from 'next/navigation';
 
 const pages = [
     'Home',
@@ -23,6 +25,7 @@ const pages = [
 ];
 
 const Navbar = () => {
+    const router = useRouter();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElsUser, setAnchorElsUser] = React.useState(new Array(pages.length).fill(null));
 
@@ -70,11 +73,11 @@ const Navbar = () => {
                             <React.Fragment key={index}>
                                 {typeof page === 'object' ? (
                                     <div
-                                        // onMouseEnter={(e) => handleSubMenuOpen(e, index)}
                                         onMouseLeave={() => handleSubMenuClose(index)}
                                     >
-
                                         <Button
+                                            // component={Link}
+                                            // href={page.path}
                                             aria-controls={`submenu-${index}`}
                                             aria-haspopup="true"
                                             onMouseEnter={(e) => handleSubMenuOpen(e, index)}
@@ -100,7 +103,10 @@ const Navbar = () => {
                                             {page.submenu.map((item, subIndex) => (
                                                 <MenuItem
                                                     key={subIndex}
-                                                    onClick={() => handleSubMenuClose(index)}
+                                                    onClick={() => {
+                                                        page.label === 'Quienes Somos' && router.push('/about')
+                                                        handleSubMenuClose(index)
+                                                    }}
                                                     sx={{ color: 'var(--blue)' }}
                                                 >
                                                     {item}
@@ -111,7 +117,11 @@ const Navbar = () => {
                                 ) : (
                                     <Button
                                         key={index}
-                                        onClick={handleCloseNavMenu}
+                                        onClick={() => {
+                                            router.push(`/${page.toLowerCase()}`)
+                                            // handleSubMenuClose(index)
+                                        }}
+                                        // onClick={handleCloseNavMenu}
                                         className="navBtn"
                                     >
                                         {page}

@@ -30,7 +30,7 @@ const BackgroundVideo = () => {
     );
 };
 
-const HomePage = () => {
+const Home = () => {
     return (
         <>
             <Grid container className="homeMainContainer">
@@ -170,7 +170,7 @@ const HomePage = () => {
                                     <Typography variant="body1" gutterBottom
                                         sx={{ color: 'var(--blue)' }}
                                     >
-                                        I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio numquam quidem obcaecati nobis accusamus blanditiis, adipisci nisi ut tenetur impedit laborum, ullam ipsum molestiae doloribus explicabo molestias laboriosam nam et! Rerum, voluptas. Inventore, facilis itaque?
                                     </Typography>
                                     <Button variant="contained" className='newsBtn'>Aprender más</Button>
                                 </Box>
@@ -309,4 +309,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default Home;
