@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from 'react';
 import API from '../scripts/apicall';
 import "./equivalences.css"
@@ -15,6 +14,8 @@ const tabs = [
 const Form = () => {
   const api = API();
   const [universities, setUniversities] = useState([]);
+  const [mappingDetails, setMappingDetails] = useState([]);
+  const [mappingData, setMappingData] = useState([]);
   const [programs, setPrograms] = useState([]);
   const [uniId, setUniId] = useState("");
   const [programId, setProgramId] = useState("");
@@ -29,7 +30,8 @@ const Form = () => {
   const [modelSection, setModelSection] = useState("")
   const [tab, setTab] = useState("view")
   const [courseId, setCourseId] = useState("")
-  const [isUpdate, setIsUpdate] = useState(false)
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [originUniId, setOriginUniId] = useState("");
 
   const [mappingFormDetails, setMappingFormDetails] = useState({})
 
@@ -38,9 +40,21 @@ const Form = () => {
       .crud("GET", "equivalences/universities")
       .then((res) => {
         if (res.status === 200) {
-          // console.log(res)
+          console.log(res)
           setUniversities(res);
           // setUniversities(res.slice(0, -1));
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const poppulateMappingDetails = async () => {
+    await api
+      .crud("GET", `equivalences/equivalence-data`)
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res)
+          setMappingData(res)
         }
       })
       .catch((err) => console.log(err));
@@ -51,10 +65,12 @@ const Form = () => {
       programs.filter((program) => program.id == programId)[0].study_Plan
     )
   }
-
   useEffect(() => {
     poppulateUniversties();
-  }, [isOpen])
+    poppulateMappingDetails();
+  }, []);
+
+ 
 
   const openPopup = () => setIsOpen(true);
 
@@ -206,6 +222,18 @@ const Form = () => {
   const handleUpdate = (courseId) => {
     setIsUpdate(true)
     setCourseId(courseId)
+  }
+
+  const handleOriginSelected = (e) => {
+    setOriginUniId(e.target.value)
+  }
+  const handleMappingProgramSelect = (e) => {
+    console.log(e.target.value)
+    setProgramId(e.target.value)
+    setMappingDetails(
+      mappingData.filter((mapping) => mapping.destination_program == e.target.value) &&
+      mappingData.filter((mapping) => mapping.origin_university == originUniId)
+    )
   }
 
   return (
@@ -433,22 +461,22 @@ const Form = () => {
             <p className='formHead'>Data Entry</p>
 
             <select
-              name="origin_university"
+              name="destination_university"
               id="University"
-              value={mappingFormDetails.origin_university}
+              value={mappingFormDetails.destination_university}
               onChange={inputMappingDetails}
             >
-              <option value="" disabled selected hidden>Origin University</option>
+              <option value="" disabled selected hidden>Destination University</option>
               <option value={universities[0].id}>{universities[0].name}</option>
             </select>
 
             <select
-              name="destination_university"
+              name="origin_university"
               id="University"
               // value={mappingFormDetails.destination_university}
               onChange={(e) => inputMappingDetails(e, e.target.value)}
             >
-              <option value="" disabled selected hidden>Destination University</option>
+              <option value="" disabled selected hidden>Origin University</option>
               {
                 universities.map((university, index) => {
                   return index > 0 && (
@@ -467,26 +495,26 @@ const Form = () => {
             </select>
 
             <select
-              name="origin_program"
+              name="destination_program"
               id="University"
               // value={mappingFormDetails.origin_program}
               onChange={inputMappingDetails}
             >
-              <option value="" disabled selected hidden>Origin Programs</option>
+              <option value="" disabled selected hidden>Destination Programs</option>
               {
                 universities[0].programs.map((program, index) => <option value={program.id}>{program.name}</option>)
               }
             </select>
 
             <select
-              name="origin_course_name"
+              name="destination_name"
               id="University"
-              value={mappingFormDetails.origin_course_name}
+              value={mappingFormDetails.destination_name}
               onChange={inputMappingDetails}
             >
-              <option value="" disabled selected hidden>Origin Course Name</option>
+              <option value="" disabled selected hidden>Destination Course Name</option>
               {universities[0].programs.map((program) => {
-                if (mappingFormDetails.origin_program == program.id) {
+                if (mappingFormDetails.destination_program == program.id) {
                   return program.study_Plan.map((plan) => (
                     <option key={plan.id} value={plan.name}>
                       {plan.name}
@@ -504,12 +532,12 @@ const Form = () => {
               onChange={inputMappingDetails}
             >
               <option value="" disabled selected hidden>
-                Origin Course Code
+                Destination Course Code
               </option>
               {universities[0].programs.map((program) => {
-                if (mappingFormDetails.origin_program == program.id) {
+                if (mappingFormDetails.destination_program == program.id) {
                   return program.study_Plan.map((plan) => {
-                    if (mappingFormDetails.origin_course_name === plan.name) {
+                    if (mappingFormDetails.destination_name === plan.name) {
                       return (
                         <option key={plan.id} value={plan.code}>
                           {plan.code}
@@ -525,8 +553,8 @@ const Form = () => {
 
             <input
               type="text"
-              placeholder="Destinaton Course Name"
-              name="destination_course_name"
+              placeholder="Origin Course Name"
+              name="origin_course_name"
               value={mappingFormDetails.destination_course_name}
               onChange={inputMappingDetails}
             />
@@ -543,31 +571,37 @@ const Form = () => {
                 value={uniId}
                 onChange={handleUNIselect}
               >
+                <option value="" disabled selected hidden>Please Select Destination University</option>
+                {
+                  universities.map((university) => {
+                  
+                    if(university.id === 1){
+                      return (
+                        <option value={university.id} >{university.name}</option>
+                      )
+                    }
+                  })
+                }
+              </select>
+              <select name="University" id="University"
+                value={originUniId}
+                onChange={handleOriginSelected}
+              >
                 <option value="" disabled selected hidden>Please Select Origin University</option>
                 {
                   universities.map((university) => {
-                    return (
-                      <option value={university.id}>{university.name}</option>
-                    )
+                  
+                    if(university.id !== 1){
+                      return (
+                        <option value={university.id} >{university.name}</option>
+                      )
+                    }
                   })
                 }
               </select>
               <select name="University" id="University"
                 value={programId}
-                onChange={handleProgramSelect}
-              >
-                <option value="" disabled selected hidden>Please Select Destination University</option>
-                {
-                  programs.map((program) => {
-                    return (
-                      <option value={program.id}>{program.name}</option>
-                    )
-                  })
-                }
-              </select>
-              <select name="University" id="University"
-                value={programId}
-                onChange={handleProgramSelect}
+                onChange={handleMappingProgramSelect}
               >
                 <option value="" disabled selected hidden>Please Select Program</option>
                 {
@@ -582,18 +616,19 @@ const Form = () => {
             <table className='table'>
               <tbody>
                 <tr>
-                  <th>Source code</th>
-                  <th>Source course</th>
+                  <th> code</th>
                   <th>Destination course</th>
-                  <th>Action</th>
+                  <th>Origin course</th>
+                  {/* <th>Action</th> */}
                 </tr>
                 {
-                  courses.map((course) => {
+                  mappingDetails.map((course) => {
                     return (
                       <tr>
-                        <td>{course.code}</td>
-                        <td>{course.name}</td>
-                        <td>
+                        <td>{course.destination_course_code}</td>
+                        <td>{course.destination_name}</td>
+                        <td>{course.origin_course_name}</td>
+                        {/* <td>
                           <div style={{
                             display: "flex",
                             gap: "1rem",
@@ -611,7 +646,7 @@ const Form = () => {
                               Update
                             </button>
                           </div>
-                        </td>
+                        </td> */}
                       </tr>
                     )
                   })
