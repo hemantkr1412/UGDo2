@@ -133,7 +133,7 @@ const Form = () => {
     try {
       console.log(res);
       populateUniversities();
-      if (res.status == 201) {
+      // if (res.status == 200) {
         alert("Course Added Successfully")
         setAddDetailsFormData({
           universityId: "",
@@ -141,7 +141,7 @@ const Form = () => {
           course: "",
           courseCode: ""
         });
-      }
+      // }
     } catch (error) {
       console.log(error);
     }
