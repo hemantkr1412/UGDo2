@@ -48,9 +48,7 @@ const Login = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center"
-
         }}>
-
             <div style={{
                 marginTop: "-10rem",
                 width: "100%",
@@ -116,8 +114,22 @@ const Login = () => {
                 }}
                     onClick={handleSubmit}
                 >Login</button>
+
+                <span style={{
+                    marginTop: '1.5rem',
+                    display: 'flex',
+                    justifyContent:'center',
+                    gap: '10px'
+                }}>
+                    <span style={{ color: 'black' }}>Don't have an accout</span>
+                    <button
+                        style={{ color: 'var(--blue)', fontWeight: '600' }}
+                        onClick={() => router.push(`/register`)}
+                    >
+                        Register</button>
+                </span>
             </div>
-        </div>
+        </div >
     )
 }
 

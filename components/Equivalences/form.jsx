@@ -20,22 +20,10 @@ const Form = () => {
   const [programs, setPrograms] = useState([]);
   const [courses, setCourses] = useState([]);
 
-  // const [uniId, setUniId] = useState("");
-  // const [programId, setProgramId] = useState("");
-  // const [course, setCourse] = useState("");
-  // const [courseCode, setCourseCode] = useState("");
-
-  // // const [program, setProgram] = useState("");
-  // // const [section, setSection] = useState("");
-  // // const [token, setToken] = useState("")
-
   const [isOpen, setIsOpen] = useState(false);
   const [addOption, setAddOption] = useState({ type: '' });
-  // const [university, setUniversity] = useState("");
-  // const [modelSection, setModelSection] = useState("")
 
   const [tab, setTab] = useState("view")
-  // const [courseId, setCourseId] = useState("")
   const [isUpdate, setIsUpdate] = useState(false);
   const [originUniId, setOriginUniId] = useState("");
 
@@ -50,7 +38,6 @@ const Form = () => {
       console.log(res)
 
       res.status === 200 && setUniversities(res);
-
       return res;
     } catch (err) {
       console.log(err);
@@ -58,15 +45,13 @@ const Form = () => {
   };
 
   const populateMappingDetails = async () => {
-    await api
-      .crud("GET", `equivalences/equivalence-data`)
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res)
-          setMappingData(res)
-        }
-      })
-      .catch((err) => console.log(err));
+    const res = await api.crud("GET", `equivalences/equivalence-data`)
+    console.log(res)
+    try {
+      res.status === 200 && setMappingData(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -94,7 +79,6 @@ const Form = () => {
       setAddOption((prev) => ({ ...prev, type: 'University' }));
     }
     else {
-      // setUniId(e.target.value)
       setAddDetailsFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
       setPrograms(
         universities.filter((uni) => uni.id == e.target.value)[0].programs
@@ -103,8 +87,8 @@ const Form = () => {
   }
 
   const handleProgramSelectView = (programId) => {
-    setCourses(
-      programs.filter((program) => program.id == programId)[0].study_Plan
+    setCourses(programs.filter(
+      (program) => program.id == programId)[0].study_Plan
     )
     populateMappingDetails();
   }
@@ -121,10 +105,8 @@ const Form = () => {
 
   const handleMappingFormSubmit = async () => {
     const res = await api.crud("POST", "equivalences/equivalence-data", mappingFormDetails, false)
+    console.log(res);
     try {
-      console.log(res);
-      // setCourse("")
-      // setCourseCode("")
       if (res.status === 201) {
         populateMappingDetails()
         alert("Course Added Successfully")
@@ -143,29 +125,26 @@ const Form = () => {
   }
 
   const handleAddDetailsFormSubmit = async () => {
-    await api
-      .crud("POST", "equivalences/study-plan", {
-        // program: programId,
-        // name: course,
-        // code: courseCode
-        program: addDetailsFormData.programId,
-        name: addDetailsFormData.course,
-        code: addDetailsFormData.courseCode
-      }, false)
-      .then((res) => {
-        console.log(res);
-        populateUniversities();
-        if (res.status == 201) {
-          alert("Course Added Successfully")
-          setAddDetailsFormData({
-            universityId: "",
-            programId: "",
-            course: "",
-            courseCode: ""
-          });
-        }
-      })
-      .catch((err) => console.log(err));
+    const res = await api.crud("POST", "equivalences/study-plan", {
+      program: addDetailsFormData.programId,
+      name: addDetailsFormData.course,
+      code: addDetailsFormData.courseCode
+    }, false)
+    try {
+      console.log(res);
+      populateUniversities();
+      if (res.status == 201) {
+        alert("Course Added Successfully")
+        setAddDetailsFormData({
+          universityId: "",
+          programId: "",
+          course: "",
+          courseCode: ""
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const handleAddUniSubmit = async () => {
@@ -176,9 +155,7 @@ const Form = () => {
       try {
         console.log(res);
         closePopup()
-        setAddOption({
-          type: '', new_university: ''
-        })
+        setAddOption({ type: '', new_university: '' })
         populateUniversities();
 
         res.status === 200 && alert("University Added Successfully")
@@ -199,8 +176,8 @@ const Form = () => {
         if (res.status === 201) {
           alert("Program Added Successfully")
           const updatedData = await populateUniversities();
-          setPrograms(
-            updatedData.filter((uni) => uni.id == addDetailsFormData.universityId)[0].programs
+          setPrograms(updatedData.filter(
+            (uni) => uni.id == addDetailsFormData.universityId)[0].programs
           )
         }
       } catch (error) {
@@ -250,7 +227,6 @@ const Form = () => {
 
   const handleUpdate = (course) => {
     setIsUpdate(true)
-    // setCourseId(courseId)
     setUpdateCourseDetails({ ...course })
   }
 
@@ -259,10 +235,9 @@ const Form = () => {
   }
 
   const handleMappingProgramSelect = (e) => {
-    // setProgramId(e.target.value)
+    console.log(mappingData)
     setMappingDetails(
-      mappingData.filter((mapping) => mapping.destination_program == e.target.value) &&
-      mappingData.filter((mapping) => mapping.origin_university == originUniId)
+      mappingData.filter((mapping) => mapping.destination_program == e.target.value && mapping.origin_university == originUniId)
     )
   }
 
@@ -289,7 +264,6 @@ const Form = () => {
               <select
                 id="University"
                 name="universityId"
-                // value={uniId}
                 value={addDetailsFormData.universityId}
                 onChange={handleUNIselect}
               >
@@ -305,9 +279,6 @@ const Form = () => {
 
               <select
                 id="University"
-                // name="University" 
-                // value={programId}
-                // value={addDetailsFormData.programId}
                 onChange={(e) => handleProgramSelectView(e.target.value)}
               >
                 <option value="" disabled selected hidden>Please Select Program</option>
@@ -360,84 +331,30 @@ const Form = () => {
                 }
               </tbody>
             </table>
-            {isUpdate && <div
-              style={{
-                width: '400px',
-                height: '350px',
-                position: 'fixed',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                padding: '20px',
-                background: 'white',
-                border: '1px solid #ccc',
-                borderRadius: '5px',
-                boxShadow: '8px 8px 10px rgba(0, 0, 0, 0.1)',
-                zIndex: '999',
-              }}
-            >
-              <div>
-                <h1 style={{ textAlign: 'center' }}>Update Course</h1>
-                <input
-                  type="text"
-                  placeholder={"Course"}
-                  name="name"
-                  value={updateCourseDetails.name}
-                  style={{
-                    width: "100%",
-                    height: "50px",
-                    padding: "10px",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    marginTop: "20px",
-                    marginBottom: "20px",
-                    color: "#1C3564",
-                  }}
-                  // onChange={(e) => setCourse(e.target.value)}
-                  onChange={(e) => setUpdateCourseDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
-                />
-                <input
-                  type="text"
-                  placeholder={"Course Code"}
-                  name="code"
-                  value={updateCourseDetails.code}
-                  style={{
-                    width: "100%",
-                    height: "50px",
-                    padding: "10px",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    marginTop: "20px",
-                    marginBottom: "20px",
-                    color: "#1C3564",
-                  }}
-                  // onChange={(e) => setCourseCode(e.target.value)}
-                  onChange={(e) => setUpdateCourseDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
-                />
-
-                <button style={{
-                  alignItems: "center",
-                  width: "100%",
-                  height: "50px",
-                  padding: "10px",
-                  border: "1px solid grey",
-                  borderRadius: "5px",
-                  marginTop: "20px",
-                  marginBottom: "20px",
-                  color: "white",
-                  backgroundColor: "black"
-
-                }}
-                  onClick={updateCourse}
-                >Submit</button>
-
-                <p style={{
-                  textAlign: 'center',
-                  color: "red",
-                  cursor: 'pointer',
-                }} onClick={() => setIsUpdate(false)}>Close</p>
-              </div>
-            </div>}
+            {isUpdate &&
+              <div className='modalContainer'>
+                <div>
+                  <h1 style={{ textAlign: 'center' }}>Update Course</h1>
+                  <input
+                    type="text"
+                    placeholder={"Course"}
+                    name="name"
+                    value={updateCourseDetails.name}
+                    className="modalInput"
+                    onChange={(e) => setUpdateCourseDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+                  />
+                  <input
+                    type="text"
+                    placeholder={"Course Code"}
+                    name="code"
+                    value={updateCourseDetails.code}
+                    className="modalInput"
+                    onChange={(e) => setUpdateCourseDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+                  />
+                  <button className='modalBtn' onClick={updateCourse}>Submit</button>
+                  <p className='modalCloseBtn' onClick={() => setIsUpdate(false)}>Close</p>
+                </div>
+              </div>}
           </div>
         }
 
@@ -447,8 +364,6 @@ const Form = () => {
             <p className="formHead">Data Entry</p>
 
             <select
-              // name="University"
-              // value={uniId}
               name="universityId"
               value={addDetailsFormData.universityId}
               id="University"
@@ -469,15 +384,12 @@ const Form = () => {
                   padding: "10px"
                 }}
                 name="university"
-              // value={addOption.option}
               >
                 Add University
               </option>
             </select>
 
             <select
-              // name="University"
-              // value={programId}
               name="programId"
               value={addDetailsFormData.programId}
               id="University"
@@ -491,12 +403,7 @@ const Form = () => {
                   )
                 })
               }
-              {/* {addDetailsFormData.universityId &&
-                <option style={{
-                  color: "black",
-                  fontWeight: "bold",
-                  padding: "10px"
-                }} value="add Program">Add Program</option>} */}
+
               <option
                 style={{
                   color: "black",
@@ -504,7 +411,6 @@ const Form = () => {
                   padding: "10px"
                 }}
                 name="program"
-              // value={addOption.option}
               >
                 Add Program
               </option>
@@ -516,7 +422,6 @@ const Form = () => {
               placeholder="Course"
               name="course"
               value={addDetailsFormData.course}
-              // onChange={(e) => setCourse(e.target.value)}
               onChange={(e) => setAddDetailsFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
             />
 
@@ -525,7 +430,6 @@ const Form = () => {
               placeholder="Course Code"
               name="courseCode"
               value={addDetailsFormData.courseCode}
-              // onChange={(e) => setCourseCode(e.target.value)}
               onChange={(e) => setAddDetailsFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
             />
 
@@ -645,10 +549,8 @@ const Form = () => {
           <div className='tableMainContainer'>
             <div className='tableFilterDiv'>
               <select
-                // value={uniId}
                 name="University"
                 id="University"
-                // value={addDetailsFormData.universityId}
                 onChange={handleUNIselect}
               >
                 <option value="" disabled selected hidden>Please Select Destination University</option>
@@ -679,10 +581,10 @@ const Form = () => {
                   })
                 }
               </select>
-              <select name="University" id="University"
-                // value={programId}
-                // value={addDetailsFormData.programId}
-                // onChange={(e) => handleProgramSelectView(e.target.value)}
+
+              <select
+                id="University"
+                name="University"
                 onChange={handleMappingProgramSelect}
               >
                 <option value="" disabled selected hidden>Please Select Program</option>
@@ -698,10 +600,10 @@ const Form = () => {
             <table className='table'>
               <tbody>
                 <tr>
-                  <th> code</th>
+                  <th>Code</th>
                   <th>Destination course</th>
                   <th>Origin course</th>
-                  {/* <th>Action</th> */}
+                  <th>Action</th>
                 </tr>
                 {
                   mappingDetails.map((course) => {
@@ -710,90 +612,59 @@ const Form = () => {
                         <td>{course.destination_course_code}</td>
                         <td>{course.destination_name}</td>
                         <td>{course.origin_course_name}</td>
+                        <td>
+                          <div style={{
+                            display: "flex",
+                            gap: "1rem",
+                          }}>
+                            <button
+                              className='actionBtn'
+                            // onClick={() => deleteCourse(course.id)}
+                            >
+                              Delete
+                            </button>
+                            <button
+                              className='actionBtn'
+                              onClick={() => handleUpdate(course)}
+                            >
+                              Update
+                            </button>
+                          </div>
+                        </td>
                       </tr>
                     )
                   })
                 }
               </tbody>
             </table>
-            {isUpdate && <div
-              style={{
-                width: '400px',
-                height: '350px',
-                position: 'fixed',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                padding: '20px',
-                background: 'white',
-                border: '1px solid #ccc',
-                borderRadius: '5px',
-                boxShadow: '8px 8px 10px rgba(0, 0, 0, 0.1)',
-                zIndex: '999',
-              }}
-            >
-              <div>
-                <h1 style={{ textAlign: 'center' }}>Update Course</h1>
-                <input
-                  type="text"
-                  placeholder={"Course"}
-                  name="course"
-                  value={addDetailsFormData.course}
-                  style={{
-                    width: "100%",
-                    height: "50px",
-                    padding: "10px",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    marginTop: "20px",
-                    marginBottom: "20px",
-                    color: "#1C3564",
-                  }}
-                  // onChange={(e) => setCourse(e.target.value)}
-                  onChange={(e) => setAddDetailsFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
-                />
-                <input
-                  type="text"
-                  placeholder={"Course Code"}
-                  name="courseCode"
-                  value={addDetailsFormData.courseCode}
-                  style={{
-                    width: "100%",
-                    height: "50px",
-                    padding: "10px",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    marginTop: "20px",
-                    marginBottom: "20px",
-                    color: "#1C3564",
-                  }}
-                  // onChange={(e) => setCourseCode(e.target.value)}
-                  onChange={(e) => setAddDetailsFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
-                />
+            {isUpdate &&
+              <div
+                className='modalContainer'
+              >
+                <div>
+                  <h1 style={{ textAlign: 'center' }}>Update Course</h1>
+                  <input
+                    type="text"
+                    placeholder={"Course"}
+                    name="course"
+                    value={addDetailsFormData.course}
+                    className="modalInput"
+                    onChange={(e) => setAddDetailsFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+                  />
+                  <input
+                    type="text"
+                    placeholder={"Course Code"}
+                    name="courseCode"
+                    value={addDetailsFormData.courseCode}
+                    className="modalInput"
+                    onChange={(e) => setAddDetailsFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+                  />
 
-                <button style={{
-                  alignItems: "center",
-                  width: "100%",
-                  height: "50px",
-                  padding: "10px",
-                  border: "1px solid grey",
-                  borderRadius: "5px",
-                  marginTop: "20px",
-                  marginBottom: "20px",
-                  color: "white",
-                  backgroundColor: "black"
+                  <button className='modalBtn' onClick={updateCourse}>Submit</button>
 
-                }}
-                  onClick={updateCourse}
-                >Submit</button>
-
-                <p style={{
-                  textAlign: 'center',
-                  color: "red",
-                  cursor: 'pointer',
-                }} onClick={() => setIsUpdate(false)}>Close</p>
-              </div>
-            </div>}
+                  <p className='modalCloseBtn' onClick={() => setIsUpdate(false)}>Close</p>
+                </div>
+              </div>}
           </div>
         }
 

@@ -10,17 +10,19 @@ import {
     MenuItem
 } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useRouter } from 'next/navigation';
 import './navbar.css';
 
-const pages = [
-    { label: 'About', submenu: ['Our School', 'Faculty & Staff', 'Alumni'] },
-    { label: 'Admission', submenu: ['Request Info', 'Visit'] },
-    { label: 'Learning', submenu: ['Program', 'After Hours', 'Athletics'] },
-    'News & events',
-    { label: 'Contact', submenu: ['Support'] },
+const pages = ['Student', 'Admin'
+    // { label: 'About', submenu: ['Our School', 'Faculty & Staff', 'Alumni'] },
+    // { label: 'Admission', submenu: ['Request Info', 'Visit'] },
+    // { label: 'Learning', submenu: ['Program', 'After Hours', 'Athletics'] },
+    // 'News & events',
+    // { label: 'Contact', submenu: ['Support'] },
 ];
 
 const Navbar = () => {
+    const router = useRouter();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElsUser, setAnchorElsUser] = React.useState(new Array(pages.length).fill(null));
 
@@ -109,7 +111,9 @@ const Navbar = () => {
                                 ) : (
                                     <Button
                                         key={index}
-                                        onClick={handleCloseNavMenu}
+                                        onClick={() => {
+                                            router.push(`/${page.toLowerCase()}`)
+                                        }}
                                         className="navBtn"
                                     >
                                         {page}
@@ -117,7 +121,7 @@ const Navbar = () => {
                                 )}
                             </React.Fragment>
                         ))}
-                        <Button
+                        {/* <Button
                             variant="outlined"
                             startIcon={
                                 <AccountCircleIcon sx={{ color: 'var(--blue)', transform: 'scale(1.2)' }} />}
@@ -131,7 +135,7 @@ const Navbar = () => {
                             }}
                         >
                             Log In
-                        </Button>
+                        </Button> */}
                     </Box>
                 </Grid>
             </Grid>

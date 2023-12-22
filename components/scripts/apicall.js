@@ -14,26 +14,26 @@ const API = () => {
     }
     const requestOptions = isFormdata
       ? {
-          method: requestMethod,
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body: data ? data : null,
-        }
+        method: requestMethod,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: data ? data : null,
+      }
       : {
-          method: requestMethod,
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: data ? JSON.stringify(data) : null,
-        };
+        method: requestMethod,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: data ? JSON.stringify(data) : null,
+      };
 
     try {
       const response = await fetch(API_URL + endpoint + "/", requestOptions);
 
       if (response.status === 401) {
-        router.push("/login");
+        router.push("/equivalences/login");
         throw "Login required";
       }
       if (
@@ -101,7 +101,7 @@ const API = () => {
       if (
         responseData["detail"] &&
         responseData["detail"] ===
-          "No active account found with the given credentials"
+        "No active account found with the given credentials"
       ) {
         return { error: "Invalid credentials." };
       } else {
@@ -190,16 +190,16 @@ const API = () => {
   async function localCrud(requestMethod, endpoint, data, isFormdata) {
     const requestOptions = isFormdata
       ? {
-          method: requestMethod,
-          body: data ? data : null,
-        }
+        method: requestMethod,
+        body: data ? data : null,
+      }
       : {
-          method: requestMethod,
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: data ? JSON.stringify(data) : null,
-        };
+        method: requestMethod,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: data ? JSON.stringify(data) : null,
+      };
 
     try {
       const response = await fetch(API_URL + endpoint + "/", requestOptions);
