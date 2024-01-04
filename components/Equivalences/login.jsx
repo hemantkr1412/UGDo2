@@ -88,7 +88,7 @@ const Login = () => {
                     }}
                 />
 
-                <input type="text" placeholder="Password" style={{
+                <input type="password" placeholder="Password" style={{
                     width: "100%",
                     height: "50px",
                     padding: "10px",

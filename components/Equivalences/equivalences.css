@@ -1,45 +1,56 @@
-/* .form-container input {
-    width: 100%;
-    height: 40px;
-    padding: 5px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    margin-top: 12px;
-    margin-bottom: 10px;
-    color: #1C3564;
-} */
+.mainContainer {
+    margin-top: 4.5rem;
+    min-height: 89.7vh;
+    background-color: #DEE4EA;
+    display: flex;
+    justify-content: center;
+}
 
-/* .form-container label {
-    color: white;
-    margin-bottom: 5px;
-    font-size: 1rem;
-} */
-
-/* select {
-    width: 100%;
-    height: 50px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: #1C3564;
-} */
-
-/* .form-container .button{
-    width: 200px;
-    height: 50px;
-    padding: 10px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: #1C3564;
+.innerContainer {
+    width: 70%;
+    min-height: 100%;
     background-color: white;
+    padding: 2rem;
+}
+
+.equivalenciesNavigation {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 8px 0px;
+}
+
+.equivalenciesNavigationLink {
+    font-size: 1rem;
+    color: black;
     cursor: pointer;
-    margin-left: 30%;
-} */
+}
+
+.equivalenciesNavigation .active {
+    text-decoration: underline;
+}
+
+/* TABLE */
+
+.tableMainContainer {
+    width: 100%;
+    height: auto;
+}
+
+.tableFilterDiv {
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+    margin-top: 2rem;
+    padding: 2rem;
+}
 
 table {
+    margin: auto;
+    margin-top: 2rem;
     width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -51,68 +62,201 @@ tr {
 }
 
 th {
-    text-align: left;
+    text-align: center;
     padding: 10px;
     color: #1C3564;
 }
 
 td {
-    text-align: left;
+    text-align: center;
     padding: 10px;
     color: #1C3564;
 }
 
-.doubleColorFont {
-    background: -webkit-linear-gradient(top, #0d2172 0%, #0d2172 50%, white 50%, white 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.actionBtnWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
-
-.dropbtn {
-    background-color: #04AA6D;
+.actionBtn {
+    width: 32%;
+    background-color: black;
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
     border: none;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+/* FORM */
+
+.formContainer {
+    margin: auto;
+    margin-top: 5rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 8px 0px;
+    border-radius: 6px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+.formHead {
+    margin-top: -3.5rem;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 500;
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+.formContainer input {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: #1C3564;
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
+.formContainer select,
+.tableFilterDiv select {
+    width: 100%;
+    height: 50px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: #1C3564;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+.formBtn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 2rem 0;
+    color: white;
+    background-color: black;
 }
 
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+/* Student Form */
+
+.queryFormHeading {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 2rem;
 }
 
-/* MEDIA QUERY */
+.courseSelectBox #demo-multiple-chip {
+    border: 1px solid grey;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+}
 
-@media (max-width: 500px) {
-    .form-container .button {
-        margin-left: 20%;
-    }
+.courseSelectBox fieldset {
+    border-color: none;
+    border-width: none;
+}
+
+/* Student Info */
+
+.courseInfoContainer {
+    /* border:2px solid red; */
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.courseTypeContainer {
+    /* border:2px solid; */
+    background-color: var(--yellow);
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.courseInfoHead {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--blue);
+}
+
+.programDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+    color: var(--yellow);
+    background-color: var(--blue);
+    border-radius: 6px;
+}
+
+.studentPrograms {
+    color: var(--yellow);
+    font-weight: 700;
+}
+
+.studentCourses {
+    color: var(--yellow);
+    padding-left: 1rem;
+}
+
+.downloadBtn {
+    padding: 8px 15px;
+    color: white;
+    width: 10rem;
+    background: var(--blue);
+    text-align: center;
+    margin: auto;
+    margin-top: 1.5rem;
+    border-radius: 4px;
+}
+
+/* MODAL */
+
+.modalContainer {
+    width: 400px;
+    height: 250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 8px 8px 10px;
+    z-index: 999;
+}
+
+.modalInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: rgb(28, 53, 100);
+}
+
+.modalBtn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+    background-color: black;
+}
+
+.modalCloseBtn {
+    text-align: center;
+    color: red;
+    cursor: pointer;
 }

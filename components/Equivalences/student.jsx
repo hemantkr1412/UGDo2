@@ -10,7 +10,7 @@ import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import API from '../scripts/apicall';
 import Link from 'next/link';
-import "./form.css"
+import "./equivalences.css"
 import { LocalConvenienceStoreOutlined } from '@mui/icons-material';
 
 const ITEM_HEIGHT = 40;

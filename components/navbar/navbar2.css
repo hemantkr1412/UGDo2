@@ -34,25 +34,26 @@ nav {
   justify-content: center;
 }
 
-
 .dropdown1 {
   position: relative;
   display: inline-block;
 }
-.dropbtn1{
-    background-color: transparent;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    
+
+.dropbtn1 {
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+
 }
+
 .dropdown-content1 {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   text-align: left;
   height: auto;
@@ -69,13 +70,20 @@ nav {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content1 a:hover {background-color: #ddd;}
+.dropdown-content1 a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.dropdown1:hover .dropdown-content1 {display: block;}
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown1:hover .dropbtn1 {background-color: transparent; color: white;}
+.dropdown1:hover .dropbtn1 {
+  background-color: transparent;
+  color: white;
+}
 
 
 
@@ -96,6 +104,7 @@ nav {
   padding: 14px 16px;
   text-decoration: none;
 }
+
 .dropdown {
   float: left;
   overflow: hidden;
@@ -108,9 +117,9 @@ nav {
   margin-top: -15px;
   background-color: transparent;
   padding: 16px;
-  font-size: 20px;  
+  font-size: 20px;
   font-weight: 500;
-  letter-spacing:"15px";
+  letter-spacing: "15px";
   line-height: normal;
   border: none;
   outline: none;
@@ -121,7 +130,8 @@ nav {
   /* margin: 0; */
 }
 
-.navbar a:hover, .dropdown:hover {
+.navbar a:hover,
+.dropdown:hover {
   background-color: #2980b9;
 }
 
@@ -155,17 +165,18 @@ nav {
   padding: 10px;
   background-color: #ffffff;
   height: 280px;
- 
+
 }
-.column h3{
-/* text-align: center; */
-padding: 16px;
-color: #005FAF;
-font-family: Inter;
-font-size: 17px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+
+.column h3 {
+  /* text-align: center; */
+  padding: 16px;
+  color: #005FAF;
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .column a {
@@ -232,27 +243,28 @@ line-height: normal;
 
 
 /* Navbar */
-.navbar1{
+.navbar1 {
   position: fixed;
   top: 0;
   z-index: 100;
   display: flex;
   width: 100vw;
   height: 70px;
-  justify-content:space-between;
-  padding:1rem 2rem;
+  justify-content: space-between;
+  padding: 1rem 2rem;
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
 
-.navmanu{
+.navmanu {
   display: none;
 }
 
-#menu{
+#menu {
   animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;
 }
-.maunuicon{
+
+.maunuicon {
   animation: growDown 300ms ease-in-out forwards;
   /* transform-origin: top center; */
 }
@@ -271,19 +283,22 @@ line-height: normal;
   .navbar1 {
     display: none;
   }
-  .navmanu{
+
+  .navmanu {
     display: block;
   }
 }
+
 @keyframes growDown {
   0% {
     transform: scaleY(0);
   }
+
   80% {
     transform: scaleY(1.1);
   }
+
   100% {
     transform: scaleY(1);
   }
 }
-

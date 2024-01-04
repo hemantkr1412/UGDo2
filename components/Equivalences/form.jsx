@@ -1,15 +1,11 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import EquivalencesNavigation from './EquivalencesNavigation';
+import CustomTable from './CustomTable';
+import Select from './Select';
+import Modal from './modal';
 import API from '../scripts/apicall';
 import "./equivalences.css"
-import "./form.css"
-
-const tabs = [
-  { name: 'View Details', key: 'view' },
-  { name: 'Add Details', key: 'add' },
-  { name: 'Mapping Details', key: 'mapping' },
-  { name: 'View Mapping', key: 'view_mapping' },
-];
 
 const Form = () => {
   const api = API();
@@ -23,20 +19,18 @@ const Form = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [addOption, setAddOption] = useState({ type: '' });
 
-  const [tab, setTab] = useState("view")
+  const [activeTab, setActiveTab] = useState("view")
   const [isUpdate, setIsUpdate] = useState(false);
   const [originUniId, setOriginUniId] = useState("");
 
-  const [addDetailsFormData, setAddDetailsFormData] = useState({});
+  // FORM STATES 
   const [updateCourseDetails, setUpdateCourseDetails] = useState({});
-
+  const [addDetailsFormData, setAddDetailsFormData] = useState({});
   const [mappingFormDetails, setMappingFormDetails] = useState({})
 
-  const populateUniversities = async () => {
+  const fetchAllUniversities = async () => {
     try {
       const res = await api.crud("GET", "equivalences/universities");
-      console.log(res)
-
       res.status === 200 && setUniversities(res);
       return res;
     } catch (err) {
@@ -44,24 +38,26 @@ const Form = () => {
     }
   };
 
-  const populateMappingDetails = async () => {
-    const res = await api.crud("GET", `equivalences/equivalence-data`)
-    console.log(res)
+  const fetchMappingDetails = async () => {
     try {
+      const res = await api.crud("GET", `equivalences/equivalence-data`)
       res.status === 200 && setMappingData(res);
+      return res;
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    populateUniversities();
-    populateMappingDetails();
+    fetchAllUniversities();
+    fetchMappingDetails();
   }, []);
 
   const openPopup = () => setIsOpen(true);
 
   const closePopup = () => setIsOpen(false);
+
+  // HANDLING INPUTS OF MAPPING FORM
 
   const inputMappingDetails = (e, id) => {
     const { name, value } = e.target;
@@ -72,6 +68,8 @@ const Form = () => {
     else
       setMappingFormDetails((prev) => ({ ...prev, [name]: value }));
   };
+
+  // SELECT HANDLERS
 
   const handleUNIselect = (e) => {
     if (e.target.value === "Add University") {
@@ -87,10 +85,9 @@ const Form = () => {
   }
 
   const handleProgramSelectView = (programId) => {
-    setCourses(programs.filter(
-      (program) => program.id == programId)[0].study_Plan
+    setCourses(
+      programs.filter((program) => program.id == programId)[0].study_Plan
     )
-    populateMappingDetails();
   }
 
   const handleProgramSelectAdd = (e) => {
@@ -100,15 +97,64 @@ const Form = () => {
     }
     else
       setAddDetailsFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  }
 
+  const handleSelectCourses = (programs) => {
+    if (!programs) return;
+    const courses = programs.filter((program) =>
+      mappingFormDetails.destination_program == program.id
+    );
+    return courses[0]?.study_Plan;
+  }
+
+  const handleSelectCourseCode = (programs) => {
+    if (!programs) return;
+    const courses = programs.filter((program) =>
+      mappingFormDetails.destination_program == program.id
+    );
+    const plan = courses[0]?.study_Plan?.filter((plan) => mappingFormDetails.destination_name == plan.name)
+    if (plan)
+      return plan[0];
+    return plan
+  }
+
+  const handleMappingProgramSelect = (e) => {
+    setMappingDetails(
+      mappingData.filter((mapping) => mapping.destination_program == e.target.value && mapping.origin_university == originUniId)
+    )
+  }
+
+  // HANDLE FORM SUBMIT
+
+  const handleAddDetailsFormSubmit = async () => {
+    try {
+      const res = await api.crud("POST", "equivalences/study-plan", {
+        program: addDetailsFormData.programId,
+        name: addDetailsFormData.course,
+        code: addDetailsFormData.courseCode
+      }, false);
+
+      fetchAllUniversities();
+      if (res.status == 201) {
+        alert("Course Added Successfully")
+        setAddDetailsFormData({
+          universityId: "",
+          programId: "",
+          course: "",
+          courseCode: ""
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const handleMappingFormSubmit = async () => {
-    const res = await api.crud("POST", "equivalences/equivalence-data", mappingFormDetails, false)
-    console.log(res);
     try {
+      const res = await api.crud("POST", "equivalences/equivalence-data", mappingFormDetails, false)
+      // console.log(res);
       if (res.status === 201) {
-        populateMappingDetails()
+        fetchMappingDetails()
         alert("Course Added Successfully")
         setMappingFormDetails({
           destination_university: '',
@@ -124,79 +170,50 @@ const Form = () => {
     }
   }
 
-  const handleAddDetailsFormSubmit = async () => {
-    const res = await api.crud("POST", "equivalences/study-plan", {
-      program: addDetailsFormData.programId,
-      name: addDetailsFormData.course,
-      code: addDetailsFormData.courseCode
-    }, false)
-    try {
-      console.log(res);
-      populateUniversities();
-      // if (res.status == 200) {
-        alert("Course Added Successfully")
-        setAddDetailsFormData({
-          universityId: "",
-          programId: "",
-          course: "",
-          courseCode: ""
-        });
-      // }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   const handleAddUniSubmit = async () => {
-    if (addOption.type === "University") {
+    try {
       const res = await api.crud("POST", "equivalences/universities", {
         name: addOption.new_university
       }, false)
-      try {
-        console.log(res);
-        closePopup()
-        setAddOption({ type: '', new_university: '' })
-        populateUniversities();
+      console.log(res);
+      closePopup()
+      setAddOption({ type: '', new_university: '' })
+      fetchAllUniversities();
 
-        res.status === 200 && alert("University Added Successfully")
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    else {
-      try {
-        const res = await api.crud("POST", "equivalences/programs", {
-          name: addOption.new_program,
-          university: addDetailsFormData.universityId
-        }, false);
-
-        console.log(res);
-        closePopup();
-
-        if (res.status === 201) {
-          alert("Program Added Successfully")
-          const updatedData = await populateUniversities();
-          setPrograms(updatedData.filter(
-            (uni) => uni.id == addDetailsFormData.universityId)[0].programs
-          )
-        }
-      } catch (error) {
-        console.error(error);
-      }
+      res.status === 201 && alert("University Added Successfully")
+    } catch (error) {
+      console.error(error);
     }
   }
 
-  const deleteCourse = async (courseId) => {
+  const handleAddProgramSubmit = async () => {
     try {
-      const res = await api.crud("DELETE", `equivalences/study-plan/${courseId}`)
-      console.log(res)
-      populateUniversities();
+      const res = await api.crud("POST", "equivalences/programs", {
+        name: addOption.new_program,
+        university: addDetailsFormData.universityId
+      }, false);
 
-      setCourses(courses.filter((course) => course.id != courseId));
-      res.status == 200 && alert("Course Deleted Successfully")
+      console.log(res);
+      closePopup();
+      setAddOption({ type: '', new_university: '' })
+
+      if (res.status === 201) {
+        alert("Program Added Successfully")
+        const updatedData = await fetchAllUniversities();
+        setPrograms(updatedData.filter(
+          (uni) => uni.id == addDetailsFormData.universityId)[0].programs
+        )
+      }
     } catch (error) {
-      console.error("Error deleting course:", error);
+      console.error(error);
     }
+  }
+
+  // UPDATE AND DELETE
+
+  const handleUpdate = (course) => {
+    setIsUpdate(true)
+    setUpdateCourseDetails({ ...course })
   }
 
   const updateCourse = async () => {
@@ -208,7 +225,7 @@ const Form = () => {
       });
 
       alert("Course Updated Successfully");
-      const updatedData = await populateUniversities();
+      const updatedData = await fetchAllUniversities();
       setIsUpdate(false);
 
       setPrograms(
@@ -225,197 +242,124 @@ const Form = () => {
     }
   };
 
-  const handleUpdate = (course) => {
-    setIsUpdate(true)
-    setUpdateCourseDetails({ ...course })
+  const deleteCourse = async (courseId) => {
+    try {
+      const res = await api.crud("DELETE", `equivalences/study-plan/${courseId}`)
+      console.log(res)
+      alert("Course Deleted Successfully")
+
+      fetchAllUniversities();
+      setCourses(courses.filter((course) => course.id != courseId));
+    } catch (error) {
+      console.error("Error deleting course:", error);
+    }
   }
 
-  const handleOriginSelected = (e) => {
-    setOriginUniId(e.target.value)
+  const handleUpdateMappingCourse = async () => {
+    try {
+      const res = await api.crud("PUT", `equivalences/equivalences-data/${updateCourseDetails.id}`, { ...updateCourseDetails })
+      console.log(res)
+      alert("Course Updated Successfully");
+
+      const mappingData = await fetchMappingDetails();
+
+      const updatedData = mappingData.filter((data) => data.id == updateCourseDetails.id);
+
+      const filteredData = mappingData.filter((data) => data.destination_program == updatedData[0].destination_program)
+
+      setMappingDetails(filteredData);
+      setIsUpdate(false);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  const handleMappingProgramSelect = (e) => {
-    console.log(mappingData)
-    setMappingDetails(
-      mappingData.filter((mapping) => mapping.destination_program == e.target.value && mapping.origin_university == originUniId)
-    )
+  const handleDeleteMappingCourse = async (courseId) => {
+    try {
+      const res = await api.crud("DELETE", `equivalences/equivalences-data/${courseId}`, { ...updateCourseDetails });
+
+      alert("Course deleted Successfully");
+      const data = await fetchMappingDetails();
+      setMappingDetails(mappingDetails.filter((item) => item.id != courseId))
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <div className='mainContainer'>
       <div className='innerContainer'>
-        <div className='equivalenciesNavigation'>
-          {tabs.map((tabInfo) => (
-            <div
-              key={tabInfo.key}
-              onClick={() => setTab(tabInfo.key)}
-              className={`${tab === tabInfo.key ? 'equivalenciesNavigationLink active' : 'equivalenciesNavigationLink'
-                }`}
-            >
-              {tabInfo.name}
-            </div>
-          ))}
-        </div>
+        <EquivalencesNavigation
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
 
         {
-          tab === "view" &&
+          activeTab === "view" &&
           <div className='tableMainContainer'>
             <div className='tableFilterDiv'>
-              <select
-                id="University"
+              <Select
                 name="universityId"
                 value={addDetailsFormData.universityId}
+                options={universities}
                 onChange={handleUNIselect}
-              >
-                <option value="" disabled selected hidden>Please Select University</option>
-                {
-                  universities.map((university) => {
-                    return (
-                      <option value={university.id}>{university.name}</option>
-                    )
-                  })
-                }
-              </select>
+                placeholder="Please Select University"
+                activeTab={activeTab}
+              />
 
-              <select
-                id="University"
+              <Select
+                name="programId"
+                options={programs}
                 onChange={(e) => handleProgramSelectView(e.target.value)}
-              >
-                <option value="" disabled selected hidden>Please Select Program</option>
-                {
-                  programs.map((program) => (
-                    <option key={program.id} value={program.id}>
-                      {program.name}
-                    </option>
-                  ))
-                }
-              </select>
-
+                placeholder="Please Select Program"
+                activeTab={activeTab}
+              />
             </div>
 
-            <table className='table'>
-              <tbody>
-                <tr>
-                  <th>Code</th>
-                  <th>Course</th>
-                  <th>Action</th>
-                </tr>
-                {
-                  courses.map((course) => {
-                    return (
-                      <tr>
-                        <td>{course.code}</td>
-                        <td>{course.name}</td>
-                        <td>
-                          <div style={{
-                            display: "flex",
-                            gap: "1rem",
-                          }}>
-                            <button
-                              className='actionBtn'
-                              onClick={() => deleteCourse(course.id)}
-                            >
-                              Delete
-                            </button>
-                            <button
-                              className='actionBtn'
-                              onClick={() => handleUpdate(course)}
-                            >
-                              Update
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    )
-                  })
-                }
-              </tbody>
-            </table>
-            {isUpdate &&
-              <div className='modalContainer'>
-                <div>
-                  <h1 style={{ textAlign: 'center' }}>Update Course</h1>
-                  <input
-                    type="text"
-                    placeholder={"Course"}
-                    name="name"
-                    value={updateCourseDetails.name}
-                    className="modalInput"
-                    onChange={(e) => setUpdateCourseDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
-                  />
-                  <input
-                    type="text"
-                    placeholder={"Course Code"}
-                    name="code"
-                    value={updateCourseDetails.code}
-                    className="modalInput"
-                    onChange={(e) => setUpdateCourseDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
-                  />
-                  <button className='modalBtn' onClick={updateCourse}>Submit</button>
-                  <p className='modalCloseBtn' onClick={() => setIsUpdate(false)}>Close</p>
-                </div>
-              </div>}
+            <CustomTable
+              courses={courses}
+              columns={[
+                { key: 'code', label: 'Code' },
+                { key: 'name', label: 'Course' },
+              ]}
+              deleteAction={deleteCourse}
+              updateAction={handleUpdate}
+            />
+            {
+              isUpdate &&
+              <Modal
+                activeTab={activeTab}
+                setIsUpdate={setIsUpdate}
+                updateCourseDetails={updateCourseDetails}
+                setUpdateCourseDetails={setUpdateCourseDetails}
+                updateCourse={updateCourse}
+              />
+            }
           </div>
         }
 
         {
-          tab === 'add' &&
+          activeTab === 'add' &&
           <div className="formContainer">
             <p className="formHead">Data Entry</p>
 
-            <select
+            <Select
               name="universityId"
               value={addDetailsFormData.universityId}
-              id="University"
+              options={universities}
               onChange={handleUNIselect}
-            >
-              <option value="" disabled selected hidden>Please Select University</option>
-              {
-                universities.map((university) => {
-                  return (
-                    <option value={university.id}>{university.name}</option>
-                  )
-                })
-              }
-              <option
-                style={{
-                  color: "black",
-                  fontWeight: "bold",
-                  padding: "10px"
-                }}
-                name="university"
-              >
-                Add University
-              </option>
-            </select>
+              placeholder="Please Select University"
+              activeTab={activeTab}
+            />
 
-            <select
+            <Select
               name="programId"
               value={addDetailsFormData.programId}
-              id="University"
+              options={programs}
               onChange={handleProgramSelectAdd}
-            >
-              <option value="" disabled selected hidden>Please Select Program</option>
-              {
-                programs.map((program) => {
-                  return (
-                    <option value={program.id}>{program.name}</option>
-                  )
-                })
-              }
-
-              <option
-                style={{
-                  color: "black",
-                  fontWeight: "bold",
-                  padding: "10px"
-                }}
-                name="program"
-              >
-                Add Program
-              </option>
-
-            </select>
+              placeholder="Please Select Program"
+              activeTab={activeTab}
+            />
 
             <input
               type="text"
@@ -437,100 +381,58 @@ const Form = () => {
           </div>
         }
         {
-          tab === 'mapping' &&
+          activeTab === 'mapping' &&
           <div className='formContainer'>
             <p className='formHead'>Data Entry</p>
 
-            <select
+            <Select
               name="destination_university"
-              id="University"
               value={mappingFormDetails.destination_university}
+              options={universities[0]}
+              type="id"
               onChange={inputMappingDetails}
-            >
-              <option value="" disabled selected hidden>Destination University</option>
-              <option value={universities[0].id}>{universities[0].name}</option>
-            </select>
+              placeholder="Destination University"
+              activeTab={activeTab}
+            />
 
-            <select
-              id="University"
+            <Select
               name="origin_university"
               value={mappingFormDetails.origin_university}
-              onChange={(e) => inputMappingDetails(e, e.target.value)}
-            >
-              <option value="" disabled selected hidden>Origin University</option>
-              {
-                universities.map((university, index) => {
-                  return index > 0 && (
-                    <option key={university.id} value={university.id}>
-                      {university.name}
-                    </option>
-                  );
-                })
-              }
-              {
-                <option style={{
-                  color: "black",
-                  fontWeight: "bold",
-                  padding: "10px"
-                }} name="university">Add University</option>}
-            </select>
+              options={universities.slice(1)}
+              type="id"
+              onChange={inputMappingDetails}
+              placeholder="Origin University"
+              activeTab={activeTab}
+            />
 
-            <select
-              id="University"
+            <Select
               name="destination_program"
               value={mappingFormDetails.destination_program}
+              options={universities[0]?.programs}
+              type="id"
               onChange={inputMappingDetails}
-            >
-              <option value="" disabled selected hidden>Destination Programs</option>
-              {
-                universities[0].programs.map((program, index) => <option value={program.id}>{program.name}</option>)
-              }
-            </select>
+              placeholder="Destination Programs"
+              activeTab={activeTab}
+            />
 
-            <select
+            <Select
               name="destination_name"
-              id="University"
               value={mappingFormDetails.destination_name}
+              options={handleSelectCourses(universities[0]?.programs)}
+              type="name"
               onChange={inputMappingDetails}
-            >
-              <option value="" disabled selected hidden>Destination Course Name</option>
-              {universities[0].programs.map((program) => {
-                if (mappingFormDetails.destination_program == program.id) {
-                  return program.study_Plan.map((plan) => (
-                    <option key={plan.id} value={plan.name}>
-                      {plan.name}
-                    </option>
-                  ));
-                }
-                return null;
-              })}
-            </select>
+              placeholder="Destination Courses Name"
+              activeTab={activeTab}
+            />
 
-            <select
+            <Select
               name="destination_course_code"
-              id="University"
               value={mappingFormDetails.destination_course_code}
+              options={handleSelectCourseCode(universities[0]?.programs)}
               onChange={inputMappingDetails}
-            >
-              <option value="" disabled selected hidden>
-                Destination Course Code
-              </option>
-              {universities[0].programs.map((program) => {
-                if (mappingFormDetails.destination_program == program.id) {
-                  return program.study_Plan.map((plan) => {
-                    if (mappingFormDetails.destination_name === plan.name) {
-                      return (
-                        <option key={plan.id} value={plan.code}>
-                          {plan.code}
-                        </option>
-                      );
-                    }
-                    return null;
-                  });
-                }
-                return null;
-              })}
-            </select>
+              placeholder="Destination Courses Code"
+              activeTab={activeTab}
+            />
 
             <input
               type="text"
@@ -545,126 +447,59 @@ const Form = () => {
         }
 
         {
-          tab === "view_mapping" &&
+          activeTab === "view_mapping" &&
           <div className='tableMainContainer'>
             <div className='tableFilterDiv'>
-              <select
-                name="University"
-                id="University"
+
+              <Select
+                name="destinationUniversity"
+                options={universities.filter((uni) => uni.id == 1)}
                 onChange={handleUNIselect}
-              >
-                <option value="" disabled selected hidden>Please Select Destination University</option>
-                {
-                  universities.map((university) => {
+                placeholder="Please Select Destination University"
+                activeTab={activeTab}
+              />
 
-                    if (university.id === 1) {
-                      return (
-                        <option value={university.id} >{university.name}</option>
-                      )
-                    }
-                  })
-                }
-              </select>
-              <select name="University" id="University"
+              <Select
+                name="originUniversity"
                 value={originUniId}
-                onChange={handleOriginSelected}
-              >
-                <option value="" disabled selected hidden>Please Select Origin University</option>
-                {
-                  universities.map((university) => {
+                options={universities.slice(1)}
+                onChange={(e) => setOriginUniId(e.target.value)}
+                placeholder="Please Select Origin University"
+                activeTab={activeTab}
+              />
 
-                    if (university.id !== 1) {
-                      return (
-                        <option value={university.id} >{university.name}</option>
-                      )
-                    }
-                  })
-                }
-              </select>
-
-              <select
-                id="University"
-                name="University"
+              <Select
+                name="programs"
+                options={programs}
                 onChange={handleMappingProgramSelect}
-              >
-                <option value="" disabled selected hidden>Please Select Program</option>
-                {
-                  programs.map((program) => {
-                    return (
-                      <option value={program.id}>{program.name}</option>
-                    )
-                  })
-                }
-              </select>
+                placeholder="Please Select Program"
+                activeTab={activeTab}
+              />
             </div>
-            <table className='table'>
-              <tbody>
-                <tr>
-                  <th>Code</th>
-                  <th>Destination course</th>
-                  <th>Origin course</th>
-                  <th>Action</th>
-                </tr>
-                {
-                  mappingDetails.map((course) => {
-                    return (
-                      <tr>
-                        <td>{course.destination_course_code}</td>
-                        <td>{course.destination_name}</td>
-                        <td>{course.origin_course_name}</td>
-                        <td>
-                          <div style={{
-                            display: "flex",
-                            gap: "1rem",
-                          }}>
-                            <button
-                              className='actionBtn'
-                            // onClick={() => deleteCourse(course.id)}
-                            >
-                              Delete
-                            </button>
-                            <button
-                              className='actionBtn'
-                              onClick={() => handleUpdate(course)}
-                            >
-                              Update
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    )
-                  })
-                }
-              </tbody>
-            </table>
-            {isUpdate &&
-              <div
-                className='modalContainer'
-              >
-                <div>
-                  <h1 style={{ textAlign: 'center' }}>Update Course</h1>
-                  <input
-                    type="text"
-                    placeholder={"Course"}
-                    name="course"
-                    value={addDetailsFormData.course}
-                    className="modalInput"
-                    onChange={(e) => setAddDetailsFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
-                  />
-                  <input
-                    type="text"
-                    placeholder={"Course Code"}
-                    name="courseCode"
-                    value={addDetailsFormData.courseCode}
-                    className="modalInput"
-                    onChange={(e) => setAddDetailsFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
-                  />
 
-                  <button className='modalBtn' onClick={updateCourse}>Submit</button>
+            <CustomTable
+              courses={mappingDetails}
+              columns={[
+                { key: 'destination_course_code', label: 'Code' },
+                { key: 'destination_name', label: 'Destination course' },
+                { key: 'origin_course_name', label: 'Origin course' },
+              ]}
+              updateAction={handleUpdate}
+              deleteAction={handleDeleteMappingCourse}
+            />
 
-                  <p className='modalCloseBtn' onClick={() => setIsUpdate(false)}>Close</p>
-                </div>
-              </div>}
+            {
+              isUpdate &&
+              <Modal
+                activeTab={activeTab}
+                setIsUpdate={setIsUpdate}
+                updateCourseDetails={updateCourseDetails}
+                setUpdateCourseDetails={setUpdateCourseDetails}
+                // updateCourse={updateCourse}
+                handleUpdateMappingCourse={handleUpdateMappingCourse}
+                handleDeleteMappingCourse={handleDeleteMappingCourse}
+              />
+            }
           </div>
         }
 
@@ -680,7 +515,13 @@ const Form = () => {
                 className="modalInput"
                 onChange={(e) => setAddOption((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
               />
-              <button className='modalBtn' onClick={handleAddUniSubmit}>Submit</button>
+              <button
+                className='modalBtn'
+                // onClick={`${addOption.type == 'University' ? handleAddUniSubmit : handleAddProgramSubmit}`}
+                onClick={addOption.type === 'University' ? handleAddUniSubmit : handleAddProgramSubmit}
+              >
+                Submit
+              </button>
               <p className='modalCloseBtn' onClick={closePopup}>Close</p>
             </div>
           </div>
