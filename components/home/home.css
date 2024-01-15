@@ -11,7 +11,7 @@
 
 .homeTextContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     z-index: 2;
 }
 
@@ -104,7 +104,7 @@
     padding: 2rem 0;
 }
 
-.heading,
+.advantagesSection .heading,
 .eventSection .heading,
 .newsSection .heading {
     margin: 2rem 6rem;

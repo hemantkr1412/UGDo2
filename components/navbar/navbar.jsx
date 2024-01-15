@@ -16,12 +16,11 @@ import { useRouter } from 'next/navigation';
 
 const pages = [
     'Home',
-    { label: 'Quienes Somos', submenu: ['Proposito y actividades', 'Instituciones Fundadoras', 'Antecedentes Fundacionales', 'Autoridades', 'Red CILA', 'Encuesta de necesidades de formacion'] },
-    { label: 'Comunidad Academica', submenu: ['Nuestros profesores', 'Referentes notables', 'Nuestros alumnos', 'Sumate!'] },
-    { label: 'Propuesta Academica', submenu: ['Diplomaturas', 'Corredor inmobiliario universitario', 'Licenciatura en corretaje y negocios inmobiliarios'] },
+    { label: 'Institucional', submenu: ['Proposito y actividades', 'Instituciones Fundadoras', 'Antecedentes Fundacionales'] },
+    { label: 'Comunidad Academica', submenu: ['Directivos', 'Nuestros profesores', 'Nuestros alumnos'] },
+    { label: 'Propuesta Academica', submenu: ['Diplomaturas Universitarias en Corretaje y Negocios Inmobiliarios', 'Corredor inmobiliario universitario', 'Licenciatura en corretaje y negocios inmobiliarios'] },
     'Equivalencias',
     'Noticias',
-    'Contacto',
 ];
 
 const Navbar = () => {
@@ -59,9 +58,9 @@ const Navbar = () => {
                     xs={2}
                     className="logoContainer"
                 >
-                    <Typography variant="h5" gutterBottom color="light" sx={{ mb: 0 }}>
-                        Logo
-                    </Typography>
+                    <Box sx={{ height: '65%' }}>
+                        <img src="/logo_white.png" alt="" />
+                    </Box>
                 </Grid>
                 <Grid
                     item
@@ -104,8 +103,24 @@ const Navbar = () => {
                                                 <MenuItem
                                                     key={subIndex}
                                                     onClick={() => {
-                                                        page.label === 'Quienes Somos' && router.push('/about')
-                                                        handleSubMenuClose(index)
+                                                        page.label === 'Institucional' && router.push('/about')
+                                                        page.label === 'Propuesta Academica' && router.push('/academicProposal')
+                                                        if (page.label === 'Comunidad Academica') {
+                                                            switch (item) {
+                                                                case 'Directivos':
+                                                                    router.push('/academicCommunity/directivos');
+                                                                    break;
+                                                                case 'Nuestros profesores':
+                                                                    router.push('/academicCommunity/professors');
+                                                                    break;
+                                                                case 'Nuestros alumnos':
+                                                                    router.push('/academicCommunity/alumnis');
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                        }
+                                                        handleSubMenuClose(index);
                                                     }}
                                                     sx={{ color: 'var(--blue)' }}
                                                 >

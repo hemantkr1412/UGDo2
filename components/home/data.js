@@ -27,27 +27,27 @@ export const newsData = [
 export const advantages = [
     {
         title: 'Aprenderás con quienes ejercen el corretaje',
-        desc: 'En cada materia y tema, tendrás como profesor a profesionales con larga trayectoria en la actividad inmobiliaria, que reúnen formación y experiencia concreta en el tema en que enseñan. '
+        desc: 'En cada materia y tema, tendrás como profesor a profesionales con larga trayectoria en la actividad inmobiliaria, que reúnen formación y experiencia concreta en el tema en que enseñan.'
     },
     {
-        title: 'La mejor representación en cada país',
-        desc: 'En cada país con representación en CILA, articulamos con la Institución Nacional que agrupa a los inmobiliarios de dicha nación, quienes prestan tutorías, articulan las prácticas y aportan los docentes que transmiten las particularidades nacionales, a partir de legislaciones y aspectos impositivos vigentes en cada territorio.'
+        title: 'Accederás a la mejor formación.',
+        desc: 'Trabajaremos articuladamente con las instituciones afiliadas a CILA que representan al sector inmobiliario en cada país, complementando y fortaleciendo capacidades.'
     },
     {
-        title: 'Formación para el trabajo y títulos universitarios en tu camino',
-        desc: 'Nuestro esquema de cursos, diplomas, tecnicaturas y licenciaturas, te permiten formación de corta duración de pronta aplicación a la actividad laboral, pero que a su vez son acreditables para una  carrera universitaria.'
+        title: 'Obtendrás rápida formación para el trabajo con título universitarios',
+        desc: 'Nuestro esquema de cursos, diplomas, tecnicaturas y licenciaturas, te permiten formación de corta duración y pronta aplicación a la actividad laboral, pero que a su vez son acreditables para una  carrera universitaria.'
     },
     {
-        title: 'Flexibilidad Geográfica',
-        desc: 'La posibilidad de cursar a través del Sistema de Educación A Distancia (SIED) de UGD Virtual  desde cualquier punto del mundo permite adaptarse a tus necesidades de formación y ritmo de vida.'
+        title: 'Podrás estudiar desde cualquier lugar y a tu ritmo',
+        desc: ' La posibilidad de cursar a través del Sistema Institucional de Educación A Distancia (SIED) de UGD Virtual  desde cualquier punto del mundo permite adaptarse a tus necesidades de formación y ritmo de vida.'
     },
     {
-        title: 'Certificados e Insignias Digitales (Blockchain)',
-        desc: 'A medida que avances en tus estudios podrás obtener certificaciones e insignias CILA, soportadas por tecnologías blockchain que avalan su autenticidad, y son transmisible por medios electrónicos.\n  En cada nivel de especialización profesional que logres cumplimentar, recibirás un “Pin físico”, que hará visible los conocimientos adquiridos en la  comunidad de tu país, y según el nivel alcanzado en Latinoamérica, tu progreso profesional te permitirá pertenecer a selectos grupos de intercambio de información y generación de negocios.'
+        title: 'Durante tu camino al título podrás obtener certificados e insignias digitales',
+        desc: 'A medida que avances en tus estudios podrás obtener certificaciones e insignias CILA, soportadas por tecnologías blockchain que avalan su autenticidad y son transmisibles por medios electrónicos.\n  En cada nivel de especialización profesional que logres cumplimentar, recibirás un “Pin físico”, que hará visible los conocimientos adquiridos en la  comunidad de tu país, y según el nivel alcanzado en Latinoamérica, tu progreso profesional te permitirá pertenecer a selectos grupos de intercambio de información y generación de negocios.'
     },
     {
-        title: 'Reconocimiento laboral en EEUU',
-        desc: 'La evaluación de experiencia laboral consiste en el reconocimiento formal y documentado de las competencias laborales adquiridas por una persona, indistintamente de la forma en las que fueron adquiridas, conforme a un estándar de competencia laboral.\nLas evaluaciones de experiencia laboral son necesarias cuando las credenciales académicas de un candidato no son equivalentes a estudios formales o cuando la formación académica de un candidato está en un campo fuera de su posible área de empleo.'
+        title: 'Ofrecemos reconocimiento de competencias laborales en EEUU',
+        desc: 'Consiste en el reconocimiento formal y documentado de aptitudes adquiridas atendiendo a un estándar de competencia laboral.- Potencia tu perfil laboral, el tener una certificación reconocida en EEUU.- Te sitúa en óptimas condiciones para negociar con operadores de otros países.- Te permite demostrar tus habilidades y competencias en un proceso migratorio.'
     },
     {
         title: 'Requisitos Accesibles',

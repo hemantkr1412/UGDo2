@@ -23,13 +23,19 @@ body {
     display: flex;
     justify-content: center;
     background: var(--yellow);
+    padding: 3rem;
     border-left: 4px solid var(--yellow);
     border-top: 4px solid var(--yellow);
     border-bottom: 4px solid var(--yellow);
 }
 
 .imgGrid .imgDiv {
-    width: 40%;
+    width: 60%;
+    margin: auto;
+}
+
+.imgGrid .eventImgDiv {
+    width: 70%;
     margin: auto;
 }
 
@@ -47,7 +53,6 @@ body {
 }
 
 .section .textGrid .textGridBox {
-    width: 80%;
     color: white;
     padding: 3rem;
     padding-bottom: 5rem;
