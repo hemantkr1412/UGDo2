@@ -1,23 +1,17 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-const List = dynamic(() => require('@mui/material/List'), { ssr: false })
-// import List from '@mui/material/List';
+"use client"
+// import dynamic from 'next/dynamic';
+import { List } from '@mui/material';
 import {
     Box,
     Grid,
     Typography,
-    Button,
-    Menu,
-    MenuItem,
-    // List,
     ListItem, ListItemText
 } from '@mui/material';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import './footer.css';
+import './Footer.css';
 
 const Footer = () => {
     return (

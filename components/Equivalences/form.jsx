@@ -236,7 +236,7 @@ const Form = () => {
                 {
                   universities.map((university) => {
                     return (
-                      <option value={university.id}>{university.name}</option>
+                      <option value={university.id} key={university.id}>{university.name}</option>
                     )
                   })
                 }
@@ -250,7 +250,7 @@ const Form = () => {
                 {
                   programs.map((program) => {
                     return (
-                      <option value={program.id}>{program.name}</option>
+                      <option value={program.id} key={program.id}>{program.name}</option>
                     )
                   })
                 }
@@ -267,7 +267,7 @@ const Form = () => {
                 {
                   courses.map((course) => {
                     return (
-                      <tr>
+                      <tr key={course.id}>
                         <td>{course.code}</td>
                         <td>{course.name}</td>
                         <td>
@@ -381,7 +381,7 @@ const Form = () => {
               {
                 universities.map((university) => {
                   return (
-                    <option value={university.id}>{university.name}</option>
+                    <option value={university.id} key={university.id}>{university.name}</option>
                   )
                 })
               }
@@ -399,7 +399,7 @@ const Form = () => {
               {
                 programs.map((program) => {
                   return (
-                    <option value={program.id}>{program.name}</option>
+                    <option value={program.id} key={program.id}>{program.name}</option>
                   )
                 })
               }
@@ -474,7 +474,7 @@ const Form = () => {
             >
               <option value="" disabled selected hidden>Origin Programs</option>
               {
-                universities[0].programs.map((program, index) => <option value={program.id}>{program.name}</option>)
+                universities[0].programs.map((program, index) => <option value={program.id} key={index}>{program.name}</option>)
               }
             </select>
 
@@ -547,7 +547,7 @@ const Form = () => {
                 {
                   universities.map((university) => {
                     return (
-                      <option value={university.id}>{university.name}</option>
+                      <option value={university.id} key={university.id}>{university.name}</option>
                     )
                   })
                 }
@@ -560,7 +560,7 @@ const Form = () => {
                 {
                   programs.map((program) => {
                     return (
-                      <option value={program.id}>{program.name}</option>
+                      <option value={program.id} key={program.id}>{program.name}</option>
                     )
                   })
                 }
@@ -573,7 +573,7 @@ const Form = () => {
                 {
                   programs.map((program) => {
                     return (
-                      <option value={program.id}>{program.name}</option>
+                      <option value={program.id} key={program.id}>{program.name}</option>
                     )
                   })
                 }
@@ -590,7 +590,7 @@ const Form = () => {
                 {
                   courses.map((course) => {
                     return (
-                      <tr>
+                      <tr key={course.id}>
                         <td>{course.code}</td>
                         <td>{course.name}</td>
                         <td>
