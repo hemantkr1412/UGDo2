@@ -10,8 +10,8 @@ import {
     ListItemText
 } from '@mui/material';
 import { alumnis } from './alumnisData';
-import '../../about/about.css'
-import '../../academicCommunity/academicCommunity.css';
+import '../../About/about.css'
+import '../academicCommunity.css';
 
 const Alumni = () => {
     return (

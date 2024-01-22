@@ -8,8 +8,8 @@ import {
     Button
 } from '@mui/material';
 import { professors } from './professorData';
-import '../../about/about.css'
-import '../../academicCommunity/academicCommunity.css';
+import '../../About/about.css'
+import '../academicCommunity.css';
 
 const Professors = () => {
     return (

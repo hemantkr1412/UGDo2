@@ -1,4 +1,4 @@
-import Professors from "@/components/academicCommunity/Professors/professors"
+import Professors from "@/components/AcademicCommunity/Professors/Professors"
 
 export default function page() {
     return (

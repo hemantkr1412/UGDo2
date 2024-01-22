@@ -1,5 +1,5 @@
 "use client"
-import Home from '@/components/home/home';
+import Home from '@/components/Home/Home';
 import { ThemeProvider } from '@emotion/react';
 import theme from './theme';
 

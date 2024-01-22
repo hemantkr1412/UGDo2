@@ -11,7 +11,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './home.css';
-import '../about/about.css';
+import '../About/about.css';
 
 const coursesData = [
     {

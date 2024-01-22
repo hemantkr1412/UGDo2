@@ -18,13 +18,13 @@ const Notice = () => {
             <Typography variant="h4" gutterBottom className='heading' sx={{ textAlign: path === '/noticias' && 'center' }}>
                 Últimas Noticias
             </Typography>
-            <Grid container columnSpacing={8} rowSpacing={5} sx={{ p: 5 }}>
+            <Grid container columnSpacing={{ xs: 3, md: 8 }} rowSpacing={{ xs:5, sm: 3, md: 5 }} sx={{ p: 5 }}>
                 {
                     newsData.map((news, index) =>
                         <Grid item xs={12} sm={6} lg={4} key={index}>
                             <Card sx={{
                                 height: '100%',
-                                padding: '3rem 4rem',
+                                padding: { xs: '3rem 4rem', sm: '3rem 1rem', md: '3rem 4rem' },
                                 backgroundColor: 'var(--yellow)',
                                 color: 'var(--blue)',
                                 display: 'flex',
