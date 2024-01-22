@@ -1,5 +1,5 @@
 "use client"
-import Grid from '@mui/material/Grid';
+import {Grid} from '@mui/material';
 import {
     Typography,
     Card,
@@ -13,43 +13,53 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './home.css';
 import '../about/about.css';
+// import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const coursesData = [
     {
         img: '/assets/home/course-1.jpg',
         name: 'Lorem ipsum dolor',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '2 Years'
+        duration: '2 Years',
+        page: '/Courses/course1'
     },
     {
         img: '/assets/home/course-2.jpg',
         name: 'Lorem ipsum dolor',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '3 Years'
+        duration: '3 Years',
+        page: '/Courses/course2'
+
     },
     {
         img: '/assets/home/course-3.jpg',
         name: 'Lorem ipsum dolor',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '4 Years'
+        duration: '4 Years',
+        page: '/Courses/course3'
+
     },
     {
         img: '/assets/home/course-1.jpg',
         name: 'Lorem ipsum dolor',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '2 Years'
+        duration: '2 Years',
+        page: '/Courses/course4'
     },
     {
         img: '/assets/home/course-2.jpg',
         name: 'Lorem ipsum dolor',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '3 Years'
+        duration: '3 Years',
+        page: '/Courses/course5'
     },
     {
         img: '/assets/home/course-3.jpg',
         name: 'Lorem ipsum dolor',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '4 Years'
+        duration: '4 Years',
+        page: '/Courses/course6'
     },
 ];
 
@@ -92,6 +102,8 @@ function SamplePrevArrow(props) {
 }
 
 function SampleNextArrow(props) {
+
+
     const { className, style, onClick } = props;
     return (
         <div
@@ -108,6 +120,8 @@ function SampleNextArrow(props) {
 
 
 const Carousel = () => {
+// const router= useRouter()
+
     return (
         <section className="carouselSection">
             {/* <Grid container spacing={3} sx={{ p: 5 }}> */}
@@ -118,7 +132,8 @@ const Carousel = () => {
             }}>
                 {
                     coursesData.map((course, index) =>
-                        <div>
+                    <Link href={(course.page)}>
+                        <div >
                             <Card sx={{
                                 // border: '2px solid red',
                                 maxWidth: 320,
@@ -148,6 +163,7 @@ const Carousel = () => {
                             </Card>
                             {/* </Grid> */}
                         </div>
+                        </Link>
                     )
                 }
             </Slider>
