@@ -136,11 +136,10 @@ const Navbar = () => {
                     </Grid>
                 </Hidden>
                 <Hidden mdUp>
-                    {/* This will show a responsive menu icon on medium and smaller screens */}
                     <Grid
                         item xs={2}
                         sx={{
-                            textAlign: 'right',
+                            // textAlign: 'right',
                             background: 'var(--blue) !important',
                             paddingTop: '0 !important',
                             display: 'flex'
@@ -150,7 +149,7 @@ const Navbar = () => {
                             edge="end"
                             color="inherit"
                             aria-label="open drawer"
-                            sx={{ mr: 2 }}
+                            sx={{ p: 0 }}
                         >
                             <MenuIcon />
                         </IconButton>

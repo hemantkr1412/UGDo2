@@ -1,0 +1,63 @@
+.firstSectionHeading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background-color: var(--blue);
+    color: white;
+}
+
+.objectivesAndValuesMainContainer {
+    height: 60vh;
+    border-top: 3px solid var(--yellow);
+    border-bottom: 3px solid var(--yellow);
+}
+
+.objectivesContainer {
+    background: var(--yellow);
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.valuesContainer {
+    background: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.objectivesAndValuesTextBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width:1200px) {
+
+    .firstSectionHeading {
+        padding: 1rem;
+    }
+}
+
+@media only screen and (max-width:900px) {
+
+    .objectivesContainer,
+    .valuesContainer {
+        padding: 2rem 0;
+    }
+}
+
+@media only screen and (max-width:600px) {
+
+    .objectivesContainer,
+    .valuesContainer {
+        padding: 2rem 1.2rem;
+    }
+}

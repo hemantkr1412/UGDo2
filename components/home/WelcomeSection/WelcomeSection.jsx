@@ -6,6 +6,7 @@ import {
 } from '@mui/material';
 import SouthIcon from '@mui/icons-material/South';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import './WelcomeSection.css';
 
 const BackgroundVideo = () => {
     return (
@@ -22,13 +23,17 @@ const WelcomeSection = () => {
     return (
         <section>
             <Grid container columns={15}>
-                <Grid item xs={2} sx={{
-                    // border: '2px solid red',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'space-around'
+                <Grid item xs={15} sx={{
+                    display: { xs: 'block', md: 'none' },
+                    background: 'var(--blue)',
                 }}>
+                    <Typography variant="h4" gutterBottom
+                        sx={{ color: 'white', fontWeight: 600, padding: '3rem 4rem' }}
+                    >
+                        Bienvenido a UGD
+                    </Typography>
+                </Grid>
+                <Grid item xs={15} md={2} className="linksContainer">
                     <SouthIcon className="aboutIcons" />
                     <Box className="btnBox">
                         <SchoolOutlinedIcon className="aboutIcons" />
@@ -49,16 +54,19 @@ const WelcomeSection = () => {
                         </Typography>
                     </Box>
                 </Grid>
-                <Grid item xs={13}>
+                <Grid item xs={15} md={13} className="innerContainer">
                     <Grid container>
-                        <Grid item xs={12} sx={{ background: 'var(--blue)' }}>
+                        <Grid item xs={12} sx={{
+                            display: { xs: 'none', md: 'block' },
+                            background: 'var(--blue)',
+                        }}>
                             <Typography variant="h4" gutterBottom
                                 sx={{ color: 'white', fontWeight: 600, padding: '3rem 4rem' }}
                             >
                                 Bienvenido a UGD
                             </Typography>
                         </Grid>
-                        <Grid item xs={6} className='aboutTextContainer'>
+                        <Grid item xs={15} sm={6} sx={{ order: { xs: 2, sm: 1 } }} className='aboutTextContainer'>
                             <Box className='aboutTextBox' >
                                 <Typography variant="h6" gutterBottom
                                     sx={{ color: 'var(--blue)', fontWeight: 600, }}
@@ -73,8 +81,9 @@ const WelcomeSection = () => {
                                 <Button variant="contained" className='newsBtn'>Aprender más</Button>
                             </Box>
                         </Grid>
-                        <Grid item xs={6} sx={{
-                            height: '100vh',
+                        <Grid item xs={15} sm={6} sx={{
+                            order: { xs: 1, sm: 2 },
+                            height: '100vh' ,
                             position: "relative"
                         }}>
                             <BackgroundVideo />

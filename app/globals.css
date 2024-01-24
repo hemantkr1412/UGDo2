@@ -1,12 +1,19 @@
 :root {
-  --yellow: #F8D287;
-  --blue: #3F51B5;
+  /* --yellow: #F8D287; */
+  --blue: rgb(145,173,63);
+  /* --blue: #3F51B5; */
+  --yellow: rgb(173,62,85);
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body{
+  background-color: #000000db;
+  color:white;
 }
 
 img {

@@ -1,4 +1,5 @@
 "use client"
+import { useState, useEffect } from 'react';
 import {
     Typography,
     Card,
@@ -46,20 +47,6 @@ const coursesData = [
     },
 ];
 
-const settings = {
-    dots: false,
-    infinite: true,
-    speed: 2000,
-    slidesToShow: 4,
-    slidesToScroll: 2,
-    // autoplay: true,
-    // autoplaySpeed: 300,
-    // pauseOnHover: true,
-    prevArrow: <SamplePrevArrow />,
-    nextArrow: <SampleNextArrow />,
-    // initialSlide: 0,
-};
-
 const arrowStyle = {
     display: "block",
     position: 'absolute',
@@ -71,7 +58,6 @@ const arrowStyle = {
 function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
-
         <div
             className={className}
             style={{
@@ -100,6 +86,47 @@ function SampleNextArrow(props) {
 }
 
 const Carousel = () => {
+    const [slidesToShow, setSlidesToShow] = useState(4);
+    const [slidesToScroll, setSlidesToScroll] = useState(2);
+
+    useEffect(() => {
+        const updateSlidesToShow = () => {
+            const screenWidth = window.innerWidth;
+
+            if (screenWidth >= 1300)
+                setSlidesToShow(4);
+            else if (screenWidth >= 992)
+                setSlidesToShow(3);
+            else if (screenWidth >= 600)
+                setSlidesToShow(2);
+            else {
+                setSlidesToShow(1);
+                setSlidesToScroll(1);
+            }
+
+        };
+        updateSlidesToShow();
+        window.addEventListener('resize', updateSlidesToShow);
+
+        return () => {
+            window.removeEventListener('resize', updateSlidesToShow);
+        };
+    }, []);
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 2000,
+        slidesToShow: slidesToShow,
+        slidesToScroll: slidesToScroll,
+        // autoplay: true,
+        // autoplaySpeed: 300,
+        // pauseOnHover: true,
+        prevArrow: <SamplePrevArrow />,
+        nextArrow: <SampleNextArrow />,
+        // initialSlide: 0,
+    };
+
     return (
         <section className="carouselSection">
             <Slider {...settings} className='slider' sx={{
@@ -113,6 +140,7 @@ const Carousel = () => {
                             <Card sx={{
                                 // border: '2px solid red',
                                 maxWidth: 320,
+                                // width:'20%',
                                 margin: 'auto',
                             }} key={index}>
                                 <CardMedia
@@ -134,7 +162,7 @@ const Carousel = () => {
                                     <Typography
                                         variant="body2"
                                         className="personCourse"
-                                        sx={{ textAlign: 'justify'}}>
+                                        sx={{ textAlign: 'justify' }}>
                                         {course.desc}
                                     </Typography>
                                 </CardContent>
