@@ -6,24 +6,6 @@ export const events = [
     { title: 'Programa de Tutoría en Matemáticas', desc: 'Sun, 01 Apr | 500 Terry A Francois Blvd' },
 ];
 
-export const newsData = [
-    {
-        date: 'Viernes 1 de junio de 2035',
-        title: 'Nuevo Auditorio en UGD se Inaugurará el Próximo Otoño',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum maxime minus itaque odio, saepe quam ratione labore laboriosam vero suscipit recusandae.',
-    },
-    {
-        date: 'Viernes 1 de junio de 2035',
-        title: 'Nuevo Auditorio en UGD se Inaugurará el Próximo Otoño',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum maxime minus itaque odio, saepe quam ratione labore laboriosam vero suscipit recusandae.',
-    },
-    {
-        date: 'Viernes 1 de junio de 2035',
-        title: 'Nuevo Auditorio en UGD se Inaugurará el Próximo Otoño',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum maxime minus itaque odio, saepe quam ratione labore laboriosam vero suscipit recusandae.',
-    },
-];
-
 export const advantages = [
     {
         title: 'Aprenderás con quienes ejercen el corretaje',

@@ -1,4 +1,4 @@
-import AcademicProposal from "@/components/academicProposal/academicProposal"
+import AcademicProposal from "@/components/AcademicProposal/AcademicProposal"
 
 export default function page() {
     return (

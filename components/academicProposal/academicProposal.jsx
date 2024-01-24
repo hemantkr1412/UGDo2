@@ -4,7 +4,7 @@ import {
     Box,
     Typography
 } from '@mui/material';
-import '../about/about.css';
+import '../About/about.css';
 
 const AcademicProposal = () => {
     return (

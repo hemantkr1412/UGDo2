@@ -1,11 +1,11 @@
-import FoundInstitutions from './foundInstitutions';
-import FoundingBackground from './foundingBackground';
+import FoundInstitutions from './FoundInstitutions';
+import FoundingBackground from './FoundingBackground';
 import {
     Grid,
     Box,
     Typography
 } from '@mui/material';
-import './about.css'
+import './About.css'
 
 const About = () => {
     return (
@@ -66,4 +66,4 @@ const About = () => {
     )
 }
 
-export default About
+export default About;

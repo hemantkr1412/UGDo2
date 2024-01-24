@@ -1,57 +1,77 @@
-import React from 'react';
+"use client"
 import Grid from '@mui/material/Grid';
 import {
     Box,
     Typography
 } from '@mui/material';
-import '../../about/about.css'
-import '../../academicCommunity/academicCommunity.css';
+import '../../About/about.css'
+import '../academicCommunity.css';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const Directivos = () => {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
         <>
             <br /><br /><br />
 
             <section className="section">
-                <Typography variant='h4' className='heading'>
+                <Typography
+                    variant={isSmallScreen ? 'h5' : 'h4'}
+                    className='heading'>
                     DIRECTOR ACADÉMICO
                 </Typography>
                 <Grid container spacing={3}>
-                    <Grid item xs={1}></Grid>
-                    <Grid item xs={5} className="imgGrid">
+                    <Grid
+                        item
+                        xs={1}
+                        sx={{ display: { xs: 'none', lg: 'block' } }}>
+                    </Grid>
+                    <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
                             <img src="/assets/academicCommunity/director.png" alt="" className="memberImg" />
                         </div>
                     </Grid>
-                    <Grid item xs={5} className='textGrid'>
+                    <Grid item xs={12} md={6} lg={5} className='textGrid'>
                         <Box className="textGridBox">
                             <Typography variant='body1' sx={{ textAlign: 'justify' }}>
                                 <b>Arq. Javier Grandinetti</b>
                             </Typography>
                             <Typography variant='body1' sx={{ textAlign: 'justify' }}>
                                 Director de Carrera Licenciatura en Corretaje Inmobiliario de la Universidad Gastón Dachary. Docente universitario en Corretaje inmobiliario en la Pontificia Universidad Católica Argentina desde el año 2016. Socio gerente de Grandinetti Negocios Inmobiliarios en Rosario. Cumplió funciones como Presidente de CILA en 2017, actualmente es miembro permanente del Consejo Consultivo y Presidente del Comité de Congresos de CILA. Presidente de la Federación Inmobiliaria de la república Argentina (FIRA) desde 2012 a 2016, Presidente del Colegio de Corredores Inmobiliarios de Santa Fe sede Rosario (COCIR) desde 2011 a 2015, Presidente de la Cámara de Empresas Inmobiliarias de Rosario (CADEIROS) desde 2007 a 2011
-
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={1}></Grid>
+                    <Grid
+                        item
+                        xs={1}
+                        sx={{ display: { xs: 'none', lg: 'block' } }}>
+                    </Grid>
                 </Grid>
             </section>
 
             <br /><br /><br />
 
             <section className="section">
-                <Typography variant='h4' className='heading'>
+                <Typography
+                    variant={isSmallScreen ? 'h5' : 'h4'}
+                    className='heading'>
                     Rector de Universidad Gastón Dachary
                 </Typography>
                 <Grid container spacing={3}>
-                    <Grid item xs={1}></Grid>
-                    <Grid item xs={5} className="imgGrid">
+                    <Grid
+                        item
+                        xs={1}
+                        sx={{ display: { xs: 'none', lg: 'block' } }}>
+                    </Grid>
+                    <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
                             <img src="/assets/academicCommunity/rector.jpg" alt="" className="memberImg" />
                         </div>
                     </Grid>
-                    <Grid item xs={5} className='textGrid'>
+                    <Grid item xs={12} md={6} lg={5} className='textGrid'>
                         <Box className="textGridBox">
                             <Typography variant='body1' sx={{ textAlign: 'justify' }}>
                                 <b>Ing. Luis Lichowski</b>
@@ -70,24 +90,34 @@ const Directivos = () => {
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={1}></Grid>
+                    <Grid
+                        item
+                        xs={1}
+                        sx={{ display: { xs: 'none', lg: 'block' } }}>
+                    </Grid>
                 </Grid>
             </section>
 
             <br /><br /><br />
 
             <section className="section">
-                <Typography variant='h4' className='heading'>
+                <Typography
+                    variant={isSmallScreen ? 'h5' : 'h4'}
+                    className='heading'>
                     Coordinador del comité de profesionalización de CILA
                 </Typography>
                 <Grid container spacing={3}>
-                    <Grid item xs={1}></Grid>
-                    <Grid item xs={5} className="imgGrid">
+                    <Grid
+                        item
+                        xs={1}
+                        sx={{ display: { xs: 'none', lg: 'block' } }}>
+                    </Grid>
+                    <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
                             <img src="/assets/academicCommunity/coordinator.jpg" alt="" className="memberImg" />
                         </div>
                     </Grid>
-                    <Grid item xs={5} className='textGrid'>
+                    <Grid item xs={12} md={6} lg={5} className='textGrid'>
                         <Box className="textGridBox">
                             <Typography variant='body1' sx={{ textAlign: 'justify' }}>
                                 <b>C.I. Eduardo Brigada</b>
@@ -103,7 +133,11 @@ const Directivos = () => {
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={1}></Grid>
+                    <Grid
+                        item
+                        xs={1}
+                        sx={{ display: { xs: 'none', lg: 'block' } }}>
+                    </Grid>
                 </Grid>
             </section>
 

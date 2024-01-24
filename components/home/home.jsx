@@ -1,13 +1,13 @@
-import FirstSubSection from './firstSubSection';
-import SecondSubSection from './secondSubSection';
-import WelcomeSection from './welcomeSection';
-import Carousel from './carousel';
-import Events from './events';
-import Notice from './notice';
+import FirstSubSection from './FirstSubSection';
+import SecondSubSection from './SecondSubSection';
+import WelcomeSection from './WelcomeSection';
+import Carousel from './Carousel';
+import Events from './Events';
+import Notice from '../Notice/Notice';
 import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
-import './home.css';
-import '../about/about.css';
+import './Home.css';
+import '../About/about.css';
 
 const Home = () => {
     return (

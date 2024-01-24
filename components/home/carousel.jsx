@@ -1,5 +1,4 @@
 "use client"
-import {Grid} from '@mui/material';
 import {
     Typography,
     Card,
@@ -18,62 +17,55 @@ import Link from 'next/link';
 
 const coursesData = [
     {
-        img: '/assets/home/course-1.jpg',
-        name: 'Lorem ipsum dolor',
+        img: '/assets/home/courses/course-1.png',
+        name: 'Licenciatura en Corrtaje y Negocios Inmobiliarios',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
         duration: '2 Years',
         page: '/Courses/course1'
     },
     {
-        img: '/assets/home/course-2.jpg',
-        name: 'Lorem ipsum dolor',
+        img: '/assets/home/courses/course-2.png',
+        name: 'Tecnicatura Universitaria en Corretaje y Negocios Inmobiliarios',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
         duration: '3 Years',
         page: '/Courses/course2'
 
     },
     {
-        img: '/assets/home/course-3.jpg',
-        name: 'Lorem ipsum dolor',
+        img: '/assets/home/courses/course-3.png',
+        name: 'Diplomatura Universitaria en Tasacion de Inmuebles',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
         duration: '4 Years',
         page: '/Courses/course3'
 
     },
     {
-        img: '/assets/home/course-1.jpg',
-        name: 'Lorem ipsum dolor',
+        img: '/assets/home/courses/course-4.png',
+        name: 'Diplomatura Universitaria en Negociacion y Mkt Inmobiliario',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
         duration: '2 Years',
         page: '/Courses/course4'
     },
     {
-        img: '/assets/home/course-2.jpg',
-        name: 'Lorem ipsum dolor',
+        img: '/assets/home/courses/course-5.png',
+        name: 'Diplomatura Universitaria en Proyectos Inmobiliarios',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
         duration: '3 Years',
         page: '/Courses/course5'
-    },
-    {
-        img: '/assets/home/course-3.jpg',
-        name: 'Lorem ipsum dolor',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '4 Years',
-        page: '/Courses/course6'
     },
 ];
 
 const settings = {
     dots: false,
     infinite: true,
-    speed: 3000,
+    speed: 2000,
     slidesToShow: 4,
     slidesToScroll: 2,
-    autoplay: true,
-    autoplaySpeed: 500,
-    pauseOnHover: true,
+    // autoplay: true,
+    // autoplaySpeed: 300,
+    // pauseOnHover: true,
+    prevArrow: <SamplePrevArrow />,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
     // initialSlide: 0,
 };
 
@@ -118,13 +110,11 @@ function SampleNextArrow(props) {
     );
 }
 
-
 const Carousel = () => {
 // const router= useRouter()
 
     return (
         <section className="carouselSection">
-            {/* <Grid container spacing={3} sx={{ p: 5 }}> */}
             <Slider {...settings} className='slider' sx={{
                 width: '90%',
                 margin: 'auto',
@@ -137,38 +127,38 @@ const Carousel = () => {
                             <Card sx={{
                                 // border: '2px solid red',
                                 maxWidth: 320,
-                                margin: 'auto'
+                                margin: 'auto',
                             }} key={index}>
                                 <CardMedia
-                                    sx={{ height: 180 }}
+                                    sx={{ height: 190 }}
                                     image={course.img}
                                     title="green iguana"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h6" component="div" className="personName">
+                                    <Typography
+                                        gutterBottom
+                                        variant="body1"
+                                        className="personName"
+                                        sx={{
+                                            color: 'var(--blue)',
+                                            fontWeight: 'bold',
+                                        }}>
                                         {course.name}
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary" className="personCourse">
+                                    <Typography
+                                        variant="body2"
+                                        className="personCourse"
+                                        sx={{ textAlign: 'justify'}}>
                                         {course.desc}
                                     </Typography>
-                                    <Typography variant="caption" color="text.secondary" sx={{ mt: 1, fontSize: '12px' }}>
-                                        {course.duration}
-                                    </Typography>
                                 </CardContent>
-                                <CardActions>
-                                    <Button variant="text" sx={{ textTransform: 'capitalize' }}>
-                                        Read more
-                                    </Button>
-                                </CardActions>
                             </Card>
-                            {/* </Grid> */}
                         </div>
                         </Link>
                     )
                 }
             </Slider>
-            {/* </Grid> */}
-        </section>
+        </section >
     )
 }
 
