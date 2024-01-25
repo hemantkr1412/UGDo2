@@ -11,9 +11,39 @@ import Button from '@mui/material/Button';
 import { AccessTimeFilled, AccountBalance, School, WorkspacePremium, Gavel, LocalLibrary } from "@mui/icons-material";
 import './Courses.css'
 
+const coursesCard = [
+    {
+        icon: <AccessTimeFilled />,
+        title: "Duracion: ",
+        desc: "4 años"
+    },
+    {
+        icon: <AccountBalance />,
+        title: "Modalidad: ",
+        desc: "Presencial"
+    },
+    {
+        icon: <School />,
+        title: "Titulo: ",
+        desc: "Lorem ipsum dolor sit amet."
+    },
+    {
+        icon: <WorkspacePremium />,
+        title: "Titulo Complementario: ",
+        desc: "Certificado"
+    },
+    {
+        icon: <Gavel />,
+        title: "Resolution Ministerial: ",
+        desc: "R.M./1373/2021"
+    },
+    {
+        icon: <LocalLibrary />,
+        title: "Fecha de incio: ",
+        desc: "2023"
+    }
 
-const mediacontent = { display: 'flex', gap: '4%', margin: '0.5rem 0.8rem' }
-
+];
 
 const Course3 = () => {
     const [activePage, setActivePage] = useState('page1')
@@ -39,10 +69,10 @@ const Course3 = () => {
                             <Typography variant="h5">Lorem ipsum dolor sit.</Typography>
                             <div style={{ margin: '1rem 2rem' }}>
                                 <ul>
-                                    <li>• Lorem ipsum dolor.</li>
-                                    <li>• Lorem ipsum dolor sit.</li>
-                                    <li>• Lorem ipsum dolor.</li>
-                                    <li>• Lorem ipsum dolor sit.</li>
+                                    <li> Lorem ipsum dolor.</li>
+                                    <li> Lorem ipsum dolor sit.</li>
+                                    <li> Lorem ipsum dolor.</li>
+                                    <li> Lorem ipsum dolor sit.</li>
                                 </ul>
                             </div>
 
@@ -50,12 +80,12 @@ const Course3 = () => {
                             <Typography variant="h5">Lorem ipsum dolor sit.</Typography>
                             <div style={{ margin: '1rem 2rem' }}>
                                 <ul>
-                                    <li>• Lorem ipsum dolor.</li>
-                                    <li>• Lorem ipsum dolor sit.</li>
-                                    <li>• Lorem ipsum dolor.</li>
-                                    <li>• Lorem ipsum dolor sit.</li>
-                                    <li>• Lorem ipsum dolor sit.</li>
-                                    <li>• Lorem ipsum dolor sit.</li>
+                                    <li> Lorem ipsum dolor.</li>
+                                    <li> Lorem ipsum dolor sit.</li>
+                                    <li> Lorem ipsum dolor.</li>
+                                    <li>Lorem ipsum dolor sit.</li>
+                                    <li>Lorem ipsum dolor sit.</li>
+                                    <li> Lorem ipsum dolor sit.</li>
                                 </ul>
                             </div>
 
@@ -63,12 +93,12 @@ const Course3 = () => {
                             <Typography variant="h5">Lorem ipsum dolor sit.</Typography>
                             <div style={{ margin: '1rem 2rem' }}>
                                 <ul>
-                                    <li>• Lorem ipsum dolor Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, dolores!.</li>
-                                    <li>• Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, similique. Ut, quaerat?.</li>
-                                    <li>• Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, voluptatum! Quas..</li>
-                                    <li>• Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur..</li>
-                                    <li>• Lorem ipsum dolor sit Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error expedita fugit officia rem..</li>
-                                    <li>• Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur..</li>
+                                    <li> Lorem ipsum dolor Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, dolores!.</li>
+                                    <li> Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, similique. Ut, quaerat?.</li>
+                                    <li> Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, voluptatum! Quas..</li>
+                                    <li> Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur..</li>
+                                    <li> Lorem ipsum dolor sit Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error expedita fugit officia rem..</li>
+                                    <li>Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur..</li>
                                 </ul>
                             </div>
                         </div>
@@ -92,46 +122,18 @@ const Course3 = () => {
                             component="img"
                             alt="green iguana"
                             height="140"
-                            image="/assets/home/course-3.jpg"
+                            image='/assets/home/courses/course-3.png'
                         />
-                        <CardContent>
-                            <div style={mediacontent}>
-                                <AccessTimeFilled />
+                        {coursesCard.map((info, index) => (
+                            <CardContent className='media'>
+                            <div className='media-content'>
+                                {info.icon}
                                 <Typography variant="h7" component="div">
-                                    <b>Duracion:</b>  4 anos
-                                </Typography>
-                            </div>
-                            <div style={mediacontent}>
-                                <AccountBalance />
-                                <Typography variant="h7" component="div">
-                                    <b>Modalidad:</b>  Presencial
-                                </Typography>
-                            </div>
-                            <div style={mediacontent}>
-                                <School />
-                                <Typography variant="h7" component="div">
-                                    <b>Titulo:</b>  Lorem ipsum dolor sit amet.
-                                </Typography>
-                            </div>
-                            <div style={mediacontent}>
-                                <WorkspacePremium />
-                                <Typography variant="h7" component="div">
-                                    <b>Titulo Complementario:</b>  Certificado
-                                </Typography>
-                            </div>
-                            <div style={mediacontent}>
-                                <Gavel />
-                                <Typography variant="h7" component="div">
-                                    <b>Resolucion Ministerial:</b>  R.M./1373/2021.
-                                </Typography>
-                            </div>
-                            <div style={mediacontent}>
-                                <LocalLibrary />
-                                <Typography variant="h7" component="div">
-                                    <b>Fecha de incio:</b>  2023
+                                   <b>{info.title}</b> {info.desc} 
                                 </Typography>
                             </div>
                         </CardContent>
+                            ))}
                         <CardActions sx={{ display: 'flex', flexDirection: 'column' }}>
                             <Button size="small">Share</Button>
                             <Button size="small">Learn More</Button>

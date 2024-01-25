@@ -27,7 +27,8 @@ const WelcomeSection = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'space-around'
+                    justifyContent: 'space-around',
+                
                 }}>
                     <SouthIcon className="aboutIcons" />
                     <Box className="btnBox">

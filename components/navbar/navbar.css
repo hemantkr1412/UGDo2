@@ -1,31 +1,132 @@
 .navbar {
-    border-bottom: 1px solid var(--yellow);
+  border-bottom: 1px solid var(--yellow);
 }
 
 .navbar .logoContainer {
-    background: var(--blue);
-    height: 100%;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    padding-top: 0 !important;
-    padding-left: 0 !important;
+  background: var(--blue);
+  height: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding-top: 0 !important;
+  padding-left: 0 !important;
 }
 
 .navbar .linksContainer {
-    background: var(--yellow);
-    color: var(--blue);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding-left: 3rem;
-    padding-top: 0 !important;
+  background: var(--yellow);
+  color: var(--blue);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+  padding-top: 0 !important;
 }
 
 .linksContainer .navBtn {
-    margin: 1rem 0;
-    color: var(--blue);
-    display: block;
-    text-transform: capitalize;
-    font-size: 1rem;
+  margin: 1rem 0;
+  color: var(--blue);
+  display: block;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  height: 100vh;
+}
+
+
+
+.nav-list-1{
+display: flex;
+flex-direction: column;
+
+}
+
+.nav-item {
+  padding: 5px 10px;
+  cursor: pointer;
+margin: 1rem;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown-content {
+  border-top: 2px solid var(--blue);
+  margin-bottom: 0.2rem;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 1rem;
+}
+
+.dropdown-content a {
+  float: none;
+  color: var(--blue);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover{
+  background-color: rgba(223, 220, 220, 0.959);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+  left: 24px;
+}
+
+.bm-cross {
+  background: var(--blue);
+}
+
+.bm-burger-button{
+  position: relative;
+  width: 25px;
+  height: 20px;
+  left: 80%;
+  top: 20px;
+ cursor: pointer;
+}
+.bm-burger-bars {
+  background: #fff;
+}
+
+.bm-menu{
+  background-color: #fff;
+margin-top: -8%;
+
+}
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#page-wrap{
+  overflow: auto;
 }

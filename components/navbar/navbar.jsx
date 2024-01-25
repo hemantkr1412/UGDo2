@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
     AppBar,
     Box,
@@ -11,8 +11,9 @@ import {
 } from '@mui/material';
 import Hidden from '@mui/material/Hidden';
 import MenuIcon from '@mui/icons-material/Menu';
-import './Navbar.css';
+import './navbar.css';
 import { useRouter } from 'next/navigation';
+import Sidebar from './Sidebar';
 
 const pages = [
     'Home',
@@ -26,6 +27,7 @@ const pages = [
 const Navbar = () => {
     const router = useRouter();
     const [anchorElsNav, setAnchorElsNav] = useState(new Array(pages.length).fill(null));
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const handleSubMenuOpen = (event, index) => {
         console.log(`enter ${index}`);
@@ -41,7 +43,16 @@ const Navbar = () => {
         setAnchorElsNav(newAnchorElsUser);
     };
 
+    const handleMenuToggle = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const handleMenuClose = () => {
+        setIsMenuOpen(false);
+    };
+
     return (
+
         <AppBar position="static" sx={{ height: '70px' }} className="navbar">
             <Grid container spacing={3} columns={15} sx={{ height: '100%', width: '100%', m: 0 }}>
                 <Grid
@@ -55,7 +66,7 @@ const Navbar = () => {
                     </Box>
                 </Grid>
 
-                <Hidden mdDown>
+                <Hidden mdDown id="page">
                     <Grid
                         item
                         xs={13}
@@ -136,25 +147,8 @@ const Navbar = () => {
                     </Grid>
                 </Hidden>
                 <Hidden mdUp>
-                    {/* This will show a responsive menu icon on medium and smaller screens */}
-                    <Grid
-                        item xs={2}
-                        sx={{
-                            textAlign: 'right',
-                            background: 'var(--blue) !important',
-                            paddingTop: '0 !important',
-                            display: 'flex'
-                        }}>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            color="inherit"
-                            aria-label="open drawer"
-                            sx={{ mr: 2 }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                    </Grid>
+                    <Sidebar pageWraoId={"page-wrap"} outerContainerId={"page"} />
+                    <div id='page-wrap'></div>
                 </Hidden>
             </Grid>
         </AppBar>
