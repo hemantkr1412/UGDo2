@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { stack as Menu } from "react-burger-menu";
+import { slide as Menu } from "react-burger-menu";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import "./Navbar.css";
@@ -32,7 +32,7 @@ const Sidebar = (props) => {
       }, [menuOpen]);
 
     return (
-        <Menu right isOpen={menuOpen} onStateChange={handleStateChange}>
+        <Menu right disableOverlayClick isOpen={menuOpen} onStateChange={handleStateChange}>
             <div className="sidebar">
                 <br></br>
                 <br></br>
