@@ -1,3 +1,6 @@
+
+"use client"
+import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import {
     Card,
@@ -10,26 +13,41 @@ import {
     ListItemText
 } from '@mui/material';
 import { alumnis } from './alumnisData';
-import '../../About/about.css'
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import '../../About/about.css';
 import '../academicCommunity.css';
 
 const Alumni = () => {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const [height, setHeight] = useState(window.innerWidth < 400 ? 145 : 180);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setHeight(window.innerWidth < 400 ? 145 : 180);
+        };
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
     return (
         <>
             <section>
-                <div style={{height: '65vh'}}>
-                    <img src="/assets/academicCommunity/alumni/img3.jpg" alt="" className="bgImage"/>
+                <div style={{ height: '65vh' }}>
+                    <img src="/assets/academicCommunity/alumni/img3.jpg" alt="" className="bgImage" />
                     <div className="bgImageOverlay"></div>
                 </div>
                 <Grid container sx={{
-                    padding: '4rem 0',
+                    padding: { xs: '3rem 1.5rem', md: '4rem 0' },
+                    textAlign: { xs: 'justify', md: 'unset' },
                     color: 'white',
-                    backgroundColor: 'var(--blue)',
+                    backgroundColor: 'var(--red)',
                 }}>
-                    <Grid item xs={1}></Grid>
-                    <Grid item xs={10} sx={{
-                        // border:'2px solid red'
-                    }}>
+                    <Grid item xs={1} sx={{ display: { xs: 'none', md: 'block' } }}></Grid>
+                    <Grid item xs={12} md={10}>
                         <Typography>
                             Nuestros alumnos pueden ser tanto jóvenes que buscan una carrera a fin de orientar su desarrollo profesional, como personas que ya están inmersas en la actividad inmobiliaria y buscan fortalecer su perfil, incorporar nuevos conocimientos y tomar contacto con reconocidos profesionales e instituciones del sector.
                         </Typography>
@@ -72,27 +90,28 @@ const Alumni = () => {
                         <Typography sx={{ mt: 1 }}>D. Si son un idóneo acreditado: Para quienes se desempeñan en la actividad inmobiliaria con una antigüedad mayor a cinco años, siendo reconocidos y matriculados por los colegios profesionales, otorgamos materias en base a las conocimientos y competencias.
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}></Grid>
+                    <Grid item xs={1} sx={{ display: { xs: 'none', md: 'block' } }}></Grid>
                 </Grid>
             </section>
 
             <br /><br />
 
             <section className="section academicCommunitySection">
-                <Typography variant='h4' className='heading'>
+                <Typography variant={isSmallScreen ? 'h5' : 'h4'} className='heading'>
                     Nuestros alumnos
                 </Typography>
                 <Grid container spacing={3} sx={{ p: 3 }}>
                     {
                         alumnis.map((alumni, index) =>
-                            <Grid item xs={2}>
-                                <Card sx={{ maxWidth: 345 }} key={index}>
+                            <Grid item xs={6} sm={4} md={3} lg={2}>
+                                <Card sx={{ maxWidth: 345 }} key={index} >
                                     <CardMedia
-                                        sx={{ height: 180 }}
+                                        sx={{ height }}
+                                        className="personImage"
                                         image={`${index % 2 ? '/assets/academicCommunity/alumni/alumni-1.png' : '/assets/academicCommunity/alumni/alumni-2.png'}`}
                                         title="green iguana"
                                     />
-                                    <CardContent>
+                                    <CardContent className="cardContent">
                                         <Typography gutterBottom variant="h6" component="div" className="personName">
                                             {alumni.name}
                                         </Typography>
@@ -100,11 +119,6 @@ const Alumni = () => {
                                             {alumni.program}
                                         </Typography>
                                     </CardContent>
-                                    {/* <CardActions>
-                                        <Button variant="text" sx={{ textTransform: 'capitalize' }}>
-                                            {professor.email}
-                                        </Button>
-                                    </CardActions> */}
                                 </Card>
                             </Grid>
                         )

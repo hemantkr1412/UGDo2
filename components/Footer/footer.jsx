@@ -17,7 +17,7 @@ const Footer = () => {
     return (
         <section className='footer'>
             <Grid container columnSpacing={3} sx={{
-                backgroundColor: 'var(--blue)',
+                backgroundColor: 'var(--green)',
                 padding: { xs: '3rem 1rem', lg: '3rem 2rem' },
                 color: 'white'
             }}>

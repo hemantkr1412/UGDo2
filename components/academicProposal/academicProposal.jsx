@@ -20,7 +20,7 @@ const AcademicProposal = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '1rem',
-                        background: 'var(--blue)',
+                        background: 'var(--red)',
                         color: 'white',
                         padding: '4rem !important'
                     }}>

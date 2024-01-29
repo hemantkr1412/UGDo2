@@ -80,6 +80,7 @@ const Navbar = () => {
                                                 anchorEl={anchorElsNav[index]}
                                                 open={Boolean(anchorElsNav[index])}
                                                 onClose={() => handleSubMenuClose(index)}
+                                                className="dropdownMenu"
                                                 anchorOrigin={{
                                                     vertical: 'bottom',
                                                     horizontal: 'left'
@@ -112,7 +113,7 @@ const Navbar = () => {
                                                             }
                                                             handleSubMenuClose(index);
                                                         }}
-                                                        sx={{ color: 'var(--blue)' }}
+                                                        sx={{ color: 'white' }}
                                                     >
                                                         {item}
                                                     </MenuItem>
@@ -139,8 +140,7 @@ const Navbar = () => {
                     <Grid
                         item xs={2}
                         sx={{
-                            // textAlign: 'right',
-                            background: 'var(--blue) !important',
+                            background: 'var(--green) !important',
                             paddingTop: '0 !important',
                             display: 'flex'
                         }}>

@@ -13,11 +13,11 @@
 
 .footer .copyrightDiv {
     height: 5rem;
-    background-color: var(--blue);
+    background-color: var(--green);
 }
 
 .footer .copyrightText {
-    color: var(--yellow);
+    color: white;
     text-align: center;
 }
 

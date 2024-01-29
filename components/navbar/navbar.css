@@ -1,9 +1,9 @@
 .navbar {
-    border-bottom: 1px solid var(--yellow);
+    border-bottom: 1px solid var(--red);
 }
 
 .navbar .logoContainer {
-    background: var(--blue);
+    background: var(--red);
     height: 100%;
     display: flex;
     /* justify-content: center; */
@@ -13,8 +13,8 @@
 }
 
 .navbar .linksContainer {
-    background: var(--yellow);
-    color: var(--blue);
+    background: var(--green);
+    /* color: white; */
     height: 100%;
     display: flex;
     align-items: center;
@@ -24,8 +24,13 @@
 
 .linksContainer .navBtn {
     margin: 1rem 0;
-    color: var(--blue);
+    /* color: var(--green); */
+    color: white;
     display: block;
     text-transform: capitalize;
     font-size: 1rem;
+}
+
+.dropdownMenu>div:nth-child(3) {
+    background-color: var(--green);
 }

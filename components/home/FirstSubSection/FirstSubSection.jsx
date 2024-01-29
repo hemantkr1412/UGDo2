@@ -8,14 +8,14 @@ import './FirstSubSection.css';
 const FirstSubSection = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('lg'));
+    const isExtraSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
-        <section style={{
-            // border:'4px solid white'
-        }}>
+        <section>
             <Grid container className="firstSectionHeading">
-                <Box sx={{ m: 'auto',textAlign:'center' }}>
-                    <Typography variant={isSmallScreen ? 'h4' : 'h3'}>Inspiramos la jerarquización del corretaje en Latinoamérica
+                <Box sx={{ m: 'auto', textAlign: 'center' }}>
+                <Typography variant={isExtraSmallScreen ? 'h5' : isSmallScreen ? 'h4' : 'h3'}>
+                        Inspiramos la jerarquización del corretaje en Latinoamérica
                     </Typography>
                 </Box>
             </Grid>

@@ -23,10 +23,28 @@
 }
 
 .academicCommunitySection .personName {
-    color: var(--blue);
+    color: var(--red);
     font-weight: 600;
 }
 
 .academicCommunitySection .personCourse {
-    color: var(--blue);
+    color: var(--red);
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width:600px) {
+    .academicCommunitySection .personName {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .academicCommunitySection .cardContent {
+        padding: 8px;
+    }
+
+    .academicCommunitySection .personName {
+        font-size: 12px;
+    }
 }

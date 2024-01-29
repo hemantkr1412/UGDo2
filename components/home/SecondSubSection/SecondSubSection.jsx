@@ -14,14 +14,14 @@ import './SecondSubSection.css';
 const SecondSubSection = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('lg'));
+    const isExtraSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
-        <section style={{
-            // border:'2px solid red'
-        }}>
+        <section>
             <Grid container className='secondSectionHeading'>
                 <Box sx={{ m: 'auto' }}>
-                    <Typography variant={isSmallScreen ? 'h4' : 'h3'}>Somos la llave de tu futuro inmobiliario
+
+                    <Typography variant={isExtraSmallScreen ? 'h5' : isSmallScreen ? 'h4' : 'h3'}>Somos la llave de tu futuro inmobiliario
                     </Typography>
                 </Box>
             </Grid>

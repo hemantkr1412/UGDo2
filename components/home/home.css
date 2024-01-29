@@ -28,14 +28,6 @@
     align-items: center;
 }
 
-/* Advantages cards */
-
-.cardsIcon {
-    transform: scale(1.6);
-    color: var(--yellow);
-    margin: 1rem 0;
-}
-
 /* EVENTS and NEWS */
 
 .eventSection,
@@ -48,17 +40,17 @@
 .newsSection .heading {
     margin: 2rem 6rem;
     font-weight: bold;
-    color: var(--blue);
+    color: var(--red);
 }
 
 .eventSection .eventText {
-    color: var(--blue);
+    color: var(--red);
 }
 
 .eventSection .registerBtn {
     font-weight: bold;
-    color: var(--blue);
-    border: 2px solid var(--blue);
+    color: var(--red);
+    border: 2px solid var(--red);
 }
 
 hr {
@@ -67,13 +59,33 @@ hr {
 }
 
 .newsSection .newsBtn {
-    background-color: var(--blue);
-    color: var(--yellow);
+    background-color: white;
+    color: var(--green);
+    font-weight: bold;
     text-transform: capitalize;
     width: 40%;
 }
 
 /* MEDIA QUERY */
 
-/* firstSubSection */
+/* EVENTS SECTION */
 
+@media only screen and (max-width:900px) {
+
+    .eventSection .heading,
+    .newsSection .heading {
+        text-align: center;
+        margin: 2rem 0;
+    }
+}
+
+@media only screen and (max-width:450px) {
+
+    .newsSection .eventCard {
+        padding: 2rem 1rem;
+    }
+
+    .newsSection .newsBtn {
+        width: 50%;
+    }
+}

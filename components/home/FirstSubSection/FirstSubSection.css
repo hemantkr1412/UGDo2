@@ -3,30 +3,32 @@
     align-items: center;
     justify-content: center;
     padding: 3rem;
-    background-color: var(--blue);
+    font-weight: 600;
+    background-color: var(--red);
     color: white;
 }
 
 .objectivesAndValuesMainContainer {
-    height: 60vh;
-    border-top: 3px solid var(--yellow);
-    border-bottom: 3px solid var(--yellow);
+    border-top: 3px solid var(--green);
+    border-bottom: 3px solid var(--green);
 }
 
 .objectivesContainer {
-    background: var(--yellow);
-    color: var(--blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.valuesContainer {
-    background: var(--blue);
+    background: var(--green);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding:3rem 0;
+}
+
+.valuesContainer {
+    background: var(--red);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:4rem 0;
 }
 
 .objectivesAndValuesTextBox {
