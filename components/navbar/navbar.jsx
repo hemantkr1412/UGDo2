@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
     AppBar,
     Box,
@@ -11,8 +11,9 @@ import {
 } from '@mui/material';
 import Hidden from '@mui/material/Hidden';
 import MenuIcon from '@mui/icons-material/Menu';
-import './Navbar.css';
+import './navbar.css';
 import { useRouter } from 'next/navigation';
+import Sidebar from './Sidebar';
 
 const pages = [
     'Home',
@@ -26,6 +27,7 @@ const pages = [
 const Navbar = () => {
     const router = useRouter();
     const [anchorElsNav, setAnchorElsNav] = useState(new Array(pages.length).fill(null));
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const handleSubMenuOpen = (event, index) => {
         console.log(`enter ${index}`);
@@ -41,7 +43,16 @@ const Navbar = () => {
         setAnchorElsNav(newAnchorElsUser);
     };
 
+    const handleMenuToggle = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const handleMenuClose = () => {
+        setIsMenuOpen(false);
+    };
+
     return (
+
         <AppBar position="static" sx={{ height: '70px' }} className="navbar">
             <Grid container spacing={3} columns={15} sx={{ height: '100%', width: '100%', m: 0 }}>
                 <Grid
@@ -50,18 +61,18 @@ const Navbar = () => {
                     md={2}
                     className="logoContainer"
                 >
-                    <Box sx={{ height: '65%', marginLeft: '2rem' }}>
+                    <Box sx={{ height: '65%', marginLeft: { xs: 0, lg: '2rem' } }}>
                         <img src="/logo_white.png" alt="" />
                     </Box>
                 </Grid>
 
-                <Hidden mdDown>
+                <Hidden mdDown id="page">
                     <Grid
                         item
                         xs={13}
                         className='linksContainer'
                     >
-                        <Box sx={{ display: 'flex', flexGrow: 1, gap: '1.5rem' }} >
+                        <Box sx={{ display: 'flex', flexGrow: 1, gap: '1.5rem' }} className="linksContainerBox">
                             {pages.map((page, index) => (
                                 <>
                                     {typeof page === 'object' ? (
@@ -142,9 +153,9 @@ const Navbar = () => {
                         sx={{
                             background: 'var(--green) !important',
                             paddingTop: '0 !important',
-                            display: 'flex'
+                            // display: 'flex'
                         }}>
-                        <IconButton
+                        {/* <IconButton
                             size="large"
                             edge="end"
                             color="inherit"
@@ -152,7 +163,9 @@ const Navbar = () => {
                             sx={{ p: 0 }}
                         >
                             <MenuIcon />
-                        </IconButton>
+                        </IconButton> */}
+                        <Sidebar pageWraoId={"page-wrap"} outerContainerId={"page"} />
+                        <div id='page-wrap'></div>
                     </Grid>
                 </Hidden>
             </Grid>

@@ -12,38 +12,47 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './home.css';
-import '../About/about.css';
+import '../about/about.css';
+// import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const coursesData = [
     {
         img: '/assets/home/courses/course-1.png',
         name: 'Licenciatura en Corrtaje y Negocios Inmobiliarios',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '2 Years'
+        duration: '2 Years',
+        page: '/Courses/course1'
     },
     {
         img: '/assets/home/courses/course-2.png',
         name: 'Tecnicatura Universitaria en Corretaje y Negocios Inmobiliarios',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '3 Years'
+        duration: '3 Years',
+        page: '/Courses/course2'
+
     },
     {
         img: '/assets/home/courses/course-3.png',
         name: 'Diplomatura Universitaria en Tasacion de Inmuebles',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '4 Years'
+        duration: '4 Years',
+        page: '/Courses/course3'
+
     },
     {
         img: '/assets/home/courses/course-4.png',
         name: 'Diplomatura Universitaria en Negociacion y Mkt Inmobiliario',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '2 Years'
+        duration: '2 Years',
+        page: '/Courses/course4'
     },
     {
         img: '/assets/home/courses/course-5.png',
         name: 'Diplomatura Universitaria en Proyectos Inmobiliarios',
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet accusantium amet, enim adipisci voluptatibus.',
-        duration: '3 Years'
+        duration: '3 Years',
+        page: '/Courses/course5'
     },
 ];
 
@@ -71,6 +80,8 @@ function SamplePrevArrow(props) {
 }
 
 function SampleNextArrow(props) {
+
+
     const { className, style, onClick } = props;
     return (
         <div
@@ -124,8 +135,8 @@ const Carousel = () => {
         // pauseOnHover: true,
         prevArrow: <SamplePrevArrow />,
         nextArrow: <SampleNextArrow />,
-        // initialSlide: 0,
     };
+    // const router= useRouter()
 
     return (
         <section className="carouselSection">
@@ -136,38 +147,40 @@ const Carousel = () => {
             }}>
                 {
                     coursesData.map((course, index) =>
-                        <div>
-                            <Card sx={{
-                                // border: '2px solid red',
-                                maxWidth: 320,
-                                // width:'20%',
-                                margin: 'auto',
-                            }} key={index}>
-                                <CardMedia
-                                    sx={{ height: 190 }}
-                                    image={course.img}
-                                    title="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography
-                                        gutterBottom
-                                        variant="body1"
-                                        className="personName"
-                                        sx={{
-                                            color: 'var(--blue)',
-                                            fontWeight: 'bold',
-                                        }}>
-                                        {course.name}
-                                    </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        className="personCourse"
-                                        sx={{ textAlign: 'justify' }}>
-                                        {course.desc}
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        </div>
+                        <Link href={(course.page)}>
+                            <div >
+                                <Card sx={{
+                                    // border: '2px solid red',
+                                    maxWidth: 320,
+                                    // width:'20%',
+                                    margin: 'auto',
+                                }} key={index}>
+                                    <CardMedia
+                                        sx={{ height: 190 }}
+                                        image={course.img}
+                                        title="green iguana"
+                                    />
+                                    <CardContent>
+                                        <Typography
+                                            gutterBottom
+                                            variant="body1"
+                                            className="personName"
+                                            sx={{
+                                                color: 'var(--blue)',
+                                                fontWeight: 'bold',
+                                            }}>
+                                            {course.name}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            className="personCourse"
+                                            sx={{ textAlign: 'justify' }}>
+                                            {course.desc}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </Link>
                     )
                 }
             </Slider>
