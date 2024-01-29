@@ -1,88 +1,135 @@
+/* .coursePage {
+    background-color: #fff;
+} */
 
-.course-title{
-    background-color: var(--blue);
+.courseTitle {
+    background-color: var(--red);
     color: #fff;
     display: flex;
     height: 100px;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0rem;
-}
-.courses{
-    /* margin-top: 2rem; */
-    background-color:#fff;
-    display: flex; 
+    margin-bottom: 2rem;
+    padding: 1rem 0;
 }
 
-.course{
+.courses {
+    display: flex;
+}
+
+.course {
     display: flex;
     flex-direction: column;
     width: 80%;
 }
 
-.coursenavbar{
+.courseNavbar {
     width: 90%;
-    color: #fff;
+    color: #000;
     margin: 1rem 3rem;
     display: flex;
     border-radius: 10px
 }
 
-.coursenavbar button{
-    background-color: #000;
+.courseNavbar button {
+    background-color: #fff;
     width: 33.3%;
     padding: 1.5rem 0rem;
-    color: #fff;
+    color: #000;
     font-weight: bold;
     cursor: pointer;
-    /* border-bottom: 5px solid rgb(206, 202, 202); */
+    
 
 }
 
-.media{
+.media {
     padding: 10px;
 }
-.media-content{
+
+.mediaContent {
     display: flex;
     gap: 4%;
-    /* margin: 0.5rem 0.8rem; */
 }
 
-.content{
-    border: 1px solid #000;
+.content {
     width: 90%;
     margin: 1rem 3rem;
-    color: var(--blue);
-    background-color: var(--yellow);
+    color: #fff;
+    background-color: var(--green);
 }
 
-.page1-content,.page2-content,.page3-content{
+.coursePoints {
+    margin: 1rem 3rem;
+    font-size: 20px
+}
+
+.page1Content,
+.page2Content,
+.page3Content {
     margin: 1rem 2rem;
 }
 
-.course-card{
+.courseCard {
     margin: 1rem 2rem;
 }
 
-.active{
-    border-bottom: 5px solid var(--yellow);
+.active {
+    border-bottom: 5px solid var(--green);
 }
 
-@media only screen and  (max-width:768px) {
-.courses{
-    flex-direction: column;
-}
-.content{
-    width: 100%;
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: auto;
 }
 
-.coursenavbar{
-    width: 100%;
+th,
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
 
-.course-card{
-    margin:1rem auto;
-
+ul {
+    margin-left: 5%;
 }
+
+@media only screen and (max-width:768px) {
+    .courses {
+        flex-direction: column;
+    }
+
+    .course {
+        width: 100%;
+    }
+
+    .courseTitle {
+        font-size: 22px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .content {
+        width: 100%;
+        margin: 1rem 0rem;
+    }
+
+    .courseNavbar {
+        width: 100%;
+        margin: 0rem;
+    }
+
+    .coursePoints {
+        margin: 0rem;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .courseCard {
+        margin: 1rem auto;
+
+    }
 
 }

@@ -1,14 +1,18 @@
 :root {
-  --yellow: #F8D287;
-  --blue: #3F51B5;
+  /* --yellow: #F8D287; */
+  /* --blue: #3F51B5; */
+  --green: rgb(145,173,63);
+  --red: rgb(173,62,85);
 }
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
+body{
+  background-color: #000000db;
+  color:white;
+}
 img {
   height: 100%;
   width: 100%;

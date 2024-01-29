@@ -45,7 +45,7 @@ const coursesCard = [
 
 ];
 
-const Course2 = () => {
+const Course4 = () => {
     const [activePage, setActivePage] = useState('page1')
 
     const handlePageClick = (page) => {
@@ -54,95 +54,119 @@ const Course2 = () => {
 
     return (
         <>
+            <div className='coursePage'>
+                <Typography className='courseTitle' variant="h3"> Diplomatura Universitaria en Negociación y Marketing Inmobiliario</Typography>
+                <div className="courses">
+                    <div className="course">
+                        <div className="courseNavbar">
+                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'active' : ''}>Sobre este programa</button>
+                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'active' : ''}>Plan de estudios </button>
+                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'active' : ''}>Admision y financiacion</button>
+                        </div>
+                        <div className="content">
+                            
+                            <div className="page1Content" style={{ display: activePage === 'page1' ? 'block' : 'none' }}>
+                                <br></br>
+                                <Typography variant="h5">El diplomado estará capacitado para realizar intermediaciones en la compra, venta u otro tipo de explotación económica de bienes, en el marco de conocimientos profesionales sobre marketing y negociación.</Typography>
+                                <br></br>
+                                <div className='coursePoints'>
+                                    <ul>
+                                        <li>Materias :</li>
+                                        <li> Marketing Inmobiliario</li>
+                                        <li>Negociación, Mediación y Arbitraje</li>
+                                        <li> Herramientas Tecnológicas</li>
+                                        <li>Horizontes del Negocio Inmobiliario</li>
+                                        <li> Principios de Corretaje inmobiliario</li>
 
-            <Typography className='course-title' variant="h3">Lorem ipsum dolor sit.  Course2</Typography>
-            <div className="courses">
-                <div className="course">
-                    <div className="coursenavbar">
-                        <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'active' : ''}>Sobre este programa</button>
-                        <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'active' : ''}>Plan de estudios </button>
-                        <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'active' : ''}>Admision y financiacion</button>
-                    </div>
-                    <div className="content">
-                        <div className="page1-content" style={{ display: activePage === 'page1' ? 'block' : 'none' }}>
-                            <br></br>
-                            <Typography variant="h5">Lorem ipsum dolor sit.</Typography>
-                            <div style={{ margin: '1rem 2rem' }}>
-                                <ul>
-                                    <li> Lorem ipsum dolor.</li>
-                                    <li> Lorem ipsum dolor sit.</li>
-                                    <li> Lorem ipsum dolor.</li>
-                                    <li> Lorem ipsum dolor sit.</li>
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
 
-                            <br></br>
-                            <Typography variant="h5">Lorem ipsum dolor sit.</Typography>
-                            <div style={{ margin: '1rem 2rem' }}>
-                                <ul>
-                                    <li> Lorem ipsum dolor.</li>
-                                    <li> Lorem ipsum dolor sit.</li>
-                                    <li> Lorem ipsum dolor.</li>
-                                    <li>Lorem ipsum dolor sit.</li>
-                                    <li>Lorem ipsum dolor sit.</li>
-                                    <li> Lorem ipsum dolor sit.</li>
-                                </ul>
-                            </div>
-
-                            <br></br>
-                            <Typography variant="h5">Lorem ipsum dolor sit.</Typography>
-                            <div style={{ margin: '1rem 2rem' }}>
-                                <ul>
-                                    <li> Lorem ipsum dolor Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, dolores!.</li>
-                                    <li> Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, similique. Ut, quaerat?.</li>
-                                    <li> Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, voluptatum! Quas..</li>
-                                    <li> Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur..</li>
-                                    <li> Lorem ipsum dolor sit Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error expedita fugit officia rem..</li>
-                                    <li>Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur..</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="page2-content" style={{ display: activePage === 'page2' ? 'block' : 'none' }}>
-                            <br></br>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est rem at hic nesciunt recusandae quia officiis, iure, animi eveniet mollitia ad adipisci cum! Expedita molestias unde vero repudiandae nobis animi aliquid possimus aperiam sunt neque reprehenderit obcaecati ab, officiis itaque. Officiis quos et, excepturi harum nulla non consectetur vero voluptates earum quasi doloremque illo necessitatibus corporis fugit aspernatur molestiae debitis ea repudiandae cum. Eveniet vel, suscipit, tenetur quis exercitationem quisquam nam qui, molestias dolorum officiis consectetur? Nesciunt debitis, quo qui ullam obcaecati animi eos accusamus quas soluta vero eum, quibusdam at atque incidunt magnam in perferendis sed necessitatibus reprehenderit ab reiciendis, omnis error voluptate. Odio eligendi natus veniam eius maiores, cum, aliquam soluta harum voluptates mollitia ex. Magni obcaecati laudantium debitis quis corporis, ut eligendi quidem sed repellat voluptas repellendus voluptatum ex, dolore in tempore totam pariatur officiis eos explicabo, necessitatibus veniam dolorum? Exercitationem voluptate, obcaecati porro molestias sit tempora beatae perspiciatis nihil modi quae architecto quasi vero ab aperiam. Porro molestias itaque provident repudiandae qui, ratione beatae consectetur, ullam alias commodi cupiditate dolores odio id vero magnam. Ut illo doloremque commodi odit? Quis, perferendis rerum debitis tenetur unde nostrum a veritatis assumenda ex, maiores exercitationem, quidem vitae eligendi. Modi illum cumque perspiciatis nostrum esse, nihil distinctio dolores voluptatibus quisquam quam cum molestiae architecto ab sint quo magni saepe quasi. Hic exercitationem magni quis assumenda vero dolor, expedita eos reprehenderit saepe! Eaque nesciunt labore molestias adipisci beatae, nemo quidem quaerat. Commodi rerum inventore quod totam corporis, possimus amet ab vero facilis veniam, culpa perspiciatis unde esse blanditiis beatae labore sunt laboriosam officia? Laborum provident, molestiae recusandae, vero rem temporibus reprehenderit debitis veritatis autem vel eum saepe repellendus eos harum quas laudantium odio neque corrupti, mollitia voluptate voluptatibus nobis? Dolores repellat delectus nulla ducimus iste corporis iure laborum porro soluta ipsam.</p>
-                            <br></br>
-                        </div>
-                        <div className="page3-content" style={{ display: activePage === 'page3' ? 'block' : 'none' }}>
-                            <br></br>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio quaerat reprehenderit, nobis eligendi illum nemo aspernatur magni quisquam eos vitae aliquid harum nisi maiores quibusdam illo dolores nesciunt consectetur expedita recusandae, unde accusantium iusto accusamus! Libero ad perspiciatis aspernatur quae, delectus dolorum unde? Officia tempora facilis, praesentium, maxime nulla magnam quasi dignissimos reiciendis, sed velit pariatur ullam odio dicta eum ex eaque. Laborum quaerat quam, dolorem laboriosam magnam sequi reprehenderit molestiae natus suscipit error nulla molestias cumque harum rem vitae beatae explicabo provident quo, aut ratione expedita. Optio temporibus nostrum voluptatibus iusto magni tempore, fugiat fuga nihil sapiente, at eos.</p>
-                            <br></br>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className='course-card'>
-                    <Card sx={{ maxWidth: 345, }}>
-                        <CardMedia
-                            component="img"
-                            alt="green iguana"
-                            height="140"
-                            image='/assets/home/courses/course-1.png'
-                        />
-                        {coursesCard.map((info, index) => (
-                            <CardContent className='media'>
-                            <div className='media-content'>
-                                {info.icon}
-                                <Typography variant="h7" component="div">
-                                   <b>{info.title}</b> {info.desc} 
+                            <div className="page2Content" style={{ display: activePage === 'page2' ? 'block' : 'none' }}>
+                                <br></br>
+                                <Typography variant='h6'><b>Formación de corta duración, concreta y aplicable,</b></Typography>
+                                <p> que se puede complementar posteriormente realizando una formación de grado para profundizar tu profesionalización.</p>
+                                <br></br>
+                                <Typography variant='h6'><b>
+                                    Trayectos de formación flexible: </b></Typography>
+                                <p>
+                                    El estudiante podrá tomar tramos independientes, y adaptar la duración y dedicación a su disponibilidad horaria.
+                                </p>
+                                <br></br>
+                                <Typography variant='h6'>
+                                    <b>DESTINATARIOS:</b>
                                 </Typography>
+                                <br></br>
+                                <p>
+                                    Quienes se desempeñen en el ámbito inmobiliario, y aspiren a mejorar su formación, adquiriendo nuevas capacidades específicas.
+                                </p>
+                                    <br></br>
+                                    <p>Toda persona que desee formarse para desempeñarse en el mercado inmobiliario.</p>
+                                <br></br>
                             </div>
-                        </CardContent>
+
+                            <div className="page3Content" style={{ display: activePage === 'page3' ? 'block' : 'none' }}>
+                                <br></br>
+                                <Typography variant='h6'><b>MODALIDAD :</b></Typography>
+                                <br></br>
+                                <p><b>100% bajo la modalidad a distancia: </b>Se puede cursar desde cualquier lugar del mundo que disponga de conexión a Internet.</p>
+                                <br></br>
+                                <p><b>Clases sincrónicas y asincrónicas: </b>Las clases se dictarán en modalidad virtual, en forma sincrónica, quedando grabadas en las aulas de UGD Virtual, disponibles para ser visualizadas todas las veces que sea necesario.</p>
+                                <br></br>
+                                <p><b>Recursos de aprendizaje en el aula virtual: </b>Los alumnos dispondrán de contenidos en diversos formatos, adaptados al desarrollo de cada tema (documentos, sitios webs, foros, podcasts, contenidos audiovisuales y otros recursos digitales de comunicación e interacción con el equipo docente).</p>
+                                <br></br>
+                                <p><b>Cinco materias por diplomatura: </b>dos en un cuatrimestre y tres en otro.</p>
+                                <br></br>
+                                <br></br>
+
+                                <Typography variant='h6'><b>TUTORÍAS Y CENTROS TUTORIALES:</b></Typography>
+                                <br></br>
+                                <p>Los estudiantes dispondrán de tutores on-line que los orientarán en el desarrollo de su carrera y atenderán sus dudas cotidianas.</p>
+                                <br></br>
+                                <p>Además, es sitios puntuales se dispondrán Centros Tutoriales que podrán utilizar optativamente. En los mismos se desarrollarán actividades de apoyo estudiantil.</p>
+                                <br></br>
+                                <br></br>
+
+                                <Typography variant='h6'><b>Nuestras diplomaturas:</b></Typography>
+                                <br></br>
+                                <p> Diplomado Universitario en Tasación de Inmuebles </p>
+                                <br></br>
+                                <p>Diplomado Universitario en Negocios y Marketing Inmobiliario </p>
+                                <br></br>
+                                <p>  Diplomado Universitario en Proyectos Inmobiliarios </p>
+                                <br></br>
+                                <p>Diplomado Universitario en Gestión Inmobiliaria.  </p>
+                                <br></br>
+                                <br></br>
+                                <p>(Aprobación: Resolución de UGD Nro. 79/A/22. Todas las diplomaturas tienen una duración de dos cuatrimestres)</p>                     
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='courseCard'>
+                        <Card sx={{ maxWidth: 345, }}>
+                            <CardMedia
+                                component="img"
+                                alt="green iguana"
+                                height="140"
+                                image='/assets/home/courses/course-4.png'
+                            />
+                            {coursesCard.map((info, index) => (
+                                <CardContent className='media'>
+                                    <div className='mediaContent'>
+                                        {info.icon}
+                                        <Typography variant="h7" component="div">
+                                            <b>{info.title}</b> {info.desc}
+                                        </Typography>
+                                    </div>
+                                </CardContent>
                             ))}
-                        <CardActions sx={{ display: 'flex', flexDirection: 'column' }}>
-                            <Button size="small">Share</Button>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
-                    </Card>
+                        </Card>
+                    </div>
                 </div>
             </div>
         </>
     )
 }
 
-export default Course2;
+export default Course4;

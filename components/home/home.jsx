@@ -18,7 +18,7 @@ const Home = () => {
                     <Typography variant="h2" gutterBottom
                         sx={{
                             fontWeight: 'bold',
-                            color: 'var(--yellow)',
+                            color: 'var(--green)',
                         }}>
                         Inspiramos la jerarquización del corretaje
                     </Typography>

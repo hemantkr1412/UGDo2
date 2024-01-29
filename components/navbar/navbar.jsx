@@ -123,7 +123,7 @@ const Navbar = () => {
                                                             }
                                                             handleSubMenuClose(index);
                                                         }}
-                                                        sx={{ color: 'var(--blue)' }}
+                                                        sx={{ color: 'var(--red)' }}
                                                     >
                                                         {item}
                                                     </MenuItem>
@@ -147,7 +147,7 @@ const Navbar = () => {
                     </Grid>
                 </Hidden>
                 <Hidden mdUp>
-                    <Sidebar pageWraoId={"page-wrap"} outerContainerId={"page"} />
+                    <Sidebar pageWrapId={"page-wrap"} outerContainerId={"page"} />
                     <div id='page-wrap'></div>
                 </Hidden>
             </Grid>

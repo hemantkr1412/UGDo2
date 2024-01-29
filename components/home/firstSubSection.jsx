@@ -10,7 +10,7 @@ const FirstSubSection = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '3rem',
-                backgroundColor: 'var(--blue)',
+                backgroundColor: 'var(--red)',
                 color: 'white',
             }}>
                 <Box sx={{ m: 'auto' }}>
@@ -38,12 +38,12 @@ const FirstSubSection = () => {
             </Grid>
             <Grid container sx={{
                 height: '60vh',
-                borderTop: '3px solid var(--yellow)',
-                borderBottom: '3px solid var(--yellow)'
+                borderTop: '3px solid var(--green)',
+                borderBottom: '3px solid var(--green)'
             }}>
                 <Grid item xs={6} sx={{
-                    background: 'var(--yellow)',
-                    color: 'var(--blue)',
+                    background: 'var(--green)',
+                    color: 'var(--red)',
                     display: 'flex',
                     // flexDirection:'column',
                     alignItems: 'center',
@@ -74,7 +74,7 @@ const FirstSubSection = () => {
                     </Box>
                 </Grid>
                 <Grid item xs={6} sx={{
-                    background: 'var(--blue)',
+                    background: 'var(--red)',
                     color: 'white',
                     display: 'flex',
                     // flexDirection:'column',

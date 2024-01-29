@@ -24,7 +24,7 @@ const Alumni = () => {
                 <Grid container sx={{
                     padding: '4rem 0',
                     color: 'white',
-                    backgroundColor: 'var(--blue)',
+                    backgroundColor: 'var(--red)',
                 }}>
                     <Grid item xs={1}></Grid>
                     <Grid item xs={10} sx={{

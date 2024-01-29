@@ -140,7 +140,7 @@ const Carousel = () => {
                                         variant="body1"
                                         className="personName"
                                         sx={{
-                                            color: 'var(--blue)',
+                                            color: 'var(--red)',
                                             fontWeight: 'bold',
                                         }}>
                                         {course.name}

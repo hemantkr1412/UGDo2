@@ -18,7 +18,6 @@ const Sidebar = (props) => {
   
     useEffect(() => {
         const handleOutsideClick = (event) => {
-
           if (menuOpen && !event.target.closest(".bm-menu-wrap")) {
             closeMenu();
           }

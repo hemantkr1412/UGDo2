@@ -52,7 +52,7 @@ const WelcomeSection = () => {
                 </Grid>
                 <Grid item xs={13}>
                     <Grid container>
-                        <Grid item xs={12} sx={{ background: 'var(--blue)' }}>
+                        <Grid item xs={12} sx={{ background: 'var(--red)' }}>
                             <Typography variant="h4" gutterBottom
                                 sx={{ color: 'white', fontWeight: 600, padding: '3rem 4rem' }}
                             >
@@ -62,12 +62,12 @@ const WelcomeSection = () => {
                         <Grid item xs={6} className='aboutTextContainer'>
                             <Box className='aboutTextBox' >
                                 <Typography variant="h6" gutterBottom
-                                    sx={{ color: 'var(--blue)', fontWeight: 600, }}
+                                    sx={{ color: 'var(--red)', fontWeight: 600, }}
                                 >
                                     Inspiramos la jerarquización del corretaje
                                 </Typography>
                                 <Typography variant="body1" gutterBottom
-                                    sx={{ color: 'var(--blue)' }}
+                                    sx={{ color: 'var(--red)' }}
                                 >
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio numquam quidem obcaecati nobis accusamus blanditiis, adipisci nisi ut tenetur impedit laborum, ullam ipsum molestiae doloribus explicabo molestias laboriosam nam et! Rerum, voluptas. Inventore, facilis itaque?
                                 </Typography>

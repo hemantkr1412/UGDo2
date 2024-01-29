@@ -25,8 +25,8 @@ const Notice = () => {
                             <Card sx={{
                                 height: '100%',
                                 padding: { xs: '3rem 4rem', sm: '3rem 1rem', md: '3rem 4rem' },
-                                backgroundColor: 'var(--yellow)',
-                                color: 'var(--blue)',
+                                backgroundColor: 'var(--green)',
+                                color: 'var(--red)',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 gap: '1.5rem'

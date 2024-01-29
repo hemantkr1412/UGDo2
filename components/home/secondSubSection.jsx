@@ -17,8 +17,8 @@ const SecondSubSection = () => {
                 justifyContent: 'center',
                 padding: '3rem',
                 marginTop: '5rem',
-                backgroundColor: 'var(--yellow)',
-                color: 'var(--blue)',
+                backgroundColor: 'var(--green)',
+                color: 'var(--red)',
             }}>
                 <Box sx={{ m: 'auto' }}>
                     <Typography variant="h3">Somos la llave de tu futuro inmobiliario
@@ -28,7 +28,7 @@ const SecondSubSection = () => {
             <div
                 style={{
                     // border: '2px solid red',
-                    // background: 'var(--blue) url(/assets/home/students2.webp) no-repeat center',
+                    // background: 'var(--red) url(/assets/home/students2.webp) no-repeat center',
                     height: '65vh',
                     width: '100%',
                     position:'relative'
@@ -59,7 +59,7 @@ const SecondSubSection = () => {
                                     <Box
                                         sx={{
                                             height: '100%',
-                                            background: 'var(--blue)',
+                                            background: 'var(--red)',
                                             display: 'flex',
                                             flexDirection: 'column',
                                             alignItems: 'center',
@@ -76,7 +76,7 @@ const SecondSubSection = () => {
 
                                         <Typography variant="h6" sx={{
                                             textAlign: 'center',
-                                            color: 'var(--yellow)',
+                                            color: 'var(--green)',
                                             fontSize: '1.1rem',
                                             fontWeight: 'bold',
                                             lineHeight: '1.5rem'

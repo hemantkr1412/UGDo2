@@ -33,7 +33,7 @@
 .btnBox {
     width: 70%;
     text-align: center;
-    color: var(--blue);
+    color: var(--red);
     /* font-weight: bold; */
 }
 
@@ -43,14 +43,14 @@
 
 .aboutIcons {
     transform: scale(3);
-    color: var(--blue);
+    color: var(--red);
     margin-bottom: 1.5rem;
 }
 
 .aboutTextContainer {
     /* border: 2px solid red; */
     height: 100vh;
-    background: var(--yellow);
+    background: var(--green);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,8 +64,8 @@
 }
 
 .aboutTextContainer .aboutTextBox button {
-    background-color: var(--blue);
-    color: var(--yellow);
+    background-color: var(--red);
+    color: var(--green);
     width: 35%;
     border-radius: none;
     text-transform: capitalize;
@@ -93,7 +93,7 @@
 
 .cardsIcon {
     transform: scale(1.6);
-    color: var(--yellow);
+    color: var(--green);
     margin: 1rem 0;
 }
 
@@ -109,17 +109,17 @@
 .newsSection .heading {
     margin: 2rem 6rem;
     font-weight: bold;
-    color: var(--blue);
+    color: var(--red);
 }
 
 .eventSection .eventText {
-    color: var(--blue);
+    color: var(--red);
 }
 
 .eventSection .registerBtn {
     font-weight: bold;
-    color: var(--blue);
-    border: 2px solid var(--blue);
+    color: var(--red);
+    border: 2px solid var(--red);
 }
 
 hr {
@@ -128,8 +128,8 @@ hr {
 }
 
 .newsSection .newsBtn {
-    background-color: var(--blue);
-    color: var(--yellow);
+    background-color: var(--red);
+    color: var(--green);
     text-transform: capitalize;
     width: 40%;
 }

@@ -1,9 +1,9 @@
 .navbar {
-  border-bottom: 1px solid var(--yellow);
+  border-bottom: 1px solid var(--green);
 }
 
 .navbar .logoContainer {
-  background: var(--blue);
+  background: var(--red);
   height: 100%;
   display: flex;
   /* justify-content: center; */
@@ -13,8 +13,8 @@
 }
 
 .navbar .linksContainer {
-  background: var(--yellow);
-  color: var(--blue);
+  background: var(--green);
+  color: var(--red);
   height: 100%;
   display: flex;
   align-items: center;
@@ -24,20 +24,11 @@
 
 .linksContainer .navBtn {
   margin: 1rem 0;
-  color: var(--blue);
+  color: var(--red);
   display: block;
   text-transform: capitalize;
   font-size: 1rem;
 }
-
-/* .sidebar{
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  height: 100vh;
-} */
-
-
 
 .nav-list-1 {
   display: flex;
@@ -48,14 +39,12 @@
 .nav-item {
   padding: 5px 10px;
   cursor: pointer;
-  /* margin: 1rem 0rem 1rem 5rem; */
-
   margin: 1rem;
 }
 
 .nav-item a {
   text-decoration: none;
-  color: var(--blue);
+  color: var(--red);
   font-weight: 600;
 }
 
@@ -65,7 +54,7 @@
 }
 
 .dropdown-content {
-  border-top: 2px solid var(--blue);
+  border-top: 2px solid var(--red);
   margin-bottom: 0.2rem;
   display: none;
   position: absolute;
@@ -78,7 +67,7 @@
 
 .dropdown-content a {
   float: none;
-  color: var(--blue);
+  color: var(--red);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -91,16 +80,6 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-  left: 75px;
-}
-
-.bm-cross {
-  background: var(--blue);
 }
 
 .bm-burger-button {
@@ -128,11 +107,7 @@
   transition: 1s ease ease-in-out; 
 }
 
-
-/* .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
-} */
-
 #page-wrap {
   overflow: auto;
 }
+
