@@ -21,6 +21,15 @@ const Sidebar = (props) => {
             case 'about':
                 router.push('/about');
                 break;
+            case 'academicCommunity/directivos':
+                router.push('/academicCommunity/directivos');
+                break;
+            case 'academicCommunity/professors':
+                router.push('/academicCommunity/professors');
+                break;
+            case 'academicCommunity/alumnis':
+                router.push('/academicCommunity/alumnis');
+                break;
             case 'equivalencias':
                 router.push('/equivalencias');
                 break;
@@ -52,7 +61,6 @@ const Sidebar = (props) => {
                 <br></br>
                 <ul className="nav-list-1">
                     <li className="nav-item">
-                        {/* <Link href={"/"}>Home</Link> */}
                         <button className="mobileNavBtn" onClick={() => handleButtonClick('home')}>Home</button>
                     </li>
                     <li className="nav-item">
@@ -62,9 +70,6 @@ const Sidebar = (props) => {
                                 <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('about')}>Proposito  actividades</button>
                                 <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('about')}>Instituciones Fundadoras</button>
                                 <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('about')}>Antecedentes Fundacionales</button>
-                                {/* <Link href={"/about"}>Proposito  actividades</Link>
-                                <Link href={'/about'}>Instituciones Fundadoras</Link>
-                                <Link href={'/about'}>Antecedentes Fundacionales</Link> */}
                             </div>
                         </div>
                     </li>
@@ -75,9 +80,6 @@ const Sidebar = (props) => {
                                 <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('academicCommunity/directivos')}>Directivos</button>
                                 <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('academicCommunity/professors')}>Nuestros profesores</button>
                                 <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('academicCommunity/alumnis')}>Nuestros alumnos</button>
-                                {/* <Link href="/academicCommunity/directivos ">Directivos</Link>
-                                <Link href='/academicCommunity/professors'>Nuestros profesores</Link>
-                                <Link href='/academicCommunity/alumnis'>Nuestros alumnos</Link> */}
                             </div>
                         </div>
                     </li>
@@ -85,18 +87,16 @@ const Sidebar = (props) => {
                         <div className="dropdown">
                             <a>Comunidad Acadamica</a>
                             <div className="dropdown-content">
-                                <Link href={"/academicProposal "}>Diplomaturas Universitarias en Corretaje y Negocios Inmobiliarios</Link>
-                                <Link href={'/academicProposal'}>Corredor inmobiliario universitario</Link>
-                                <Link href={'/academicProposal'}>Licenciatura en corretaje y negocios inmobiliarios</Link>
+                                <button className="mobileDropdownNavBtn">Diplomaturas Universitarias en Corretaje y Negocios Inmobiliarios</button>
+                                <button className="mobileDropdownNavBtn">Corredor inmobiliario universitario</button>
+                                <button className="mobileDropdownNavBtn">Licenciatura en corretaje y negocios inmobiliarios</button>
                             </div>
                         </div>
                     </li>
                     <li className="nav-item">
                         <button className="mobileNavBtn" onClick={() => handleButtonClick('equivalencias')}>Equivalencias</button>
-                        {/* <Link href={"/equivalencias"}>Equivalencias</Link> */}
                     </li>
                     <li className="nav-item">
-                        {/* <Link href={"/noticias"}>Noticias</Link> */}
                         <button className="mobileNavBtn" onClick={() => handleButtonClick('noticias')}>Noticias</button>
                     </li>
                 </ul>

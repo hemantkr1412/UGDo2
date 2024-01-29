@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './home.css';
 import '../about/about.css';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const coursesData = [
@@ -97,6 +97,7 @@ function SampleNextArrow(props) {
 }
 
 const Carousel = () => {
+    const router = useRouter();
     const [slidesToShow, setSlidesToShow] = useState(4);
     const [slidesToScroll, setSlidesToScroll] = useState(2);
 
@@ -147,40 +148,41 @@ const Carousel = () => {
             }}>
                 {
                     coursesData.map((course, index) =>
-                        <Link href={(course.page)}>
-                            <div >
-                                <Card sx={{
-                                    // border: '2px solid red',
-                                    maxWidth: 320,
-                                    // width:'20%',
-                                    margin: 'auto',
-                                }} key={index}>
-                                    <CardMedia
-                                        sx={{ height: 190 }}
-                                        image={course.img}
-                                        title="green iguana"
-                                    />
-                                    <CardContent>
-                                        <Typography
-                                            gutterBottom
-                                            variant="body1"
-                                            className="personName"
-                                            sx={{
-                                                color: 'var(--blue)',
-                                                fontWeight: 'bold',
-                                            }}>
-                                            {course.name}
-                                        </Typography>
-                                        <Typography
-                                            variant="body2"
-                                            className="personCourse"
-                                            sx={{ textAlign: 'justify' }}>
-                                            {course.desc}
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        </Link>
+                        <div>
+                            <Card sx={{
+                                // border: '2px solid red',
+                                maxWidth: 320,
+                                // width:'20%',
+                                margin: 'auto',
+                                cursor:'pointer'
+                            }}
+                                onClick={() => router.push(`http://localhost:3000/${course.page}`)}
+                                key={index}>
+                                <CardMedia
+                                    sx={{ height: 190 }}
+                                    image={course.img}
+                                    title="green iguana"
+                                />
+                                <CardContent>
+                                    <Typography
+                                        gutterBottom
+                                        variant="body1"
+                                        className="personName"
+                                        sx={{
+                                            color: 'var(--blue)',
+                                            fontWeight: 'bold',
+                                        }}>
+                                        {course.name}
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        className="personCourse"
+                                        sx={{ textAlign: 'justify' }}>
+                                        {course.desc}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        </div>
                     )
                 }
             </Slider>

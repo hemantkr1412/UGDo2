@@ -60,7 +60,7 @@ const FoundInstitutions = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '1rem',
-                        background: 'var(--blue)',
+                        background: 'var(--red)',
                         color: 'white',
                         padding: { xs: '4rem 1rem 4rem 2.5rem !important', sm: '4rem !important' }
                     }}>

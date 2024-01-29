@@ -1,8 +1,8 @@
 :root {
   /* --yellow: #F8D287; */
   /* --blue: #3F51B5; */
-  --green: rgb(145,173,63);
-  --red: rgb(173,62,85);
+  --green: rgb(145, 173, 63);
+  --red: rgb(173, 62, 85);
 }
 
 * {
@@ -11,9 +11,9 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: #000000db;
-  color:white;
+  color: white;
 }
 
 img {
