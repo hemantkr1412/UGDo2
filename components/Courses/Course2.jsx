@@ -14,7 +14,7 @@ const coursesCard = [
     {
         icon: <AccessTimeFilled />,
         title: "Duracion: ",
-        desc: "4 años"
+        desc: "3 años"
     },
     {
         icon: <AccountBalance />,
@@ -54,90 +54,96 @@ const Course4 = () => {
     return (
         <>
             <div className='coursePage'>
-                <Typography className='courseTitle' variant="h3"> Diplomatura Universitaria en Negociación y Marketing Inmobiliario</Typography>
+                <Typography className='courseTitle' variant="h4">Técnico universitario en Corretaje y Negocios Inmobiliarios</Typography>
                 <div className="courses">
                     <div className="course">
                         <div className="courseNavbar">
-                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'active' : ''}>Sobre este programa</button>
-                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'active' : ''}>Plan de estudios </button>
-                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'active' : ''}>Admision y financiacion</button>
+                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'activeBtn' : ''}>Sobre este programa</button>
+                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'activeBtn' : ''}>Plan de estudios </button>
+                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'activeBtn' : ''}>Admision y financiacion</button>
                         </div>
                         <div className="content">
-
                             <div className="page1Content" style={{ display: activePage === 'page1' ? 'block' : 'none' }}>
                                 <br></br>
-                                <Typography variant="body1">El diplomado estará capacitado para realizar intermediaciones en la compra, venta u otro tipo de explotación económica de bienes, en el marco de conocimientos profesionales sobre marketing y negociación.</Typography>
-                                <br></br>
-                                <div className='coursePoints'>
-                                    <ul>
-                                        <li>Materias :</li>
-                                        <li> Marketing Inmobiliario</li>
-                                        <li>Negociación, Mediación y Arbitraje</li>
-                                        <li> Herramientas Tecnológicas</li>
-                                        <li>Horizontes del Negocio Inmobiliario</li>
-                                        <li> Principios de Corretaje inmobiliario</li>
-
-                                    </ul>
-                                </div>
+                                <p><b>Destinatarios : </b>Quienes deseen desempeñarse en el mercado inmobiliario con una formación en todos las áreas relacionadas al corretaje.</p>
                             </div>
 
                             <div className="page2Content" style={{ display: activePage === 'page2' ? 'block' : 'none' }}>
-                                <br></br>
-                                <Typography variant='h6'><b>Formación de corta duración, concreta y aplicable,</b></Typography>
-                                <p> que se puede complementar posteriormente realizando una formación de grado para profundizar tu profesionalización.</p>
-                                <br></br>
-                                <Typography variant='h6'><b>
-                                    Trayectos de formación flexible: </b></Typography>
-                                <p>
-                                    El estudiante podrá tomar tramos independientes, y adaptar la duración y dedicación a su disponibilidad horaria.
-                                </p>
-                                <br></br>
-                                <Typography variant='h6'>
-                                    <b>DESTINATARIOS:</b>
-                                </Typography>
-                                <br></br>
-                                <p>
-                                    Quienes se desempeñen en el ámbito inmobiliario, y aspiren a mejorar su formación, adquiriendo nuevas capacidades específicas.
-                                </p>
-                                <br></br>
-                                <p>Toda persona que desee formarse para desempeñarse en el mercado inmobiliario.</p>
+                                <Typography variant='h6' sx={{ my: 5 }}><b>Plan de estudios:</b></Typography>
+                                <table>
+                                    <tr>
+                                        <th>año</th>
+                                        <th>Datos del curso</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1º Año</td>
+                                        <td>
+                                            <ul>
+                                                <li>Técnicas de la Comunicación Oral y Escrita</li>
+                                                <li>Matemática y Estadística</li>
+                                                <li>Derecho Privado </li>
+                                                <li>Principios de Corretaje</li>
+                                                <li>Principios de Corretaje</li>
+                                                <li>Informática</li>
+                                                <li>Topografía y Geodesia</li>
+                                                <li>Derecho Comercial</li>
+                                                <li>Arquitectura, Construcción y Urbanismo I</li>
+                                                <li>Valoración y Protección del Patrimonio Monumental y Natural</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2º Año</td>
+                                        <td>
+                                            <ul>
+                                                <li>Arquitectura, Construcción y Urbanismo II</li>
+                                                <li>Matemática Financiera</li>
+                                                <li>Principios Derechos Reales y Registrales</li>
+                                                <li>Tasaciones de Bienes Muebles</li>
+                                                <li>Ética y Practica Profesional</li>
+                                                <li>Contabilidad y Finanzas</li>
+                                                <li>Tasación de Bienes Inmuebles</li>
+                                                <li>Aspectos Financieros de los Negocios Inmobiliarios</li>
+                                                <li>Marketing Inmobiliario</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3º Año</td>
+                                        <td>
+                                            <ul>
+                                                <li>Fundamentos de Fideicomisos, Loteos y Barrios Cerrados</li>
+                                                <li>Gestión de Desarrollos Inmobiliarios</li>
+                                                <li>Corretaje Inmobiliario Empresarial</li>
+                                                <li>Herramientas Tecnológicas</li>
+                                                <li>Administración de Consorcio y Propiedades</li>
+                                                <li>Práctica Profesional Supervisada I</li>
+                                                <li>Métodos y Técnicas de la Investigación</li>
+                                                <li>Tasación de Bienes Rurales, Culturales e Intangibles</li>
+                                                <li>Régimen Jurídico de la Propiedad Horizontal</li>
+                                                <li>Economía Aplicada al Proyecto Urbano</li>
+                                                <li>Métodos y Normativas de la Tasación</li>
+                                                <li>Derechos Humanos, de la Vivienda y la Ciudad</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </table>
                                 <br></br>
                             </div>
 
                             <div className="page3Content" style={{ display: activePage === 'page3' ? 'block' : 'none' }}>
-                                <br></br>
-                                <Typography variant='h6'><b>MODALIDAD :</b></Typography>
-                                <br></br>
-                                <p><b>100% bajo la modalidad a distancia: </b>Se puede cursar desde cualquier lugar del mundo que disponga de conexión a Internet.</p>
-                                <br></br>
-                                <p><b>Clases sincrónicas y asincrónicas: </b>Las clases se dictarán en modalidad virtual, en forma sincrónica, quedando grabadas en las aulas de UGD Virtual, disponibles para ser visualizadas todas las veces que sea necesario.</p>
-                                <br></br>
-                                <p><b>Recursos de aprendizaje en el aula virtual: </b>Los alumnos dispondrán de contenidos en diversos formatos, adaptados al desarrollo de cada tema (documentos, sitios webs, foros, podcasts, contenidos audiovisuales y otros recursos digitales de comunicación e interacción con el equipo docente).</p>
-                                <br></br>
-                                <p><b>Cinco materias por diplomatura: </b>dos en un cuatrimestre y tres en otro.</p>
-                                <br></br>
-                                <br></br>
-
-                                <Typography variant='h6'><b>TUTORÍAS Y CENTROS TUTORIALES:</b></Typography>
-                                <br></br>
-                                <p>Los estudiantes dispondrán de tutores on-line que los orientarán en el desarrollo de su carrera y atenderán sus dudas cotidianas.</p>
-                                <br></br>
-                                <p>Además, es sitios puntuales se dispondrán Centros Tutoriales que podrán utilizar optativamente. En los mismos se desarrollarán actividades de apoyo estudiantil.</p>
-                                <br></br>
-                                <br></br>
-
-                                <Typography variant='h6'><b>Nuestras diplomaturas:</b></Typography>
-                                <br></br>
-                                <p> Diplomado Universitario en Tasación de Inmuebles </p>
-                                <br></br>
-                                <p>Diplomado Universitario en Negocios y Marketing Inmobiliario </p>
-                                <br></br>
-                                <p>  Diplomado Universitario en Proyectos Inmobiliarios </p>
-                                <br></br>
-                                <p>Diplomado Universitario en Gestión Inmobiliaria.  </p>
-                                <br></br>
-                                <br></br>
-                                <p>(Aprobación: Resolución de UGD Nro. 79/A/22. Todas las diplomaturas tienen una duración de dos cuatrimestres)</p>
+                                <Typography variant="body1" sx={{ my: 3, fontWeight:'600'}}>Alcances del título:</Typography>
+                                <p>El egresado podrá :</p>
+                                <br />
+                                <ul>
+                                    <li> Ejercer el Corretaje y venta de bienes por cuenta de terceros.</li>
+                                    <li>Realizar actos propios del corretaje y la intermediación, poniendo en relación a las partes para la conclusión del contrato proyectado por su comitente.</li>
+                                    <li>Desarrollar la gestión integral de la actividad inmobiliaria</li>
+                                    <li>Realizar tasaciones de bienes inmuebles, como también procesos de diseño y evaluación de proyectos inmobiliarios.</li>
+                                    <li>Participar en el diseño de pautas eficaces de comunicación y promoción del mercado inmobiliario.</li>
+                                    <li>Ejercer la intermediación imparcial entre la oferta y la demanda, o corretaje en la compraventa de bienes muebles e inmuebles u otro tipo de explotación económica u otros bienes susceptibles de valor económico.</li>
+                                    <li>Recabar información de los organismos correspondientes y efectuar gestiones administrativas pertinentes dentro de las entidades gubernamentales que actúan en el sector.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -148,7 +154,7 @@ const Course4 = () => {
                                 component="img"
                                 alt="green iguana"
                                 height="140"
-                                image='/assets/home/courses/course-4.png'
+                                image='/assets/home/courses/course-2.png'
                             />
                             {coursesCard.map((info, index) => (
                                 <CardContent className='media'>

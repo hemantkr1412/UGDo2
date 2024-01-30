@@ -150,9 +150,7 @@ const Carousel = () => {
                     coursesData.map((course, index) =>
                         <div>
                             <Card sx={{
-                                // border: '2px solid red',
                                 maxWidth: 320,
-                                // width:'20%',
                                 margin: 'auto',
                                 cursor:'pointer'
                             }}

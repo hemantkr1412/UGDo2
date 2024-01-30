@@ -9,8 +9,9 @@
     height: 100px;
     justify-content: center;
     align-items: center;
+    margin-top:4rem;
     margin-bottom: 2rem;
-    padding: 1rem 0;
+    /* padding: 10px 0; */
 }
 
 .courses {
@@ -36,9 +37,16 @@
     background-color: #fff;
     width: 33.3%;
     padding: 1.5rem 0rem;
-    color: #000;
+    color: var(--red);
     font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
+}
+
+.courseNavbar .activeBtn {
+    border-bottom: 4px solid var(--green);
+    background-color: var(--red);
+    color:white;
 }
 
 .media {
@@ -70,10 +78,6 @@
 
 .courseCard {
     margin: 1rem 2rem;
-}
-
-.active {
-    border-bottom: 5px solid var(--green);
 }
 
 table {

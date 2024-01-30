@@ -55,16 +55,16 @@ const Course4 = () => {
     return (
         <>
             <div className='coursePage'>
-                <Typography className='courseTitle' variant="h3"> Diplomatura Universitaria en Proyectos Inmobiliarios</Typography>
+                <Typography className='courseTitle' variant="h4"> Diplomatura Universitaria en Proyectos Inmobiliarios</Typography>
                 <div className="courses">
                     <div className="course">
                         <div className="courseNavbar">
-                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'active' : ''}>Sobre este programa</button>
-                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'active' : ''}>Plan de estudios </button>
-                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'active' : ''}>Admision y financiacion</button>
+                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'activeBtn' : ''}>Sobre este programa</button>
+                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'activeBtn' : ''}>Plan de estudios </button>
+                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'activeBtn' : ''}>Admision y financiacion</button>
                         </div>
                         <div className="content">
-                            
+
                             <div className="page1Content" style={{ display: activePage === 'page1' ? 'block' : 'none' }}>
                                 <br></br>
                                 <Typography variant="body1"> El diplomado estará capacitado para participar en la planificación, organización, formulación de proyectos de inversión inmobiliaria.
@@ -73,8 +73,8 @@ const Course4 = () => {
                                 </Typography>
                                 <br></br>
                                 <div className='coursePoints'>
+                                    <p>Materias :</p>
                                     <ul>
-                                        <li>Materias :</li>
                                         <li> Economía Aplicada al Proyecto Urbano</li>
                                         <li>Fundamentos de Fideicomisos, Loteos y Barrios Cerrados</li>
                                         <li> Tipología Arquitectónica</li>
@@ -132,16 +132,15 @@ const Course4 = () => {
 
                                 <Typography variant='h6'><b>Nuestras diplomaturas:</b></Typography>
                                 <br></br>
-                                <p> Diplomado Universitario en Tasación de Inmuebles </p>
-                                <br></br>
-                                <p>Diplomado Universitario en Negocios y Marketing Inmobiliario </p>
-                                <br></br>
-                                <p>  Diplomado Universitario en Proyectos Inmobiliarios </p>
-                                <br></br>
-                                <p>Diplomado Universitario en Gestión Inmobiliaria.  </p>
-                                <br></br>
+                                <ul>
+                                    <li> Diplomado Universitario en Tasación de Inmuebles </li>
+                                    <li>Diplomado Universitario en Negocios y Marketing Inmobiliario </li>
+                                    <li>  Diplomado Universitario en Proyectos Inmobiliarios </li>
+                                    <li>Diplomado Universitario en Gestión Inmobiliaria.  </li>
+                                </ul>
                                 <br></br>
                                 <p>(Aprobación: Resolución de UGD Nro. 79/A/22. Todas las diplomaturas tienen una duración de dos cuatrimestres)</p>
+                                <br></br>
                             </div>
                         </div>
                     </div>

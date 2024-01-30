@@ -55,16 +55,15 @@ const Course1 = () => {
     return (
         <>
             <div className='coursePage'>
-                <Typography className='courseTitle' variant="h3">Licenciatura en Corretaje y Negocios Inmobiliarios</Typography>
+                <Typography className='courseTitle' variant="h4">Licenciatura en Corretaje y Negocios Inmobiliarios</Typography>
                 <div className="courses">
                     <div className="course">
                         <div className="courseNavbar">
-                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'active' : ''}>Sobre este programa</button>
-                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'active' : ''}>Plan de estudios </button>
-                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'active' : ''}>Admision y financiacion</button>
+                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'activeBtn' : ''}>Sobre este programa</button>
+                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'activeBtn' : ''}>Plan de estudios </button>
+                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'activeBtn' : ''}>Admision y financiacion</button>
                         </div>
                         <div className="content">
-                            
                             <div className="page1Content" style={{ display: activePage === 'page1' ? 'block' : 'none' }}>
                                 <br></br>
                                 <Typography variant="body1"><b>Alcances del título: </b></Typography>

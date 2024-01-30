@@ -55,24 +55,24 @@ const Course4 = () => {
     return (
         <>
             <div className='coursePage'>
-                <Typography className='courseTitle' variant="h3">Diplomatura Universitaria en Tasación de Inmuebles
+                <Typography className='courseTitle' variant="h4">Diplomatura Universitaria en Tasación de Inmuebles
                 </Typography>
                 <div className="courses">
                     <div className="course">
                         <div className="courseNavbar">
-                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'active' : ''}>Sobre este programa</button>
-                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'active' : ''}>Plan de estudios </button>
-                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'active' : ''}>Admision y financiacion</button>
+                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'activeBtn' : ''}>Sobre este programa</button>
+                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'activeBtn' : ''}>Plan de estudios </button>
+                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'activeBtn' : ''}>Admision y financiacion</button>
                         </div>
                         <div className="content">
-                            
+
                             <div className="page1Content" style={{ display: activePage === 'page1' ? 'block' : 'none' }}>
                                 <br></br>
                                 <Typography variant="body1">El diplomado estará capacitado para participar en la realización de tasaciones y valuaciones de inmuebles, a partir del conocimiento de la metodología para la valoración arquitectónica, fiscal, legal, ambiental y cultural entre otras.</Typography>
                                 <br></br>
                                 <div className='coursePoints'>
+                                    <p>Materias :</p>
                                     <ul>
-                                        <li>Materias :</li>
                                         <li> Arquitectura, Construcción y Urbanismo</li>
                                         <li>Tasación de Bienes Rurales, Culturales e Intangibles</li>
                                         <li> Métodos y Normativas de la Tasación</li>
@@ -109,11 +109,11 @@ const Course4 = () => {
                                 <br></br>
                                 <Typography variant='h6'><b>MODALIDAD :</b></Typography>
                                 <br></br>
-                                <p><b>100% bajo la modalidad a distancia: </b>Se puede cursar desde cualquier lugar del mundo que disponga de conexión a Internet.</p>
+                                <p><b>100% bajo la modalidad a distancia : </b>Se puede cursar desde cualquier lugar del mundo que disponga de conexión a Internet.</p>
                                 <br></br>
-                                <p><b>Clases sincrónicas y asincrónicas: </b>Las clases se dictarán en modalidad virtual, en forma sincrónica, quedando grabadas en las aulas de UGD Virtual, disponibles para ser visualizadas todas las veces que sea necesario.</p>
+                                <p><b>Clases sincrónicas y asincrónicas : </b>Las clases se dictarán en modalidad virtual, en forma sincrónica, quedando grabadas en las aulas de UGD Virtual, disponibles para ser visualizadas todas las veces que sea necesario.</p>
                                 <br></br>
-                                <p><b>Recursos de aprendizaje en el aula virtual: </b>Los alumnos dispondrán de contenidos en diversos formatos, adaptados al desarrollo de cada tema (documentos, sitios webs, foros, podcasts, contenidos audiovisuales y otros recursos digitales de comunicación e interacción con el equipo docente).</p>
+                                <p><b>Recursos de aprendizaje en el aula virtual : </b>Los alumnos dispondrán de contenidos en diversos formatos, adaptados al desarrollo de cada tema (documentos, sitios webs, foros, podcasts, contenidos audiovisuales y otros recursos digitales de comunicación e interacción con el equipo docente).</p>
                                 <br></br>
                                 <p><b>Cinco materias por diplomatura: </b>dos en un cuatrimestre y tres en otro.</p>
                                 <br></br>

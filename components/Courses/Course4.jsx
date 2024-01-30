@@ -55,23 +55,23 @@ const Course4 = () => {
     return (
         <>
             <div className='coursePage'>
-                <Typography className='courseTitle' variant="h3"> Diplomatura Universitaria en Negociación y Marketing Inmobiliario</Typography>
+                <Typography className='courseTitle' variant="h4"> Diplomatura Universitaria en Negociación y Marketing Inmobiliario</Typography>
                 <div className="courses">
                     <div className="course">
                         <div className="courseNavbar">
-                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'active' : ''}>Sobre este programa</button>
-                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'active' : ''}>Plan de estudios </button>
-                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'active' : ''}>Admision y financiacion</button>
+                            <button onClick={() => handlePageClick('page1')} className={activePage === 'page1' ? 'activeBtn' : ''}>Sobre este programa</button>
+                            <button onClick={() => handlePageClick('page2')} className={activePage === 'page2' ? 'activeBtn' : ''}>Plan de estudios </button>
+                            <button onClick={() => handlePageClick('page3')} className={activePage === 'page3' ? 'activeBtn' : ''}>Admision y financiacion</button>
                         </div>
                         <div className="content">
-                            
+
                             <div className="page1Content" style={{ display: activePage === 'page1' ? 'block' : 'none' }}>
                                 <br></br>
                                 <Typography variant="body1">El diplomado estará capacitado para realizar intermediaciones en la compra, venta u otro tipo de explotación económica de bienes, en el marco de conocimientos profesionales sobre marketing y negociación.</Typography>
                                 <br></br>
                                 <div className='coursePoints'>
+                                    <p>Materias :</p>
                                     <ul>
-                                        <li>Materias :</li>
                                         <li> Marketing Inmobiliario</li>
                                         <li>Negociación, Mediación y Arbitraje</li>
                                         <li> Herramientas Tecnológicas</li>
@@ -100,8 +100,8 @@ const Course4 = () => {
                                 <p>
                                     Quienes se desempeñen en el ámbito inmobiliario, y aspiren a mejorar su formación, adquiriendo nuevas capacidades específicas.
                                 </p>
-                                    <br></br>
-                                    <p>Toda persona que desee formarse para desempeñarse en el mercado inmobiliario.</p>
+                                <br></br>
+                                <p>Toda persona que desee formarse para desempeñarse en el mercado inmobiliario.</p>
                                 <br></br>
                             </div>
 
@@ -138,7 +138,7 @@ const Course4 = () => {
                                 <p>Diplomado Universitario en Gestión Inmobiliaria.  </p>
                                 <br></br>
                                 <br></br>
-                                <p>(Aprobación: Resolución de UGD Nro. 79/A/22. Todas las diplomaturas tienen una duración de dos cuatrimestres)</p>                     
+                                <p>(Aprobación: Resolución de UGD Nro. 79/A/22. Todas las diplomaturas tienen una duración de dos cuatrimestres)</p>
                             </div>
                         </div>
                     </div>
