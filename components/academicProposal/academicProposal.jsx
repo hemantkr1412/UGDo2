@@ -98,13 +98,14 @@ const AcademicProposal = () => {
                     <Grid container spacing={5} sx={{ p: 3 }}>
                         {
                             diplomaCoursesData.map((course, index) =>
+                            
                                 <Grid item xs={12} sm={6} md={4} key={course.img}>
                                     <Card sx={{
                                         maxWidth: 320,
                                         margin: 'auto',
                                         cursor: 'pointer'
                                     }}
-                                        onClick={() => router.push(`http://localhost:3000/${course.page}`)}
+                                        onClick={() => router.push(`https://ug-do2.vercel.app/${course.page}`)}
                                         key={index}>
                                         <CardMedia
                                             sx={{ height: 190 }}

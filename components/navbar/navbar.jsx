@@ -98,7 +98,22 @@ const Navbar = () => {
                                                         key={subIndex}
                                                         onClick={() => {
                                                             page.label === 'Institucional' && router.push('/about');
-                                                            page.label === 'Propuesta Academica' && router.push('/academicProposal');
+                                                            // page.label === 'Propuesta Academica' && router.push('/academicProposal');
+                                                            if(page.label === 'Propuesta Academica') {
+                                                                switch (item) {
+                                                                    case 'Diplomaturas Universitarias en Corretaje y Negocios Inmobiliarios':
+                                                                        router.push('/academicProposal');
+                                                                        break;
+                                                                    case 'Corredor inmobiliario universitario':
+                                                                        router.push('/Courses/course4');
+                                                                        break;
+                                                                    case 'Licenciatura en corretaje y negocios inmobiliarios':
+                                                                        router.push('/Courses/course5');
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+                                                            }
                                                             if (page.label === 'Comunidad Academica') {
                                                                 switch (item) {
                                                                     case 'Directivos':
