@@ -1,13 +1,13 @@
 .linksContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: center;
     justify-content: space-around;
     background-color: #2c2c2c;
-}
-.css-22ww7n{
     flex-direction: column;
 }
+
+
 
 .btnBox {
     width: 70%;
