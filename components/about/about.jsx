@@ -1,6 +1,6 @@
 "use client"
-import FoundInstitutions from './FoundInstitutions';
-import FoundingBackground from './FoundingBackground';
+import FoundInstitutions from './foundInstitutions';
+import FoundingBackground from './foundingBackground';
 import {
     Grid,
     Box,

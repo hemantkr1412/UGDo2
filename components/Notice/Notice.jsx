@@ -9,7 +9,7 @@ import {
 import { newsData } from './newsData';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import '../Home/Home.css';
+import '../Home/home.css';
 
 const Notice = () => {
     const path = usePathname();

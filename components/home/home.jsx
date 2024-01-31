@@ -2,8 +2,8 @@
 import FirstSubSection from './FirstSubSection/FirstSubSection';
 import SecondSubSection from './SecondSubSection/SecondSubSection';
 import WelcomeSection from './WelcomeSection/WelcomeSection';
-import Carousel from './Carousel';
-import Events from './Events';
+import Carousel from './carousel';
+import Events from './events';
 import Notice from '../Notice/Notice';
 import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
