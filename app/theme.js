@@ -50,7 +50,7 @@ const theme = createTheme({
         MuiMenu: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#F8D287',
+                    background: 'red',
                 },
             },
         },

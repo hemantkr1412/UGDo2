@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
     AppBar,
     Box,
@@ -7,10 +7,9 @@ import {
     Button,
     Menu,
     MenuItem,
-    IconButton
 } from '@mui/material';
 import Hidden from '@mui/material/Hidden';
-import MenuIcon from '@mui/icons-material/Menu';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import './navbar.css';
 import { useRouter } from 'next/navigation';
 import Sidebar from './Sidebar';
@@ -30,43 +29,34 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const handleSubMenuOpen = (event, index) => {
-        console.log(`enter ${index}`);
+        // console.log(`enter ${index}`);
         const newAnchorElsUser = [...anchorElsNav];
         newAnchorElsUser[index] = event.currentTarget;
         setAnchorElsNav(newAnchorElsUser);
     };
 
     const handleSubMenuClose = (index) => {
-        console.log(`exit ${index}`);
+        // console.log(`exit ${index}`);
         const newAnchorElsUser = [...anchorElsNav];
         newAnchorElsUser[index] = null;
         setAnchorElsNav(newAnchorElsUser);
     };
 
-    const handleMenuToggle = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    const handleMenuClose = () => {
-        setIsMenuOpen(false);
-    };
-
     return (
-
         <AppBar position="static" sx={{ height: '70px' }} className="navbar">
             <Grid container spacing={3} columns={15} sx={{ height: '100%', width: '100%', m: 0 }}>
                 <Grid
                     item
                     xs={13}
-                    md={2}
+                    lg={2}
                     className="logoContainer"
                 >
-                    <Box sx={{ height: '65%', marginLeft: { xs: 0, lg: '2rem' } }}>
+                    <Box sx={{ height: '65%', marginLeft: '2rem' }}>
                         <img src="/logo_white.png" alt="" />
                     </Box>
                 </Grid>
 
-                <Hidden mdDown id="page">
+                <Hidden lgDown id="page">
                     <Grid
                         item
                         xs={13}
@@ -82,7 +72,9 @@ const Navbar = () => {
                                                 aria-haspopup="true"
                                                 onMouseEnter={(e) => handleSubMenuOpen(e, index)}
                                                 // onMouseLeave={() => handleSubMenuClose(index)}
+                                                sx={{ display: 'flex' }}
                                                 className="navBtn"
+                                                endIcon={<KeyboardArrowDownIcon />}
                                             >
                                                 {page.label}
                                             </Button>
@@ -147,23 +139,13 @@ const Navbar = () => {
                         </Box>
                     </Grid>
                 </Hidden>
-                <Hidden mdUp>
+                <Hidden lgUp>
                     <Grid
                         item xs={2}
                         sx={{
                             background: 'var(--green) !important',
                             paddingTop: '0 !important',
-                            // display: 'flex'
                         }}>
-                        {/* <IconButton
-                            size="large"
-                            edge="end"
-                            color="inherit"
-                            aria-label="open drawer"
-                            sx={{ p: 0 }}
-                        >
-                            <MenuIcon />
-                        </IconButton> */}
                         <Sidebar pageWraoId={"page-wrap"} outerContainerId={"page"} />
                         <div id='page-wrap'></div>
                     </Grid>

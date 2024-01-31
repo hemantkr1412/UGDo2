@@ -6,7 +6,6 @@
   background: var(--red);
   height: 100%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   padding-top: 0 !important;
   padding-left: 0 !important;
@@ -14,7 +13,6 @@
 
 .navbar .linksContainer {
   background: var(--green);
-  /* color: white; */
   height: 100%;
   display: flex;
   align-items: center;
@@ -22,13 +20,13 @@
   padding-top: 0 !important;
 }
 
-.linksContainer .navBtn {
+.navbar .linksContainer .navBtn {
   margin: 1rem 0;
-  /* color: var(--green); */
   color: white;
   display: block;
   text-transform: capitalize;
   font-size: 1rem;
+  display: flex;
 }
 
 .dropdownMenu>div:nth-child(3) {

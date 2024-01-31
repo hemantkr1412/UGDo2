@@ -73,7 +73,7 @@ const Course4 = () => {
                                 <div className='coursePoints'>
                                     <p>Materias :</p>
                                     <ul>
-                                        <li> Arquitectura, Construcción y Urbanismo</li>
+                                        <li>Arquitectura, Construcción y Urbanismo</li>
                                         <li>Tasación de Bienes Rurales, Culturales e Intangibles</li>
                                         <li> Métodos y Normativas de la Tasación</li>
                                         <li>Estudio Técnico y de Producto Inmobiliario</li>
