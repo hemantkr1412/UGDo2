@@ -16,7 +16,7 @@ import '../../about/about.css'
 import '../academicCommunity.css';
 
 const Professors = () => {
-    const [height, setHeight] = useState(window.innerWidth < 400 ? 145 : 180);
+    const [height, setHeight] = useState(typeof window !== 'undefined' && window.innerWidth < 400 ? 145 : 180);
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
