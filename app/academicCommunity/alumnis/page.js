@@ -1,4 +1,4 @@
-import Alumni from "@/components/AcademicCommunity/Alumni/alumni";
+import Alumni from "@/components/academicCommunity/Alumni/alumni";
 
 export default function page() {
   return <Alumni />;

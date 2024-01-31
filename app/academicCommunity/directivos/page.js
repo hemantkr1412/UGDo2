@@ -1,4 +1,4 @@
-import Directivos from "@/components/AcademicCommunity/Directivos/directivos";
+import Directivos from "@/components/academicCommunity/Directivos/directivos";
 
 export default function page() {
   return <Directivos />;

@@ -1,7 +1,5 @@
-import AcademicProposal from "@/components/AcademicProposal/AcademicProposal"
+import AcademicProposal from "@/components/academicProposal/academicProposal";
 
 export default function page() {
-    return (
-        <AcademicProposal />
-    )
+  return <AcademicProposal />;
 }

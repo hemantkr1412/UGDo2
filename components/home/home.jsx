@@ -10,7 +10,7 @@ import { Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import './home.css';
-import '../About/about.css';
+import '../about/about.css';
 
 const Home = () => {
     const theme = useTheme();
