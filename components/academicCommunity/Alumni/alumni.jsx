@@ -15,7 +15,7 @@ import {
 import { alumnis } from './alumnisData';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import '../../About/about.css';
+import '../../about/about.css';
 import '../academicCommunity.css';
 
 const Alumni = () => {

@@ -8,7 +8,7 @@ import '../../About/about.css'
 import '../academicCommunity.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import '../../About/About.css';
+import '../../about/About.css';
 
 const Directivos = () => {
     const theme = useTheme();
