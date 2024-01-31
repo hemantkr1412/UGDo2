@@ -42,7 +42,7 @@ const WelcomeSection = () => {
                         Bienvenido a UGD
                     </Typography>
                 </Grid>
-                <Grid item xs={15} md={2} className="linksContainer">
+                <Grid item xs={15} md={2} className="linksContainer1">
                     <SouthIcon className="aboutIcons" sx={{ display: { xs: 'none', md: 'block' } }} />
                     <Box className="btnBox">
                         <SchoolOutlinedIcon className="aboutIcons" />
