@@ -1,7 +1,13 @@
+"use client"
+import Home from '@/components/Home/Home';
+import { ThemeProvider } from '@emotion/react';
+import theme from './theme';
 
-import HomePage from '@/components/home/home'
-export default function Home() {
+
+export default function page() {
   return (
-    <HomePage />
+    <ThemeProvider theme={theme}>
+      <Home />
+    </ThemeProvider>
   )
 }

@@ -1,0 +1,119 @@
+.section .heading {
+    padding: 1rem;
+    margin: 2rem 0rem;
+    font-weight: bold;
+    color: var(--red);
+    border-left: 6.5rem solid var(--green);
+}
+
+.section .imgGrid {
+    display: flex;
+    justify-content: center;
+    background: var(--green);
+    padding: 3rem;
+    border-left: 4px solid var(--green);
+    border-top: 4px solid var(--green);
+    border-bottom: 4px solid var(--green);
+}
+
+.imgGrid .imgDiv {
+    width: 60%;
+    margin: auto;
+}
+
+.imgGrid .eventImgDiv {
+    width: 70%;
+    margin: auto;
+}
+
+.imgGrid .imgDiv img {
+    height: 100%;
+    width: 100%;
+}
+
+.section .textGrid {
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--green);
+}
+
+.textGrid .textGridBox {
+    color: white;
+    padding: 3rem;
+    padding-bottom: 5rem;
+}
+
+.section .programsContainer {
+    /* border: 2px solid red; */
+    background: var(--green);
+    margin: 2rem 0;
+    padding: 1rem;
+}
+
+.programsContainer .programsDiv {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.programsContainer .programsDiv h6 {
+    font-weight: 600;
+    color: black;
+    text-wrap: wrap;
+}
+
+.programsContainer .programsDiv h2 {
+    color: var(--red);
+    font-weight: bold;
+}
+
+/* MEDIA QUERY */
+
+@media screen and (max-width:1200px) {
+    .section .textGrid .textGridBox {
+        padding: 2rem;
+    }
+
+    .programsContainer .programsDiv {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .section .imgGrid {
+        padding: 1rem;
+    }
+
+    .section .textGrid .textGridBox {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .section .heading {
+        border-left: 3.5rem solid var(--green);
+    }
+}
+
+@media screen and (min-width:900px) and (max-width:1200px) {
+    .section .textGrid .textGridBox {
+        padding: 1rem;
+    }
+
+    .section .heading {
+        border-left: 3.5rem solid var(--green);
+    }
+}
+
+@media screen and (max-width:400px) {
+    .section .heading {
+        border-left: 1.5rem solid var(--green);
+    }
+}

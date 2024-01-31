@@ -1,0 +1,136 @@
+/* .coursePage {
+    background-color: #fff;
+} */
+
+.courseTitle {
+    background-color: var(--red);
+    color: #fff;
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    margin-top:4rem;
+    margin-bottom: 2rem;
+    /* padding: 10px 0; */
+}
+
+.courses {
+    display: flex;
+}
+
+.course {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-bottom: 4rem;
+}
+
+.courseNavbar {
+    width: 90%;
+    color: #000;
+    margin: 1rem 3rem;
+    display: flex;
+    border-radius: 10px
+}
+
+.courseNavbar button {
+    background-color: #fff;
+    width: 33.3%;
+    padding: 1.5rem 0rem;
+    color: var(--red);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.courseNavbar .activeBtn {
+    border-bottom: 4px solid var(--green);
+    background-color: var(--red);
+    color:white;
+}
+
+.media {
+    padding: 10px;
+}
+
+.mediaContent {
+    display: flex;
+    gap: 4%;
+}
+
+.content {
+    width: 90%;
+    margin: 1rem 3rem;
+    color: #fff;
+    background-color: var(--green);
+}
+
+.coursePoints {
+    margin: 1rem 3rem;
+    font-size: 1rem;
+}
+
+.page1Content,
+.page2Content,
+.page3Content {
+    margin: 1rem 2rem;
+}
+
+.courseCard {
+    margin: 1rem 2rem;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+ul {
+    margin-left: 5%;
+}
+
+@media only screen and (max-width:768px) {
+    .courses {
+        flex-direction: column;
+    }
+
+    .course {
+        width: 100%;
+    }
+
+    .courseTitle {
+        font-size: 22px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .content {
+        width: 100%;
+        margin: 1rem 0rem;
+    }
+
+    .courseNavbar {
+        width: 100%;
+        margin: 0rem;
+    }
+
+    .coursePoints {
+        margin: 0rem;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .courseCard {
+        margin: 1rem auto;
+    }
+}

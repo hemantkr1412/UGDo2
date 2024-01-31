@@ -1,0 +1,97 @@
+.homeMainContainer {
+    height: calc(100vh - 70px);
+    /* margin-top: 70px; */
+    background: url('/assets/home/bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.homeTextContainer {
+    display: flex;
+    flex-direction: column !important;
+    z-index: 2;
+}
+
+.overlay {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* EVENTS and NEWS */
+
+.eventSection,
+.newsSection {
+    padding: 2rem 0;
+}
+
+.advantagesSection .heading,
+.eventSection .heading,
+.newsSection .heading {
+    margin: 2rem 6rem;
+    font-weight: bold;
+    color: var(--red);
+}
+
+.eventSection .eventText {
+    color: var(--red);
+}
+
+.eventSection .registerBtn {
+    font-weight: bold;
+    color: var(--red);
+    border: 2px solid var(--red);
+}
+
+hr {
+    border: 1px solid;
+    margin: -10px 0;
+}
+
+.newsSection .newsBtn {
+    background-color: white;
+    color: var(--green);
+    font-weight: bold;
+    text-transform: capitalize;
+    width: 40%;
+}
+
+/* MEDIA QUERY */
+
+/* EVENTS SECTION */
+
+@media only screen and (max-width:900px) {
+
+    .eventSection .heading,
+    .newsSection .heading {
+        text-align: center;
+        margin: 2rem 0;
+    }
+}
+
+@media only screen and (max-width:450px) {
+
+    .newsSection .eventCard {
+        padding: 2rem 1rem;
+    }
+
+    .newsSection .newsBtn {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .btn {
+        font-size: 1rem;
+    }
+}

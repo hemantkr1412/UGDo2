@@ -1,0 +1,50 @@
+.bgImage {
+    object-fit: cover;
+}
+
+.bgImageOverlay {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 65vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.memberImg {
+    border-top-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.academicCommunitySection .personName {
+    color: var(--red);
+    font-weight: 600;
+}
+
+.academicCommunitySection .personCourse {
+    color: var(--red);
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width:600px) {
+    .academicCommunitySection .personName {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .academicCommunitySection .cardContent {
+        padding: 8px;
+    }
+
+    .academicCommunitySection .personName {
+        font-size: 12px;
+    }
+}

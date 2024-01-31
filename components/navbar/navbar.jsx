@@ -1,346 +1,158 @@
 "use client";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link"; 
-import { usePathname, useSearchParams } from 'next/navigation'
-import "./navbar.css"
-// import Accordian from "./accordian";
-const navigation = [
-  { name: 'Hogar', href: '/', current: true },
-  { name: 'Verify', href: '#', current: false },
-]
+import { useState } from 'react';
+import {
+    AppBar,
+    Box,
+    Grid,
+    Button,
+    Menu,
+    MenuItem,
+} from '@mui/material';
+import Hidden from '@mui/material/Hidden';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import './navbar.css';
+import { useRouter } from 'next/navigation';
+import Sidebar from './Sidebar';
 
-export default function Navbar() {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  console.log(pathname)
-  const [isScroll,setIsScroll] = useState(false);
-  const [isToggled, setToggle] = useState(true);
-  // useEffect(() => {
-  //   const scrolling = () => {
-  //     window.scrollY >= 2 ? setIsScroll(true) : setIsScroll(false);
-  //   };
+const pages = [
+    'Home',
+    { label: 'Institucional', submenu: ['Proposito y actividades', 'Instituciones Fundadoras', 'Antecedentes Fundacionales'] },
+    { label: 'Comunidad Academica', submenu: ['Directivos', 'Nuestros profesores', 'Nuestros alumnos'] },
+    { label: 'Propuesta Academica', submenu: ['Diplomaturas Universitarias en Corretaje y Negocios Inmobiliarios', 'Corredor inmobiliario universitario', 'Licenciatura en corretaje y negocios inmobiliarios'] },
+    'Equivalencias',
+    'Noticias',
+];
 
-  //   window.addEventListener("scroll", scrolling);
-  //   const getDocument = document.querySelector("#menu");
-  //   if(isToggled){
-  //     getDocument.style.display = "none";
-  //   }else{
-  //     getDocument.style.display = "flex";
-  //   }
+const Navbar = () => {
+    const router = useRouter();
+    const [anchorElsNav, setAnchorElsNav] = useState(new Array(pages.length).fill(null));
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  //   return () => {
-  //     window.removeEventListener("scroll", scrolling);
-  //   };
-  // }, [pathname,isToggled]);
+    const handleSubMenuOpen = (event, index) => {
+        // console.log(`enter ${index}`);
+        const newAnchorElsUser = [...anchorElsNav];
+        newAnchorElsUser[index] = event.currentTarget;
+        setAnchorElsNav(newAnchorElsUser);
+    };
 
+    const handleSubMenuClose = (index) => {
+        // console.log(`exit ${index}`);
+        const newAnchorElsUser = [...anchorElsNav];
+        newAnchorElsUser[index] = null;
+        setAnchorElsNav(newAnchorElsUser);
+    };
 
-  // const { y } = useSpring({
-  //   y: isToggled ? 180 : 0
-  // });
+    return (
+        <AppBar position="static" sx={{ height: '70px' }} className="navbar">
+            <Grid container spacing={3} columns={15} sx={{ height: '100%', width: '100%', m: 0 }}>
+                <Grid
+                    item
+                    xs={13}
+                    lg={2}
+                    className="logoContainer"
+                >
+                    <Box sx={{ height: '65%', marginLeft: '2rem' }}>
+                        <img src="/logo_white.png" alt="" />
+                    </Box>
+                </Grid>
 
-  // const menuAppear = useSpring({
-  //   transform: isToggled ? "translate3D(0,0,0)" : "translate3D(0,-40px,0)",
-  //   opacity: isToggled ? 1 : 0
-  // });
-  
+                <Hidden lgDown id="page">
+                    <Grid
+                        item
+                        xs={13}
+                        className='linksContainer'
+                    >
+                        <Box sx={{ display: 'flex', flexGrow: 1, gap: '1.5rem' }} className="linksContainerBox">
+                            {pages.map((page, index) => (
+                                <>
+                                    {typeof page === 'object' ? (
+                                        <div>
+                                            <Button
+                                                aria-controls={`submenu-${index}`}
+                                                aria-haspopup="true"
+                                                onMouseEnter={(e) => handleSubMenuOpen(e, index)}
+                                                // onMouseLeave={() => handleSubMenuClose(index)}
+                                                sx={{ display: 'flex' }}
+                                                className="navBtn"
+                                                endIcon={<KeyboardArrowDownIcon />}
+                                            >
+                                                {page.label}
+                                            </Button>
+                                            <Menu
+                                                id={`submenu-${index}`}
+                                                anchorEl={anchorElsNav[index]}
+                                                open={Boolean(anchorElsNav[index])}
+                                                onClose={() => handleSubMenuClose(index)}
+                                                className="dropdownMenu"
+                                                anchorOrigin={{
+                                                    vertical: 'bottom',
+                                                    horizontal: 'left'
+                                                }}
+                                                transformOrigin={{
+                                                    vertical: 'top',
+                                                    horizontal: 'left'
+                                                }}
+                                            >
+                                                {page.submenu.map((item, subIndex) => (
+                                                    <MenuItem
+                                                        key={subIndex}
+                                                        onClick={() => {
+                                                            page.label === 'Institucional' && router.push('/about');
+                                                            page.label === 'Propuesta Academica' && router.push('/academicProposal');
+                                                            if (page.label === 'Comunidad Academica') {
+                                                                switch (item) {
+                                                                    case 'Directivos':
+                                                                        router.push('/academicCommunity/directivos');
+                                                                        break;
+                                                                    case 'Nuestros profesores':
+                                                                        router.push('/academicCommunity/professors');
+                                                                        break;
+                                                                    case 'Nuestros alumnos':
+                                                                        router.push('/academicCommunity/alumnis');
+                                                                        break;
+                                                                    default:
+                                                                        break;
+                                                                }
+                                                            }
+                                                            handleSubMenuClose(index);
+                                                        }}
+                                                        sx={{ color: 'white' }}
+                                                    >
+                                                        {item}
+                                                    </MenuItem>
+                                                ))}
+                                            </Menu>
+                                        </div>
+                                    ) : (
+                                        <Button
+                                            key={index}
+                                            onClick={() => {
+                                                router.push(`/${page.toLowerCase()}`)
+                                            }}
+                                            className="navBtn"
+                                        >
+                                            {page}
+                                        </Button>
+                                    )}
+                                </>
+                            ))}
+                        </Box>
+                    </Grid>
+                </Hidden>
+                <Hidden lgUp>
+                    <Grid
+                        item xs={2}
+                        sx={{
+                            background: 'var(--green) !important',
+                            paddingTop: '0 !important',
+                        }}>
+                        <Sidebar pageWraoId={"page-wrap"} outerContainerId={"page"} />
+                        <div id='page-wrap'></div>
+                    </Grid>
+                </Hidden>
+            </Grid>
+        </AppBar>
+    );
+};
 
-
-  const linkStyle ={
-    display:"flex",
-    color:pathname !== "/" ? "#1C3564":(isScroll ? "#1C3564" : "white"),
-    fontSize:"1rem",
-    fontFamily:"Open Sans",
-    fontWeight:"400",
-    fontStyle:"normal",
-    backgroundColor:"transparent",
-    padding:"0px"
-  }
-
-
-  //Mobile version
-  const handleClickMenu = () =>{
-    setToggle(!isToggled);
-    // const getDocument = document.querySelector("#menu");
-    // if(isToggled){
-    //   getDocument.style.display = "none";
-    // }else{
-    //   getDocument.style.display = "flex";
-    // }
-  }
-
-
-  return (
-   <>
-   <div 
-    className="navbar1"
-    style={{
-    // position: "fixed",
-    // top: 0,
-    // zIndex: 100,
-    backgroundColor: pathname !== "/" ? "white" :(isScroll ? "white" : "rgba(0, 0, 0, 0.5)"),
-    // color:"--primary-color",
-    // width: "100vw",
-    // height: "70px",
-    // display: "flex",
-    // justifyContent:"space-between",
-    // padding:"1rem 2rem",
-    // boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-   }} >
-
-    <div >
-      <Image src="/UGDLOGOCL.svg" height={200} width={200} alt="UGD"/>
-    </div>
-
-
-   <div style={{
-    display:"flex",
-    gap:"5rem",
-   }}>
-    <div style={{
-      display:"flex",
-      justifyContent:"space-between",
-      gap:"5rem",
-      alignItems:"center",
-      color:"--primary-color",
-      position: "relative"
-    }}>
-       
-          <Link style={linkStyle} href={"/"} > Home </Link>
-        
-
-
-        <div className="navbutton" >
-          <div className="dropdown1">
-            <button className="dropbtn1" style={{
-          color: pathname !== "/" ? "#1C3564":(isScroll ? "#1C3564" : "white")
-        }}>información universitaria ▼</button>
-              <div className="dropdown-content1">
-                <div className="column" style={{
-                  width:"100%",
-                  height:"auto"
-                }}>
-                  <Link href={"/aboutus"}>Quienes somos</Link>
-                  <Link href={"/authorities"}>Autoridades</Link>
-                  <Link href={"/ugdvirtualModel"}>Modelo Virtual UGD </Link>
-                  <Link href={"/equivalences/form"}>Equivalencies</Link>
-                </div>
-              </div>
-          </div>
-        </div>
-
-        <div className="navbutton" >
-          <div className="dropdown1">
-            <button className="dropbtn1" style={{
-              color:pathname !== "/" ? "#1C3564":(isScroll ? "#1C3564" : "white")
-            }}>Comunidad académica ▼</button>
-              <div className="dropdown-content1">
-                <div className="column" style={{
-                  width:"100%",
-                  height:"auto",
-                  minWidth: "180px",
-                }}>
-                  <Link href={"/student"}>Nuestros destinatarios</Link>
-                  <Link href={"/teacher"}>Nuestros Docentes</Link>
-                  <Link href={"/partnership"}>Amplia red de vínculos internacionales</Link>
-                  <Link href={'/scholarshipsAndbenefits'}>Becas y Beneficios</Link>
-                  <Link href={'/miami'}>Beca Latina</Link>
-                </div>
-              </div>
-          </div>
-        </div>
-
-
-
-        <div className="dropdown"style={{
-          padding:"0px",
-          backgroundColor:"transparent",
-        }}>
-        <button class="dropbtn" style={{
-          padding:"0px",
-          backgroundColor:"transparent",
-          color:pathname !== "/" ? "#1C3564":(isScroll ? "#1C3564" : "white")
-        }}>Carreras ▼
-        </button>
-        <div class="dropdown-content">
-          <div className="row">
-            <div className="column">
-              {/* <h3>Computing</h3> */}
-              <Link href={`/courses/software`}>Tecnicatura en Desarrollo de Software</Link>
-              <Link href={`/courses/java`}>Programador Java Full Stack</Link>
-              <Link href={`/courses/recursos`}>Gestion de Recursos Tecnológicos</Link>
-            </div>
-            <div className="column">
-              {/* <h3>Miami</h3> */}
-              <Link href={"/courses/maestria"}>Maestría </Link>
-              <Link href={"/courses/educativa"}>Licenciatura en Gestión Educativa</Link>
-              <Link href={"/courses/marketing"}>Lic en Marketing</Link>
-              <Link href={"/courses/administracion"}>Lic en Administración</Link>
-              <Link href={"/courses/tecnologias"}>Especialización en gestión de TICs</Link>
-            </div>
-            <div className="column">
-              <Link href={"/courses/doctorado"}>Doctorado</Link>
-              <Link href={"/courses/profesionales"}>Ciclo de Profesorado Universitario</Link>
-            </div>
-          </div>
-        </div>
-      </div> 
-      <Link style={linkStyle} href={"/verify"} > Verificar </Link>
-        
-    </div>
-    
-    
-
-
-
-    {/* <div style={{
-            display:"flex",
-            justifyContent:"space-between",
-            gap:"5rem",
-            alignItems:"center",
-            color:"--primary-color",
-    }}>
-
-      <div className="dropdown">
-        <button class="dropbtn" >Courses ▼</button>
-        <div class="dropdown-content">
-          <div className="row">
-              <div className="column">
-                <h3>Argentina</h3>
-                <Link href={"/courses"}>Computing (courses, diploma, degree)</Link>
-                <a href="#">Business Management</a>
-                <a href="#">Marketing</a>
-                <a href="#">University Teaching Cycle</a>
-                <a href="#">Degree Cycle in Educational Institutions Management</a>
-              </div>
-              <div className="column">
-                <h3>Miami</h3>
-                <a href="#">Computing (courses, diploma, degree)</a>
-                <a href="#">Business Management</a>
-                <a href="#">Marketing</a>
-                <a href="#">University Teaching Cycle</a>
-                <a href="#">Degree Cycle in Educational Institutions Management</a>
-              </div>
-              <div className="column">
-                <h3>Category 3</h3>
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-              </div>
-          </div>
-        </div>
-      </div> 
-    </div> */}
-    </div>
-
-   </div>
-
-
-    {/* <div className="navmanu" style={{
-      position: "fixed",
-      top: 0,
-      zIndex: 100,
-      backgroundColor:  "white",
-      width: "100vw",
-      height: "70px",
-      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-      color:"#6B6C6C"
-    }}>
-      <div style={{
-        width:"100%",
-        display:"flex",
-        height:"100%",
-        justifyContent:"space-between",
-      }}>
-          <div style={{
-            padding:"1rem 0.4rem",
-            width:"100%",
-            height:"100%",
-            display:"flex",
-            justifyContent:"space-between",
-          }}>
-          <Image  src="/UGDLOGOCL.svg" height={150} width={150} alt="UGD"/>
-          
-          {!isToggled ?   <Image className="maunuicon" src="/close.svg" height={120} width={70} alt="UGD" onClick={handleClickMenu}/>
-          :
-          <Image  src="/hamburger.svg" height={120} width={70} alt="UGD" onClick={handleClickMenu}/>
-          }
-   
-          </div>
-        <div 
-          id="menu"
-          style={{
-            marginTop:"4rem",
-            width:"100%",
-            position: "absolute",
-            backgroundColor:"white",
-            color:"#6B6C6C",
-            display:"none",
-            flexDirection:"column",
-            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
-          }}>
-              <Link href={"/"} style={{
-                	padding: "1.5rem 2rem",
-                  borderBottom: "2px solid  var(--primary-90)",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  cursor: "pointer",
-              }}
-              onClick={()=>{
-                setToggle(!isToggled)
-              }} 
-              >Home</Link>
-              <Accordian 
-              heading={"información universitaria"}
-              text={"University Info"}
-              index={"1"}
-              key={1}
-              setToggle={setToggle}
-              isToggled={isToggled}
-              />
-              <Accordian 
-              heading={"Comunidad académica"}
-              text={"Academic Community"}
-              index={"1"}
-              key={1}
-              setToggle={setToggle}
-              isToggled={isToggled}
-              />
-              <Accordian 
-              heading={"Carreras"}
-              text={"Courses"}
-              index={"1"}
-              setToggle={setToggle}
-              isToggled={isToggled}
-              key={1}
-              />
-              <Link href={"/verify"} style={{
-                	padding: "1.5rem 2rem",
-                  borderBottom: "2px solid  var(--primary-90)",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  cursor: "pointer",
-              }}
-              onClick={()=>{
-                setToggle(!isToggled)
-              }} 
-              >Verificar</Link>
-          </div>
-      
-      </div>
-
-    </div> */}
-
-
-   </>
-  )
-}
-
-
-
-
-
-
-
+export default Navbar;

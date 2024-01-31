@@ -1,0 +1,66 @@
+.secondSectionHeading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    margin-top: 5rem;
+    font-weight: 600;
+    background-color: var(--green);
+    color: white;
+}
+
+.imgContainer {
+    height: 65vh;
+    width: 100%;
+    position: relative;
+}
+
+.imgOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.advantagesBox {
+    height: 100%;
+    background: var(--red);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.advantagesBox .cardsIcon {
+    transform: scale(1.6);
+    color: var(--green);
+    margin: 1rem 0;
+}
+
+.advantagesTitle {
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width:1200px) {
+
+    .secondSectionHeading {
+        padding: 1rem;
+        text-align: center;
+    }
+}
