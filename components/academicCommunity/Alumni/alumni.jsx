@@ -21,7 +21,7 @@ import '../academicCommunity.css';
 const Alumni = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-    const [height, setHeight] = useState(window.innerWidth < 400 ? 145 : 180);
+    const [height, setHeight] = useState(typeof window !== 'undefined' && window.innerWidth < 400 ? 145 : 180);
 
     useEffect(() => {
         const handleResize = () => {
@@ -33,6 +33,7 @@ const Alumni = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
     return (
         <>
             <section>
@@ -96,7 +97,7 @@ const Alumni = () => {
 
             <br /><br />
 
-            <section className="section academicCommunitySection">
+            {/* <section className="section academicCommunitySection">
                 <Typography variant={isSmallScreen ? 'h5' : 'h4'} className='heading'>
                     Nuestros alumnos
                 </Typography>
@@ -124,7 +125,7 @@ const Alumni = () => {
                         )
                     }
                 </Grid>
-            </section>
+            </section> */}
 
             <br /><br /><br />
         </>
