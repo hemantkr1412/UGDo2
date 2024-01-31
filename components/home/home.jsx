@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import './Home.css';
+import './home.css';
 import '../About/about.css';
 
 const Home = () => {
