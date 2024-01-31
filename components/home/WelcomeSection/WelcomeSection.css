@@ -72,7 +72,7 @@
 
 @media only screen and (max-width:900px) {
     .linksContainer {
-        flex-direction: row;
+        flex-direction: row !important;
         padding: 1.5rem 0;
     }
 
