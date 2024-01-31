@@ -64,7 +64,7 @@ const Professors = () => {
                 <Grid container spacing={3} sx={{ p: 3 }}>
                     {
                         professors.map((professor, index) =>
-                            <Grid item xs={6} sm={4} md={3} lg={2}>
+                            <Grid item xs={6} sm={4} md={3} lg={2} key={professor.name}>
                                 <Card sx={{ maxWidth: 345 }} key={index}>
                                     <CardMedia
                                         sx={{ height}}

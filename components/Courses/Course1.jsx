@@ -220,7 +220,7 @@ const Course1 = () => {
                                 image='/assets/home/courses/course-1.png'
                             />
                             {coursesCard.map((info, index) => (
-                                <CardContent className='media'>
+                                <CardContent className='media' key={info.title}>
                                     <div className='mediaContent'>
                                         {info.icon}
                                         <Typography variant="h7" component="div">

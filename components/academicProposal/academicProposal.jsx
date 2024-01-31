@@ -98,7 +98,7 @@ const AcademicProposal = () => {
                     <Grid container spacing={5} sx={{ p: 3 }}>
                         {
                             diplomaCoursesData.map((course, index) =>
-                                <Grid item xs={12} sm={6} md={4}>
+                                <Grid item xs={12} sm={6} md={4} key={course.img}>
                                     <Card sx={{
                                         maxWidth: 320,
                                         margin: 'auto',

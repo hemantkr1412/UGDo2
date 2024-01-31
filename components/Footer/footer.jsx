@@ -30,7 +30,7 @@ const Footer = () => {
                     <List>
                         {
                             ['Quienes Somos', 'CILA', 'UGD', 'Nuestros alumnos'].map((item, index) =>
-                                <ListItem sx={{ pt: 0 }}>
+                                <ListItem sx={{ pt: 0 }} key={item}>
                                     <ListItemText primary={item} />
                                 </ListItem>
                             )
