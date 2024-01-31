@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { slide as Menu } from "react-burger-menu";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import "./Navbar.css";
+import "./navbar.css";
 
 const Sidebar = (props) => {
     const router = useRouter();
