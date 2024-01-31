@@ -148,13 +148,14 @@ const Carousel = () => {
             }}>
                 {
                     coursesData.map((course, index) =>
+                        <Link href={`${course.page}`} key={`${course.page}`}>
                         <div key={`${course.page}`}>
                             <Card sx={{
                                 maxWidth: 320,
                                 margin: 'auto',
                                 cursor:'pointer'
                             }}
-                                onClick={() => router.push(`http://localhost:3000/${course.page}`)}
+                                // onClick={() => router.push(`/${course.page}`)}
                                 key={index}>
                                 <CardMedia
                                     sx={{ height: 190 }}
@@ -181,6 +182,7 @@ const Carousel = () => {
                                 </CardContent>
                             </Card>
                         </div>
+                        </Link>
                     )
                 }
             </Slider>
