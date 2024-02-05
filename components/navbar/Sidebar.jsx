@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { slide as Menu } from "react-burger-menu";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import "./navbar.css";
 
@@ -12,35 +11,10 @@ const Sidebar = (props) => {
 
     const closeMenu = () => setMenuOpen(false);
 
-    const handleButtonClick = (btnText) => {
-        console.log(btnText);
-        switch (btnText) {
-            case 'home':
-                router.push('/');
-                break;
-            case 'about':
-                router.push('/about');
-                break;
-            case 'academicCommunity/directivos':
-                router.push('/academicCommunity/directivos');
-                break;
-            case 'academicCommunity/professors':
-                router.push('/academicCommunity/professors');
-                break;
-            case 'academicCommunity/alumnis':
-                router.push('/academicCommunity/alumnis');
-                break;
-            case 'equivalencias':
-                router.push('/equivalencias');
-                break;
-            case 'noticias':
-                router.push('/noticias');
-                break;
-            default:
-                break;
-        }
+    const handleButtonClick = (route) => {
+        router.push(route);
         closeMenu();
-    }
+    };
 
     useEffect(() => {
         const handleOutsideClick = (event) => {
@@ -55,49 +29,55 @@ const Sidebar = (props) => {
         };
     }, [menuOpen]);
 
+    useEffect(() => {
+        document.body.classList.toggle("menu-open", menuOpen);
+        return () => {
+            document.body.classList.remove("menu-open");
+        };
+    }, [menuOpen]);
+
+    const dropdownItems = {
+        "Institucional": [
+            { text: "Proposito  actividades", route: "/about" },
+            { text: "Instituciones Fundadoras", route: "/about" },
+            { text: "Antecedentes Fundacionales", route: "/about" }
+        ],
+        "Propuesta Academica": [
+            { text: "Directivos", route: "/academicCommunity/directivos" },
+            { text: "Nuestros profesores", route: "/academicCommunity/professors" },
+            { text: "Nuestros alumnos", route: "/academicCommunity/alumnis" }
+        ],
+        "Comunidad Acadamica": [
+            { text: "Diplomaturas Universitarias en Corretaje y Negocios Inmobiliarios", route: "" },
+            { text: "Corredor inmobiliario universitario", route: "" },
+            { text: "Licenciatura en corretaje y negocios inmobiliarios", route: "" }
+        ]
+    };
+
     return (
         <Menu right disableOverlayClick isOpen={menuOpen} onStateChange={handleStateChange}>
             <div className="sidebar">
-                <br></br>
                 <ul className="nav-list-1">
                     <li className="nav-item">
-                        <button className="mobileNavBtn" onClick={() => handleButtonClick('home')}>Home</button>
+                        <button className="mobileNavBtn" onClick={() => handleButtonClick('/')}>Home</button>
                     </li>
-                    <li className="nav-item">
-                        <div className="dropdown">
-                            <a>Institucional</a>
-                            <div className="dropdown-content">
-                                <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('about')}>Proposito  actividades</button>
-                                <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('about')}>Instituciones Fundadoras</button>
-                                <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('about')}>Antecedentes Fundacionales</button>
+                    {Object.entries(dropdownItems).map(([title, items], index) => (
+                        <li key={index} className="nav-item">
+                            <div className="dropdown">
+                                <a>{title}</a>
+                                <div className="dropdown-content">
+                                    {items.map((item, index) => (
+                                        <button key={index} className="mobileDropdownNavBtn" onClick={() => handleButtonClick(item.route)}>{item.text}</button>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
+                        </li>
+                    ))}
+                    <li className="nav-item">
+                        <button className="mobileNavBtn" onClick={() => handleButtonClick('/equivalencias')}>Equivalencias</button>
                     </li>
                     <li className="nav-item">
-                        <div className="dropdown">
-                            <a>Propuesta Academica</a>
-                            <div className="dropdown-content">
-                                <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('academicCommunity/directivos')}>Directivos</button>
-                                <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('academicCommunity/professors')}>Nuestros profesores</button>
-                                <button className="mobileDropdownNavBtn" onClick={() => handleButtonClick('academicCommunity/alumnis')}>Nuestros alumnos</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li className="nav-item">
-                        <div className="dropdown">
-                            <a>Comunidad Acadamica</a>
-                            <div className="dropdown-content">
-                                <button className="mobileDropdownNavBtn">Diplomaturas Universitarias en Corretaje y Negocios Inmobiliarios</button>
-                                <button className="mobileDropdownNavBtn">Corredor inmobiliario universitario</button>
-                                <button className="mobileDropdownNavBtn">Licenciatura en corretaje y negocios inmobiliarios</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li className="nav-item">
-                        <button className="mobileNavBtn" onClick={() => handleButtonClick('equivalencias')}>Equivalencias</button>
-                    </li>
-                    <li className="nav-item">
-                        <button className="mobileNavBtn" onClick={() => handleButtonClick('noticias')}>Noticias</button>
+                        <button className="mobileNavBtn" onClick={() => handleButtonClick('/noticias')}>Noticias</button>
                     </li>
                 </ul>
             </div>

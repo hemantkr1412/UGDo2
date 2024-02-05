@@ -1,6 +1,5 @@
 .homeMainContainer {
     height: calc(100vh - 70px);
-    /* margin-top: 70px; */
     background: url('/assets/home/bg.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -26,6 +25,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* CAROUSEL */
+
+.carouselSection .link{
+    text-decoration: none;
 }
 
 /* EVENTS and NEWS */

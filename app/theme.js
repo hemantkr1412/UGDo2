@@ -47,17 +47,20 @@ const theme = createTheme({
         //     },
         //   ],
         // },
-        MuiMenu: {
-            styleOverrides: {
-                root: {
-                    background: 'red',
-                },
-            },
-        },
+        // MuiMenu: {
+        //     styleOverrides: {
+        //         root: {
+        //             backgroundColor: 'red',
+        //         },
+        //     },
+        // },
         MuiMenuItem: {
             styleOverrides: {
                 root: {
-                    color: '#3F51B5',
+                    // background: '#3F51B5',
+                    "&:hover":{
+                        background:'rgb(173, 62, 85)'
+                    }
                 },
             },
         },

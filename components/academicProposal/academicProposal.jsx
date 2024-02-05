@@ -1,18 +1,17 @@
 "use client"
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
 import Grid from '@mui/material/Grid';
 import {
-    Box,
     Typography,
     Card,
     CardMedia,
     CardContent,
-    CardActions,
-    Button,
 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import '../about/about.css';
+import './academicProposal.css';
 
 const diplomaCoursesData = [
     {
@@ -41,6 +40,8 @@ const diplomaCoursesData = [
 
 const AcademicProposal = () => {
     const router = useRouter();
+    const pathname = usePathname();
+    console.log(pathname);
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -98,39 +99,41 @@ const AcademicProposal = () => {
                     <Grid container spacing={5} sx={{ p: 3 }}>
                         {
                             diplomaCoursesData.map((course, index) =>
-                            
                                 <Grid item xs={12} sm={6} md={4} key={course.img}>
-                                    <Card sx={{
-                                        maxWidth: 320,
-                                        margin: 'auto',
-                                        cursor: 'pointer'
-                                    }}
-                                        onClick={() => router.push(`https://ug-do2.vercel.app/${course.page}`)}
-                                        key={index}>
-                                        <CardMedia
-                                            sx={{ height: 190 }}
-                                            image={course.img}
-                                            title="green iguana"
-                                        />
-                                        <CardContent>
-                                            <Typography
-                                                gutterBottom
-                                                variant="body1"
-                                                className="personName"
-                                                sx={{
-                                                    color: 'var(--blue)',
-                                                    fontWeight: 'bold',
-                                                }}>
-                                                {course.name}
-                                            </Typography>
-                                            <Typography
-                                                variant="body2"
-                                                className="personCourse"
-                                                sx={{ textAlign: 'justify' }}>
-                                                {course.desc}
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
+                                    <Link href={`${course.page}`} key={`${course.page}`} className="link">
+                                        <Card sx={{
+                                            maxWidth: 320,
+                                            margin: 'auto',
+                                            cursor: 'pointer'
+                                        }}
+                                            // onClick={() => router.push(`https://ug-do2.vercel.app/${course.page}`)}
+                                            // onClick={() => router.push(`/${course.page}`)}
+                                            key={index}>
+                                            <CardMedia
+                                                sx={{ height: 190 }}
+                                                image={course.img}
+                                                title="green iguana"
+                                            />
+                                            <CardContent>
+                                                <Typography
+                                                    gutterBottom
+                                                    variant="body1"
+                                                    className="personName"
+                                                    sx={{
+                                                        color: 'var(--blue)',
+                                                        fontWeight: 'bold',
+                                                    }}>
+                                                    {course.name}
+                                                </Typography>
+                                                <Typography
+                                                    variant="body2"
+                                                    className="personCourse"
+                                                    sx={{ textAlign: 'justify' }}>
+                                                    {course.desc}
+                                                </Typography>
+                                            </CardContent>
+                                        </Card>
+                                    </Link>
                                 </Grid>
                             )
                         }

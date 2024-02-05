@@ -27,7 +27,7 @@ const WelcomeSection = () => {
 
     return (
         <section>
-            <Grid container columns={15}>
+            <Grid container columns={15} className="welcomeSection">
                 <Grid item xs={15} sx={{
                     display: { xs: 'block', md: 'none' },
                     background: 'var(--red)',
@@ -44,24 +44,14 @@ const WelcomeSection = () => {
                 </Grid>
                 <Grid item xs={15} md={2} className="linksContainer">
                     <SouthIcon className="aboutIcons" sx={{ display: { xs: 'none', md: 'block' } }} />
-                    <Box className="btnBox">
-                        <SchoolOutlinedIcon className="aboutIcons" />
-                        <Typography variant="h6" gutterBottom className="btn">
-                            Programas Académicos
-                        </Typography>
-                    </Box>
-                    <Box className="btnBox">
-                        <SchoolOutlinedIcon className="aboutIcons" />
-                        <Typography variant="h6" gutterBottom className="btn">
-                            Servicios Estudiantiles
-                        </Typography>
-                    </Box>
-                    <Box className="btnBox">
-                        <SchoolOutlinedIcon className="aboutIcons" />
-                        <Typography variant="h6" gutterBottom className="btn">
-                            Aplicar Ahora
-                        </Typography>
-                    </Box>
+                    {['Programas Académicos', 'Servicios Estudiantiles', 'Aplicar Ahora'].map((text, index) => (
+                        <Box key={index} className="btnBox">
+                            <SchoolOutlinedIcon className="aboutIcons" />
+                            <Typography variant="h6" gutterBottom className="btn">
+                                {text}
+                            </Typography>
+                        </Box>
+                    ))}
                 </Grid>
                 <Grid item xs={15} md={13} className="innerContainer">
                     <Grid container>

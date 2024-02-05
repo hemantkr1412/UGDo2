@@ -1,14 +1,10 @@
 "use client"
 import Grid from '@mui/material/Grid';
-import {
-    Box,
-    Typography
-} from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import '../../about/about.css'
 import '../academicCommunity.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-
 
 const Directivos = () => {
     const theme = useTheme();

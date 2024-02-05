@@ -95,4 +95,4 @@ const Professors = () => {
     )
 }
 
-export default Professors
+export default Professors;

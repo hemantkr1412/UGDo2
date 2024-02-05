@@ -14,7 +14,7 @@ const FirstSubSection = () => {
         <section>
             <Grid container className="firstSectionHeading">
                 <Box sx={{ m: 'auto', textAlign: 'center' }}>
-                <Typography variant={isExtraSmallScreen ? 'h5' : isSmallScreen ? 'h4' : 'h3'}>
+                    <Typography variant={isExtraSmallScreen ? 'h5' : isSmallScreen ? 'h4' : 'h3'}>
                         Inspiramos la jerarquización del corretaje en Latinoamérica
                     </Typography>
                 </Box>

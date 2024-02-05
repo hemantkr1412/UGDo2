@@ -1,7 +1,3 @@
-.navbar {
-  border-bottom: 1px solid var(--red);
-}
-
 .navbar .logoContainer {
   background: var(--red);
   height: 100%;
@@ -12,6 +8,7 @@
 }
 
 .navbar .linksContainer {
+  /* border:2px solid red; */
   background: var(--green);
   height: 100%;
   display: flex;
@@ -21,6 +18,7 @@
 }
 
 .navbar .linksContainer .navBtn {
+  /* border:2px solid red; */
   margin: 1rem 0;
   color: white;
   display: block;
@@ -36,6 +34,7 @@
 .nav-list-1 {
   display: flex;
   flex-direction: column;
+  padding-top: 4rem;
 }
 
 .nav-item {
@@ -94,11 +93,11 @@
 }
 
 .bm-burger-button {
-  position: relative;
+  position: absolute;
   width: 25px;
   height: 20px;
-  left: 0.3rem;
-  top: 1.5rem;
+  top: 23px;
+  right: 22px;
   cursor: pointer;
 }
 
@@ -116,10 +115,8 @@
   background-color: var(--green);
 }
 
-.bm-menu-wrap {
-  position: fixed;
-  height: 100%;
-  transition: 1s ease ease-in-out;
+body.menu-open {
+  overflow: hidden;
 }
 
 #page-wrap {

@@ -20,7 +20,6 @@ const SecondSubSection = () => {
         <section>
             <Grid container className='secondSectionHeading'>
                 <Box sx={{ m: 'auto' }}>
-
                     <Typography variant={isExtraSmallScreen ? 'h5' : isSmallScreen ? 'h4' : 'h3'}>Somos la llave de tu futuro inmobiliario
                     </Typography>
                 </Box>

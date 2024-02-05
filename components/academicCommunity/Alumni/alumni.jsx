@@ -3,16 +3,10 @@
 import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import {
-    Card,
-    CardMedia,
-    CardContent,
     Typography,
     List,
-    Box,
     ListItem,
-    ListItemText
 } from '@mui/material';
-import { alumnis } from './alumnisData';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import '../../about/about.css';
@@ -94,40 +88,6 @@ const Alumni = () => {
                     <Grid item xs={1} sx={{ display: { xs: 'none', md: 'block' } }}></Grid>
                 </Grid>
             </section>
-
-            <br /><br />
-
-            {/* <section className="section academicCommunitySection">
-                <Typography variant={isSmallScreen ? 'h5' : 'h4'} className='heading'>
-                    Nuestros alumnos
-                </Typography>
-                <Grid container spacing={3} sx={{ p: 3 }}>
-                    {
-                        alumnis.map((alumni, index) =>
-                            <Grid item xs={6} sm={4} md={3} lg={2} key={alumni.name}>
-                                <Card sx={{ maxWidth: 345 }} key={index} >
-                                    <CardMedia
-                                        sx={{ height }}
-                                        className="personImage"
-                                        image={`${index % 2 ? '/assets/academicCommunity/alumni/alumni-1.png' : '/assets/academicCommunity/alumni/alumni-2.png'}`}
-                                        title="green iguana"
-                                    />
-                                    <CardContent className="cardContent">
-                                        <Typography gutterBottom variant="h6" component="div" className="personName">
-                                            {alumni.name}
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary" className="personCourse">
-                                            {alumni.program}
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                            </Grid>
-                        )
-                    }
-                </Grid>
-            </section> */}
-
-            <br /><br /><br />
         </>
     )
 }
