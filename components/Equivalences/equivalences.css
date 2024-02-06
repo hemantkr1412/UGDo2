@@ -19,12 +19,12 @@
     box-shadow: rgb(145 173 63 / 22%) 0px 7px 29px 0px;
 }
 
-.formContainer input,
-.formContainer select {
+.formContainer input {
     font-size: 14px;
     width: 100%;
     padding: 13px 15px;
     border: 1px solid grey;
+    color: white;
     border-radius: 5px;
     outline: none;
 }
@@ -50,7 +50,13 @@
 }
 
 .courseSelectBox {
-    background-color: white;
+    border: 1px solid grey;
+    color: white;
+    /* background-color: white; */
+}
+
+.courseSelectBox path {
+    color: white;
 }
 
 .courseSelectBox fieldset {
@@ -58,11 +64,16 @@
     border-width: none;
 }
 
+.courseSelectBox .chip{
+    background: white;
+}
+
 /* STUDENT INFO */
 
 .programDiv {
-    padding:1rem;
+    padding: 1rem;
 }
+
 .programDiv ul {
     margin-left: 2rem;
     margin-bottom: 2rem;
