@@ -3,6 +3,7 @@ import { Grid, Box, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Link from 'next/link';
+import './about.css'
 
 const typographyStyle = {
     textAlign: 'justify',
@@ -112,7 +113,6 @@ const FoundInstitutions = () => {
                     </Grid>
                 </Grid>
             </section>
-            <br /><br /><br />
         </>
     )
 }

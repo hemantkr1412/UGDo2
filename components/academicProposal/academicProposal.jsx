@@ -1,6 +1,6 @@
 "use client"
-import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Grid from '@mui/material/Grid';
 import {
     Typography,
@@ -39,15 +39,11 @@ const diplomaCoursesData = [
 ];
 
 const AcademicProposal = () => {
-    const router = useRouter();
-    const pathname = usePathname();
-    console.log(pathname);
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
         <>
-            <br /><br /><br />
             <section className='section'>
                 <Typography variant={isSmallScreen ? 'h5' : 'h4'} className='heading'>
                     Propuesta Academica
@@ -91,6 +87,34 @@ const AcademicProposal = () => {
                         />
                     </Grid>
                 </Grid>
+                {/* <Grid container sx={{ display: "flex", justifyContent: "center", my: 5 }}>
+                    <Grid item xs={10} sm={9} md={8} lg={6} xl={5}>
+                        <Image
+                            src="/assets/academicProposal/img.png"
+                            // style={{height: "100%",width:'100%'}}
+                            width={100}
+                            height={100}
+                            alt="Picture of the author"
+                            // quality={80}
+                            loading="lazy"
+                        />
+                    </Grid>
+                </Grid> */}
+                {/* <div style={{ textAlign: 'center',margin:'10px' }}>
+                    <Image
+                        src="/assets/academicProposal/img.png"
+                        alt="Picture of the author"
+                        sizes="100vw"
+                        style={{
+                            minWidth: '400px',
+                            width: '40%',
+                            height: 'auto',
+                            margin: 'auto',
+                        }}
+                        width={500}
+                        height={300}
+                    />
+                </div> */}
             </section>
 
             <Grid container sx={{ margin: '5rem 0' }}>
@@ -99,15 +123,13 @@ const AcademicProposal = () => {
                     <Grid container spacing={5} sx={{ p: 3 }}>
                         {
                             diplomaCoursesData.map((course, index) =>
-                                <Grid item xs={12} sm={6} md={4} key={course.img}>
+                                <Grid item xs={12} sm={6} md={4} key={index}>
                                     <Link href={`${course.page}`} key={`${course.page}`} className="link">
                                         <Card sx={{
                                             maxWidth: 320,
                                             margin: 'auto',
                                             cursor: 'pointer'
                                         }}
-                                            // onClick={() => router.push(`https://ug-do2.vercel.app/${course.page}`)}
-                                            // onClick={() => router.push(`/${course.page}`)}
                                             key={index}>
                                             <CardMedia
                                                 sx={{ height: 190 }}

@@ -1,5 +1,5 @@
 "use client"
-// import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 import { List } from '@mui/material';
 import {
     Box,
@@ -13,7 +13,23 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import './footer.css';
 
+const routeMappings = {
+    'Proposito y actividades': '/about/purposes',
+    'Instituciones Fundadoras': '/about/foundingInstitutions',
+    'Antecedentes Fundacionales': '/about/foundingBackground',
+    'Directivos': '/academicCommunity/directivos',
+    'Nuestros profesores': '/academicCommunity/professors',
+    'Nuestros alumnos': '/academicCommunity/alumnis',
+};
+
 const Footer = () => {
+    const router = useRouter();
+
+    const handleClickBtn = (text) => {
+        const route = routeMappings[text];
+        route ? router.push(route) : router.push(`/${text.toLowerCase()}`)
+    }
+
     return (
         <section className='footer'>
             <Grid container columnSpacing={3} sx={{
@@ -29,9 +45,9 @@ const Footer = () => {
                 <Grid item xs={12} sm={3} lg={2} letterSpacing={2} className='footerBox'>
                     <List>
                         {
-                            ['Quienes Somos', 'CILA', 'UGD', 'Nuestros alumnos'].map((item, index) =>
-                                <ListItem sx={{ pt: 0 }} key={item}>
-                                    <ListItemText primary={item} />
+                            ['Home', 'Proposito y actividades', 'Equivalencias', 'Noticias', 'Directivos'].map((item, index) =>
+                                <ListItem sx={{ pt: 0 }} key={index}>
+                                    <ListItemText sx={{ cursor: 'pointer' }} primary={item} onClick={() => handleClickBtn(item)} />
                                 </ListItem>
                             )
                         }
@@ -40,9 +56,9 @@ const Footer = () => {
                 <Grid item xs={12} sm={3} lg={6} className='footerBox'>
                     <List>
                         {
-                            ['Home', 'Sumate', 'Equivalencias', 'Noticias', 'Contacto'].map((item, index) =>
+                            ['Instituciones Fundadoras', 'Nuestros alumnos', 'Nuestros profesores', 'Antecedentes Fundacionales'].map((item, index) =>
                                 <ListItem sx={{ pt: 0 }} key={index}>
-                                    <ListItemText primary={item} />
+                                    <ListItemText sx={{ cursor: 'pointer' }} primary={item} onClick={() => handleClickBtn(item)} />
                                 </ListItem>
                             )
                         }

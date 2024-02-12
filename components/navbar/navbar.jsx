@@ -17,12 +17,15 @@ const pages = [
 ];
 
 const routeMappings = {
-    'Diplomaturas Universitarias en Corretaje y Negocios Inmobiliarios': '/academicProposal',
-    'Corredor inmobiliario universitario': '/Courses/course2',
-    'Licenciatura en corretaje y negocios inmobiliarios': '/Courses/course1',
+    'Proposito y actividades': '/about/purposes',
+    'Instituciones Fundadoras': '/about/foundingInstitutions',
+    'Antecedentes Fundacionales': '/about/foundingBackground',
     'Directivos': '/academicCommunity/directivos',
     'Nuestros profesores': '/academicCommunity/professors',
     'Nuestros alumnos': '/academicCommunity/alumnis',
+    'Diplomaturas Universitarias en Corretaje y Negocios Inmobiliarios': '/academicProposal',
+    'Corredor inmobiliario universitario': '/courses/course2',
+    'Licenciatura en corretaje y negocios inmobiliarios': '/courses/course1',
 };
 
 const Navbar = () => {
@@ -39,14 +42,9 @@ const Navbar = () => {
         setMenuState({ ...menuState, anchorElsNav: menuState.anchorElsNav.map((item, idx) => idx === index ? null : item), isMenuOpen: false });
     };
 
-    const handleSubMenuClick = (item, pageLabel, index) => {
+    const handleSubMenuClick = (item, index) => {
         const route = routeMappings[item];
-        // console.log(route);
-        if (route)
-            router.push(route);
-        else if (pageLabel === 'Institucional')
-            router.push('/about');
-
+        router.push(route);
         handleSubMenuClose(index);
     };
 
@@ -76,7 +74,7 @@ const Navbar = () => {
                         {page.submenu.map((item, subIndex) => (
                             <MenuItem
                                 key={subIndex}
-                                onClick={() => handleSubMenuClick(item, page.label, index)}
+                                onClick={() => handleSubMenuClick(item, index)}
                                 sx={{ color: 'white' }}
                             >
                                 {item}
@@ -94,7 +92,7 @@ const Navbar = () => {
                 </Button>
             ))
         )
-    ), [pages, menuState, handleSubMenuOpen, handleSubMenuClose,handleSubMenuClick, router]);
+    ), [pages, menuState, handleSubMenuOpen, handleSubMenuClose, handleSubMenuClick, router]);
 
     return (
         <AppBar position="static" sx={{ height: '70px' }} className="navbar">

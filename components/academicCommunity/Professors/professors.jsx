@@ -55,23 +55,21 @@ const Professors = () => {
                 </Grid>
             </section>
 
-            <br /><br />
-
             <section className="section academicCommunitySection">
                 <Typography variant={isSmallScreen ? 'h5' : 'h4'} className='heading'>
                     Nuestros profesores
                 </Typography>
-                <Grid container spacing={3} sx={{ p: 3 }}>
+                <Grid container spacing={{ xs: 2, sm: 3 }} sx={{ p: { xs: 2, sm: 3 } }}>
                     {
                         professors.map((professor, index) =>
                             <Grid item xs={6} sm={4} md={3} lg={2} key={professor.name}>
-                                <Card sx={{ maxWidth: 345 }} key={index}>
+                                <Card sx={{ maxWidth: 345 }} key={index} className="professorCard">
                                     <CardMedia
-                                        sx={{ height}}
+                                        sx={{ height }}
                                         image={`${index % 2 ? '/assets/academicCommunity/professors/professor-1.jpg' : '/assets/academicCommunity/professors/professor-2.png'}`}
                                         title="green iguana"
                                     />
-                                    <CardContent>
+                                    <CardContent className="cardContent">
                                         <Typography gutterBottom variant="h6" component="div" className="personName">
                                             {professor.name}
                                         </Typography>
@@ -79,7 +77,7 @@ const Professors = () => {
                                             {professor.department}
                                         </Typography>
                                     </CardContent>
-                                    <CardActions>
+                                    <CardActions className="cardActionDiv">
                                         <Button variant="text" sx={{ textTransform: 'lowercase' }}>
                                             {professor.email}
                                         </Button>
@@ -90,7 +88,6 @@ const Professors = () => {
                     }
                 </Grid>
             </section>
-            <br /><br /><br /><br />
         </>
     )
 }

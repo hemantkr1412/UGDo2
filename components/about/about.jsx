@@ -16,7 +16,6 @@ const About = () => {
 
     return (
         <>
-            <br /><br />
             <section className='section'>
                 <Grid container spacing={3}>
                     <Grid item xs={1} sx={{ display: { xs: 'none', lg: 'block' } }}></Grid>
@@ -40,8 +39,6 @@ const About = () => {
                     <Grid item xs={1} sx={{ display: { xs: 'none', lg: 'block' } }}></Grid>
                 </Grid>
             </section>
-
-            <br /><br />
 
             <section className='section'>
                 <Typography variant={isSmallScreen ? 'h5' : 'h4'} className='heading'>
@@ -69,14 +66,6 @@ const About = () => {
                     </Grid>
                 </Grid>
             </section>
-
-            <br /><br />
-
-            <FoundInstitutions />
-
-            <FoundingBackground />
-            <br /><br />
-            <br /><br />
         </>
     )
 }

@@ -12,8 +12,6 @@ const Directivos = () => {
 
     return (
         <>
-            <br /><br /><br />
-
             <section className="section">
                 <Typography
                     variant={isSmallScreen ? 'h5' : 'h4'}
@@ -28,7 +26,7 @@ const Directivos = () => {
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
-                            <img src="/assets/academicCommunity/director.png" alt="" className="memberImg" />
+                            <img src="/assets/academicCommunity/directivos/director.png" alt="" className="memberImg" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className='textGrid'>
@@ -49,8 +47,6 @@ const Directivos = () => {
                 </Grid>
             </section>
 
-            <br /><br /><br />
-
             <section className="section">
                 <Typography
                     variant={isSmallScreen ? 'h5' : 'h4'}
@@ -65,7 +61,7 @@ const Directivos = () => {
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
-                            <img src="/assets/academicCommunity/rector.jpg" alt="" className="memberImg" />
+                            <img src="/assets/academicCommunity/directivos/rector.jpg" alt="" className="memberImg" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className='textGrid'>
@@ -95,8 +91,6 @@ const Directivos = () => {
                 </Grid>
             </section>
 
-            <br /><br /><br />
-
             <section className="section">
                 <Typography
                     variant={isSmallScreen ? 'h5' : 'h4'}
@@ -111,7 +105,7 @@ const Directivos = () => {
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
-                            <img src="/assets/academicCommunity/coordinator.jpg" alt="" className="memberImg" />
+                            <img src="/assets/academicCommunity/directivos/coordinator.jpg" alt="" className="memberImg" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className='textGrid'>
@@ -137,8 +131,6 @@ const Directivos = () => {
                     </Grid>
                 </Grid>
             </section>
-
-            <br /><br /><br />
         </>
     )
 }

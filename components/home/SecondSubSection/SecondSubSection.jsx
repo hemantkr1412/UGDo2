@@ -25,7 +25,7 @@ const SecondSubSection = () => {
                 </Box>
             </Grid>
             <div className='imgContainer'>
-                <img src="/assets/home/students4.jpg" alt=""
+                <img src="/assets/home/students.jpg" alt=""
                     style={{ objectFit: 'cover', objectPosition: 'center top' }} />
                 <div className="imgOverlay"></div>
             </div>

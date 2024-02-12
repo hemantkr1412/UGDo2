@@ -52,7 +52,6 @@ const Student = () => {
       {
         (isQueryFormSubmitted && data) &&
         <>
-          <br /><br />
           <section className="section">
             <Typography
               variant={isSmallScreen ? 'h5' : 'h4'}
@@ -93,8 +92,6 @@ const Student = () => {
               </Grid>
             </Grid>
           </section>
-
-          <br /><br /><br />
 
           <section className="section">
             <Typography
@@ -142,7 +139,6 @@ const Student = () => {
               Descargar tu consulta
             </button>
           </div>
-
         </>
       }
     </>

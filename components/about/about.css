@@ -1,3 +1,7 @@
+.section {
+    margin: 6rem 0;
+}
+
 .section .heading {
     padding: 1rem;
     margin: 2rem 0rem;
@@ -17,7 +21,7 @@
 }
 
 .imgGrid .imgDiv {
-    width: 60%;
+    width: 50%;
     margin: auto;
 }
 
