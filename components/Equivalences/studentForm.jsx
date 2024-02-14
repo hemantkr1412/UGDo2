@@ -9,7 +9,7 @@ const formDetails = [
     { name: 'lastName', placeholder: 'Apellido' },
     { name: 'phone', placeholder: 'Teléfono' },
     { name: 'email', placeholder: 'Correo electrónico' },
-]
+];
 
 const TextInput = ({ name, placeholder, formik }) => (
     <TextField

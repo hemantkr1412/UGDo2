@@ -8,7 +8,6 @@
 }
 
 .navbar .linksContainer {
-  /* border:2px solid red; */
   background: var(--green);
   height: 100%;
   display: flex;
@@ -18,7 +17,6 @@
 }
 
 .navbar .linksContainer .navBtn {
-  /* border:2px solid red; */
   margin: 1rem 0;
   color: white;
   display: block;
@@ -107,7 +105,6 @@
 
 .bm-menu {
   background-color: #fff;
-  /* margin-top: -8%; */
   margin-left: 20%;
 }
 

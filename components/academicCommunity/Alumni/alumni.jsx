@@ -1,5 +1,7 @@
 import Grid from '@mui/material/Grid';
 import { Typography, List, ListItem } from '@mui/material';
+import Image from 'next/image';
+import alumniBg from '../../../public/assets/academicCommunity/alumni/alumniBg.jpg';
 import '../../about/about.css';
 import '../academicCommunity.css';
 
@@ -7,7 +9,11 @@ const Alumni = () => {
     return (
         <section>
             <div style={{ height: '65vh' }}>
-                <img src="/assets/academicCommunity/alumni/alumniBg.jpg" alt="" className="bgImage" />
+                <Image
+                    src={alumniBg}
+                    alt="alumni-bg-image"
+                    className="bgImage"
+                />
                 <div className="bgImageOverlay"></div>
             </div>
             <Grid container sx={{

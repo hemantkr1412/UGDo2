@@ -3,6 +3,8 @@ import { Grid, Box, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Link from 'next/link';
+import Image from 'next/image';
+import logoImg from '../../public/assets/about/logo.png';
 import './about.css'
 
 const typographyStyle = {
@@ -36,7 +38,7 @@ const FoundInstitutions = () => {
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
-                            <img src="/assets/about/logo.png" alt="" />
+                            <Image src={logoImg} alt="CILA_logo" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className='textGrid'>

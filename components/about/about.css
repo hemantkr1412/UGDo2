@@ -50,14 +50,12 @@
 }
 
 .section .programsContainer {
-    /* border: 2px solid red; */
     background: var(--green);
     margin: 2rem 0;
     padding: 1rem;
 }
 
 .programsContainer .programsDiv {
-    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

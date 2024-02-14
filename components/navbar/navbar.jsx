@@ -3,9 +3,11 @@ import { useState, useMemo } from 'react';
 import { AppBar, Box, Grid, Button, Menu, MenuItem } from '@mui/material';
 import Hidden from '@mui/material/Hidden';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import './navbar.css';
 import { useRouter } from 'next/navigation';
 import Sidebar from './Sidebar';
+import Image from 'next/image';
+import logo from '../../public/logo_white.png';
+import './navbar.css';
 
 const pages = [
     'Home',
@@ -99,10 +101,10 @@ const Navbar = () => {
             <Grid container spacing={3} columns={15} sx={{ height: '100%', width: '100%', m: 0 }}>
                 <Grid item xs={13} lg={2} className="logoContainer">
                     <Box sx={{ height: '65%', marginLeft: '2rem' }}>
-                        <img src="/logo_white.png" alt="" />
+                        <Image src={logo} alt="logo" />
                     </Box>
                 </Grid>
-                <Hidden lgDown id="page">
+                <Hidden lgDown>
                     <Grid item xs={13} className='linksContainer'>
                         <Box sx={{ display: 'flex', flexGrow: 1, gap: '1.5rem' }} className="linksContainerBox">
                             {menuItems}

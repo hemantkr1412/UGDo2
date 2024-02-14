@@ -1,6 +1,4 @@
 "use client"
-import FoundInstitutions from './foundInstitutions';
-import FoundingBackground from './foundingBackground';
 import {
     Grid,
     Box,
@@ -9,6 +7,8 @@ import {
 import './about.css'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import Image from 'next/image';
+import activities from '../../public/assets/about/activities.png';
 
 const About = () => {
     const theme = useTheme();
@@ -52,9 +52,9 @@ const About = () => {
                     </Grid>
                     <Grid item xs={12} lg={8}>
                         <Box className="textGridBox" sx={{ width: '70%', m: 'auto' }}>
-                            <img
-                                src="/assets/about/img2.png"
-                                alt=""
+                            <Image
+                                src={activities}
+                                alt="activities_image"
                                 style={{ margin: 'auto' }}
                             />
                         </Box>

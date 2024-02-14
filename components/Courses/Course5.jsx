@@ -1,14 +1,19 @@
 'use client'
-
 import { useState } from 'react';
-import { Typography } from "@mui/material";
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import { AccessTimeFilled, AccountBalance, School, WorkspacePremium, Gavel, LocalLibrary } from "@mui/icons-material";
+import {
+    Typography,
+    Card,
+    CardContent,
+    CardMedia
+} from "@mui/material";
+import {
+    AccessTimeFilled,
+    AccountBalance,
+    School,
+    WorkspacePremium,
+    Gavel,
+    LocalLibrary
+} from "@mui/icons-material";
 import './Courses.css'
 
 const coursesCard = [
@@ -42,14 +47,13 @@ const coursesCard = [
         title: "Fecha de incio: ",
         desc: "2023"
     }
-
 ];
 
 const Course4 = () => {
-    const [activePage, setActivePage] = useState('page1')
+    const [activePage, setActivePage] = useState('page1');
 
     const handlePageClick = (page) => {
-        setActivePage(page)
+        setActivePage(page);
     }
 
     return (
@@ -80,7 +84,6 @@ const Course4 = () => {
                                         <li> Tipología Arquitectónica</li>
                                         <li> Aspectos Financieros de los Negocios Inmobiliarios</li>
                                         <li> Formulación y Evaluación de Proyectos inmobiliarios</li>
-
                                     </ul>
                                 </div>
                             </div>

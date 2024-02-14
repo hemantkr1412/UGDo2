@@ -12,6 +12,8 @@ import {
 import { professors } from './professorData';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import Image from 'next/image';
+import professorBg from '../../../public/assets/academicCommunity/professors/professorBg.jpeg';
 import '../../about/about.css'
 import '../academicCommunity.css';
 
@@ -35,7 +37,11 @@ const Professors = () => {
         <>
             <section>
                 <div style={{ height: '65vh' }}>
-                    <img src="/assets/academicCommunity/professors/img3.jpeg" alt="" className="bgImage" />
+                    <Image
+                        src={professorBg}
+                        alt="professor-bg-image"
+                        className="bgImage"
+                    />
                     <div className="bgImageOverlay"></div>
                 </div>
                 <Grid container sx={{

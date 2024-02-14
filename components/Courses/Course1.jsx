@@ -1,14 +1,19 @@
 'use client'
-
 import { useState } from 'react';
-import { Typography } from "@mui/material";
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import { AccessTimeFilled, AccountBalance, School, WorkspacePremium, Gavel, LocalLibrary } from "@mui/icons-material";
+import {
+    Typography,
+    Card,
+    CardContent,
+    CardMedia
+} from "@mui/material";
+import {
+    AccessTimeFilled,
+    AccountBalance,
+    School,
+    WorkspacePremium,
+    Gavel,
+    LocalLibrary
+} from "@mui/icons-material";
 import './Courses.css'
 
 const coursesCard = [
@@ -42,14 +47,13 @@ const coursesCard = [
         title: "Fecha de incio: ",
         desc: "2023"
     }
-
 ];
 
 const Course1 = () => {
-    const [activePage, setActivePage] = useState('page1')
+    const [activePage, setActivePage] = useState('page1');
 
     const handlePageClick = (page) => {
-        setActivePage(page)
+        setActivePage(page);
     }
 
     return (
@@ -85,112 +89,83 @@ const Course1 = () => {
                                 <Typography variant='h6'><b>Plan de estudios:</b></Typography>
                                 <br></br>
                                 <table>
-                                    <tr>
-                                        <th>año</th>
-                                        <th>Datos del curso</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1º Año</td>
-                                        <td>
-                                            <ul>
-                                                <li>Técnicas de la Comunicación Oral y Escrita</li>
-                                                <li>Matemática y Estadística</li>
-                                                <li>Derecho Privado</li>
-                                                <li>Principios de Corretaje</li>
-                                                <li>Informática</li>
-                                                <li>Topografía y Geodesia</li>
-                                                <li>Derecho Comercial</li>
-                                                <li>Arquitectura, Construcción y Urbanismo I</li>
-                                                <li>Valoración y Protección del Patrimonio Monumental y Natural</li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2º Año</td>
-                                        <td>
-                                            <ul>
-                                                <li>Arquitectura, Construcción Y Urbanismo II</li>
-                                                <li>Matemática Financiera</li>
-                                                <li>Principios Derechos Reales y Registrales</li>
-                                                <li>
-                                                    Tasaciones de Bienes Muebles
-                                                </li>
-                                                <li>
-                                                    Ética y Practica Profesional
-                                                </li>
-                                                <li>
-                                                    Contabilidad y Finanzas
-
-                                                </li>
-                                                <li>
-                                                    Tasación de Bienes Inmuebles
-
-                                                </li>
-                                                <li>
-                                                    Aspectos Financieros de los Negocios Inmobiliarios
-
-                                                </li>
-                                                <li>
-                                                    Marketing Inmobiliario
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3º Año</td>
-                                        <td>
-                                            <ul>
-                                                <li>Fundamentos de Fideicomisos, Loteos y Barrios Cerrados</li>
-                                                <li>Gestión de Desarrollos Inmobiliarios</li>
-                                                <li>Corretaje Inmobiliario Empresarial</li>
-                                                <li>
-                                                    Herramientas Tecnológicas
-                                                </li>
-                                                <li>
-                                                    Administración de Consorcios y Propiedades
-                                                </li>
-                                                <li>
-                                                    Práctica Profesional Supervisada I
-                                                </li>
-                                                <li>
-                                                    Métodos y Técnicas de la Investigación
-                                                </li>
-                                                <li>
-                                                    Tasación de Bienes Rurales, Culturales e Intangibles
-                                                </li>
-                                                <li>
-                                                    Régimen Jurídico de la Propiedad Horizontal
-                                                </li>
-                                                <li>
-                                                    Economía Aplicada al Proyecto Urbano
-                                                </li>
-                                                <li>
-                                                    Métodos y Normativas de la Tasación
-                                                </li>
-
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4º Año</td>
-                                        <td>
-                                            <ul>
-                                                <li>Bases del Desarrollo Emprendedor</li>
-                                                <li>Tipología Arquitectónica</li>
-                                                <li>Estudio Técnico y de Producto Inmobiliario</li>
-                                                <li>Geografía Demográfica y Económica </li>
-                                                <li>Práctica Profesional Supervisada II </li>
-                                                <li>Taller de Investigación Final I </li>
-                                                <li>Formulación y Evaluación de Proyectos de Inversión </li>
-                                                <li>Negociación, Mediación y Arbitraje </li>
-                                                <li>Mantenimiento, Higiene y Seguridad </li>
-                                                <li>Bases Impositivas, Contables y Financieras</li>
-                                                <li>Horizontes del Negocio Inmobiliario </li>
-                                                <li>Taller de Investigación Final II </li>
-
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th>año</th>
+                                            <th>Datos del curso</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1º Año</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Técnicas de la Comunicación Oral y Escrita</li>
+                                                    <li>Matemática y Estadística</li>
+                                                    <li>Derecho Privado</li>
+                                                    <li>Principios de Corretaje</li>
+                                                    <li>Informática</li>
+                                                    <li>Topografía y Geodesia</li>
+                                                    <li>Derecho Comercial</li>
+                                                    <li>Arquitectura, Construcción y Urbanismo I</li>
+                                                    <li>Valoración y Protección del Patrimonio Monumental y Natural</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2º Año</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Arquitectura, Construcción Y Urbanismo II</li>
+                                                    <li>Matemática Financiera</li>
+                                                    <li>Principios Derechos Reales y Registrales</li>
+                                                    <li>Tasaciones de Bienes Muebles</li>
+                                                    <li>Ética y Practica Profesional</li>
+                                                    <li>Contabilidad y Finanzas</li>
+                                                    <li>Tasación de Bienes Inmuebles</li>
+                                                    <li>Aspectos Financieros de los Negocios Inmobiliarios</li>
+                                                    <li>Marketing Inmobiliario</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3º Año</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Fundamentos de Fideicomisos, Loteos y Barrios Cerrados</li>
+                                                    <li>Gestión de Desarrollos Inmobiliarios</li>
+                                                    <li>Corretaje Inmobiliario Empresarial</li>
+                                                    <li>Herramientas Tecnológicas</li>
+                                                    <li>Administración de Consorcios y Propiedades</li>
+                                                    <li>Práctica Profesional Supervisada I</li>
+                                                    <li>Métodos y Técnicas de la Investigación</li>
+                                                    <li>Tasación de Bienes Rurales, Culturales e Intangibles</li>
+                                                    <li>Régimen Jurídico de la Propiedad Horizontal</li>
+                                                    <li>Economía Aplicada al Proyecto Urbano</li>
+                                                    <li>Métodos y Normativas de la Tasación</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4º Año</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Bases del Desarrollo Emprendedor</li>
+                                                    <li>Tipología Arquitectónica</li>
+                                                    <li>Estudio Técnico y de Producto Inmobiliario</li>
+                                                    <li>Geografía Demográfica y Económica </li>
+                                                    <li>Práctica Profesional Supervisada II </li>
+                                                    <li>Taller de Investigación Final I </li>
+                                                    <li>Formulación y Evaluación de Proyectos de Inversión </li>
+                                                    <li>Negociación, Mediación y Arbitraje </li>
+                                                    <li>Mantenimiento, Higiene y Seguridad </li>
+                                                    <li>Bases Impositivas, Contables y Financieras</li>
+                                                    <li>Horizontes del Negocio Inmobiliario </li>
+                                                    <li>Taller de Investigación Final II </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                                 <br></br>
                             </div>
@@ -220,7 +195,7 @@ const Course1 = () => {
                                 image='/assets/home/courses/course-1.png'
                             />
                             {coursesCard.map((info, index) => (
-                                <CardContent className='media' key={info.title}>
+                                <CardContent className='media' key={index}>
                                     <div className='mediaContent'>
                                         {info.icon}
                                         <Typography variant="h7" component="div">

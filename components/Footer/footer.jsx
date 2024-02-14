@@ -11,6 +11,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import Image from 'next/image';
+import logo from '../../public/logo_white.png';
 import './footer.css';
 
 const routeMappings = {
@@ -39,7 +41,7 @@ const Footer = () => {
             }}>
                 <Grid item xs={12} sm={3} lg={2} className='footerBox' sx={{ p: 2 }}>
                     <Box className="logoContainer">
-                        <img src="/logo_white.png" alt="" />
+                        <Image src={logo} alt="logo" />
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={3} lg={2} letterSpacing={2} className='footerBox'>

@@ -1,4 +1,8 @@
 import { Grid, Box, Typography } from '@mui/material';
+import Image from 'next/image';
+import president from '../../public/assets/about/president2.png';
+import meet from '../../public/assets/about/meet.jpg';
+import meet2 from '../../public/assets/about/meet2.jpg';
 import './about.css'
 
 const FoundingBackground = () => {
@@ -12,7 +16,7 @@ const FoundingBackground = () => {
                 <Grid item xs={1}></Grid>
                 <Grid item xs={5} className="imgGrid">
                     <div className="imgDiv">
-                        <img src="/assets/about/president2.png" alt="" />
+                        <Image src={president} alt="president_image" />
                     </div>
                 </Grid>
                 <Grid item xs={5} className='textGrid'>
@@ -36,7 +40,7 @@ const FoundingBackground = () => {
                 </Grid>
                 <Grid item xs={5} className="imgGrid">
                     <div className="eventImgDiv">
-                        <img src="/assets/about/meet.jpg" alt="" />
+                        <Image src={meet} alt="event_image" />
                     </div>
                 </Grid>
                 <Grid item xs={1}></Grid>
@@ -46,7 +50,7 @@ const FoundingBackground = () => {
                 <Grid item xs={1}></Grid>
                 <Grid item xs={5} className="imgGrid">
                     <div className="eventImgDiv">
-                        <img src="/assets/about/meet2.jpg" alt="" />
+                        <Image src={meet2} alt="event_image" />
                     </div>
                 </Grid>
                 <Grid item xs={5} className='textGrid'>

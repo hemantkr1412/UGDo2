@@ -8,7 +8,8 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import BadgeIcon from '@mui/icons-material/Badge';
 import WorkIcon from '@mui/icons-material/Work';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles'; import Image from 'next/image';
+import studentsBg from '../../../public/assets/home/students.jpg';
 import './SecondSubSection.css';
 
 const SecondSubSection = () => {
@@ -25,8 +26,11 @@ const SecondSubSection = () => {
                 </Box>
             </Grid>
             <div className='imgContainer'>
-                <img src="/assets/home/students.jpg" alt=""
-                    style={{ objectFit: 'cover', objectPosition: 'center top' }} />
+                <Image
+                    src={studentsBg}
+                    alt="students-bg-image"
+                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                />
                 <div className="imgOverlay"></div>
             </div>
             <Grid container sx={{ mt: 4, pt: 4 }}>

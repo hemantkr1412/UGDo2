@@ -1,15 +1,17 @@
 "use client"
 import Link from "next/link";
-import Image from "next/image";
 import Grid from '@mui/material/Grid';
 import {
     Typography,
+    Box,
     Card,
     CardMedia,
     CardContent,
 } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import Image from "next/image";
+import image from '../../public/assets/academicProposal/img.png';
 import '../about/about.css';
 import './academicProposal.css';
 
@@ -80,41 +82,15 @@ const AcademicProposal = () => {
 
                 <Grid container sx={{ display: "flex", justifyContent: "center", my: 5 }}>
                     <Grid item xs={10} sm={9} md={8} lg={6} xl={5}>
-                        <img
-                            src="/assets/academicProposal/img.png"
-                            alt=""
-                            style={{ height: '100%', width: '100%' }}
-                        />
+                        <Box>
+                            <Image
+                                src={image}
+                                alt="image"
+                                style={{ height: '100%', width: '100%' }}
+                            />
+                        </Box>
                     </Grid>
                 </Grid>
-                {/* <Grid container sx={{ display: "flex", justifyContent: "center", my: 5 }}>
-                    <Grid item xs={10} sm={9} md={8} lg={6} xl={5}>
-                        <Image
-                            src="/assets/academicProposal/img.png"
-                            // style={{height: "100%",width:'100%'}}
-                            width={100}
-                            height={100}
-                            alt="Picture of the author"
-                            // quality={80}
-                            loading="lazy"
-                        />
-                    </Grid>
-                </Grid> */}
-                {/* <div style={{ textAlign: 'center',margin:'10px' }}>
-                    <Image
-                        src="/assets/academicProposal/img.png"
-                        alt="Picture of the author"
-                        sizes="100vw"
-                        style={{
-                            minWidth: '400px',
-                            width: '40%',
-                            height: 'auto',
-                            margin: 'auto',
-                        }}
-                        width={500}
-                        height={300}
-                    />
-                </div> */}
             </section>
 
             <Grid container sx={{ margin: '5rem 0' }}>

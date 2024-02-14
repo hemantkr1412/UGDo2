@@ -5,6 +5,10 @@ import '../../about/about.css'
 import '../academicCommunity.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import Image from 'next/image';
+import director from '../../../public/assets/academicCommunity/directivos/director.png';
+import rector from '../../../public/assets/academicCommunity/directivos/rector.jpg';
+import coordinator from '../../../public/assets/academicCommunity/directivos/coordinator.jpg';
 
 const Directivos = () => {
     const theme = useTheme();
@@ -26,7 +30,7 @@ const Directivos = () => {
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
-                            <img src="/assets/academicCommunity/directivos/director.png" alt="" className="memberImg" />
+                            <Image src={director} alt="director_image" className="memberImg" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className='textGrid'>
@@ -61,7 +65,7 @@ const Directivos = () => {
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
-                            <img src="/assets/academicCommunity/directivos/rector.jpg" alt="" className="memberImg" />
+                            <Image src={rector} alt="rector_image" className="memberImg" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className='textGrid'>
@@ -105,7 +109,7 @@ const Directivos = () => {
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className="imgGrid">
                         <div className="imgDiv">
-                            <img src="/assets/academicCommunity/directivos/coordinator.jpg" alt="" className="memberImg" />
+                            <Image src={coordinator} alt="coordinator_image" className="memberImg" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={6} lg={5} className='textGrid'>

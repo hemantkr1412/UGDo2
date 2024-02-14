@@ -3,6 +3,8 @@ import Grid from '@mui/material/Grid';
 import { Typography, Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import Image from 'next/image';
+import img from '../../../public/assets/home/img1.jpg';
 import './FirstSubSection.css';
 
 const FirstSubSection = () => {
@@ -28,7 +30,7 @@ const FirstSubSection = () => {
                     gap: '1.5rem',
                 }}>
                     <Box>
-                        <img src="/assets/home/img1.jpg" alt="" />
+                        <Image src={img} alt="img" />
                     </Box>
                     <Typography sx={{ textAlign: 'justify' }}>Somos el Instituto  de Formación Oficial del sector inmobiliario latinoamericano. 700.000 corredores en 18 países conforman la Confederación Inmobiliaria Latinoamericana (CILA)
                     </Typography>
